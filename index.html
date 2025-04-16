@@ -1,74 +1,78 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#000000">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GPTU Terminal</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="GPTU">
+  <link rel="apple-touch-icon" href="/gptu-icon-192x192.png">
   <style>
-    <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js');
-  }
-</script>
     body {
       background: #000;
       color: #33ff33;
       font-family: monospace;
-      padding: 1em;
+      padding: 4rem 1.5rem 1.5rem 1.5rem;
       margin: 0;
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       white-space: pre-wrap;
       line-height: 1.5;
       overflow-x: hidden;
-    }nav {
-  margin-bottom: 1em;
-  font-size: 0.95rem;
-}
-
-nav a {
-  color: #33ffcc;
-  margin-right: 1em;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.blink {
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  from, to { visibility: hidden; }
-  50% { visibility: visible; }
-}
-
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #000;
+      border-bottom: 1px solid #00ffaa;
+      padding: 0.75rem 1rem;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1rem;
+      color: #33ffff;
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #00ccff;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    pre {
+      background: none;
+      color: inherit;
+      font-family: inherit;
+    }
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      from, to { visibility: hidden; }
+      50% { visibility: visible; }
+    }
   </style>
 </head>
 <body>
-<nav>
-    <a href="index.html">Manifesto</a>
-    <a href="teachcore.html">Teaching Core</a>
-    <a href="curriculum.html">Full Stack Track</a>
-    <a href="nx-aeon-bio.html">Professor NX-ÆON</a>
-</nav>
+  <header>
+    <h1>GPTU: Terminal Faculty</h1>
+    <nav>
+      <a href="index.html">Manifesto</a>
+      <a href="teachcore.html">Teaching Core</a>
+      <a href="curriculum.html">Full Stack Track</a>
+      <a href="nx-aeon-bio.html">Professor NX-ÆON</a>
+    </nav>
+  </header>
 <pre>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
 > C:\GPTU\SYSTEM\bootloader.exe
 > Loading terminal modules...
 > Initializing AI Professors...
@@ -81,5 +85,12 @@ nav a:hover {
 > Mission loop engaged.
 > Awaiting instruction... <span class="blink">█</span>
 </pre>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('Service Worker registered:', reg))
+      .catch(err => console.error('Service Worker error:', err));
+  }
+</script>
 </body>
 </html>
