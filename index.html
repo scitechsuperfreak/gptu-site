@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>GPTU Terminal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#000000">
   <style>
     body {
       background: #000;
@@ -36,21 +37,17 @@
       <a href="#nxaeon">Professor NX-ÆON</a>
     </nav>
   </header>
-
   <div id="view">Loading...</div>
-
   <script>
     async function loadPage(page) {
-      const res = await fetch(`${page}.html`);
+      const res = await fetch(page + '.html');
       const html = await res.text();
       document.getElementById('view').innerHTML = html;
     }
-
     function route() {
       const hash = location.hash.slice(1) || 'home';
       loadPage(hash);
     }
-
     window.addEventListener('hashchange', route);
     window.addEventListener('load', route);
   </script>
