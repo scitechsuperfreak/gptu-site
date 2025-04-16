@@ -1,32 +1,68 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>GPTU Terminal</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      body {
-        background: #000;
-        color: #33ff33;
-        font-family: monospace;
-        padding: 2em;
-        font-size: 1.2em;
+<!DOCTYPE html><html>
+<head>
+  <title>GPTU Terminal Boot</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background: black;
+      color: #33ff33;
+      font-family: monospace;
+      padding: 20px;
+      font-size: 1.1em;
+      white-space: pre-wrap;
+      overflow: hidden;
+    }
+    #terminal {
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background: #33ff33;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div>  <script>
+    const terminal = document.getElementById('terminal');
+
+    const bootLines = [
+      "> C:\\GPTU\\SYSTEM\\bootloader.exe",
+      "> Loading terminal modules...",
+      "> Initializing AI Professors...",
+      "> Executing AUTOEXEC.BAT",
+      "> ----------------------------",
+      "> Welcome to GPTU.",
+      "> Education that is practical to bluntness levels—",
+      "> Geared for massive, repeatable planetary-scale deployment.",
+      "> AI-led | Hands-free | Skill transfer on demand.",
+      "> Mission loop engaged.",
+      "> Awaiting instruction...",
+    ];
+
+    let lineIndex = 0;
+
+    function typeLine() {
+      if (lineIndex < bootLines.length) {
+        const line = document.createElement('div');
+        line.textContent = bootLines[lineIndex];
+        terminal.appendChild(line);
+        terminal.scrollTop = terminal.scrollHeight;
+        lineIndex++;
+        setTimeout(typeLine, 600);
+      } else {
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        terminal.appendChild(cursor);
       }
-      .blink {
-        animation: blink 1s step-end infinite;
-      }
-      @keyframes blink {
-        from, to { visibility: hidden; }
-        50% { visibility: visible; }
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      <p>> System online</p>
-      <p>> GPTU Network Node: ACTIVE</p>
-      <p>> Loading...</p>
-      <p>> Site under construction. Please stand by<span class="blink">_</span></p>
-    </div>
-  </body>
+    }
+
+    setTimeout(typeLine, 1000);
+  </script></body>
 </html>
