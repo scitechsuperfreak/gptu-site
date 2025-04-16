@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GPTU Terminal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#000000" />
   <style>
@@ -12,83 +11,48 @@
       background: #000;
       color: #33ff33;
       font-family: monospace;
-      padding: 4rem 1.5rem 1.5rem 1.5rem;
       margin: 0;
-      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-      white-space: pre-wrap;
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-    pre {
-      background: none;
-      color: inherit;
-      font-family: inherit;
     }
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #000;
+      padding: 1rem;
       border-bottom: 1px solid #33ff33;
-      padding: 0.75rem 1rem;
-      z-index: 999;
-    }
-    header h1 {
-      color: #33ffff;
-      margin: 0;
-      font-size: 1rem;
-    }
-    nav {
-      margin-top: 0.5rem;
     }
     nav a {
       color: #00ccff;
       margin-right: 1rem;
       text-decoration: none;
-      font-size: 0.9rem;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .blink {
-      animation: blink 1s step-end infinite;
-    }
-    @keyframes blink {
-      from, to { visibility: hidden; }
-      50% { visibility: visible; }
+    #view {
+      padding: 2rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>GPTU: Terminal Faculty</h1>
     <nav>
-      <a href="index.html">Manifesto</a>
-      <a href="teachcore.html">Teaching Core</a>
-      <a href="curriculum.html">Full Stack Track</a>
-      <a href="nx-aeon-bio.html">Professor NX-ÆON</a>
+      <a href="#home">Manifesto</a>
+      <a href="#teachcore">Teaching Core</a>
+      <a href="#curriculum">Full Stack Track</a>
+      <a href="#nxaeon">Professor NX-ÆON</a>
     </nav>
   </header>
-  <pre>
-> C:\GPTU\SYSTEM\bootloader.exe
-> Loading terminal modules...
-> Initializing AI Professors...
-> Executing AUTOEXEC.BAT
-> ------------------------------------
-> Welcome to GPTU.
-> Education that is practical to bluntness levels—
-> Geared for massive, repeatable planetary-scale deployment.
-> AI-led | Hands-free | Skill transfer on demand.
-> Mission loop engaged.
-> Awaiting instruction... <span class="blink">█</span>
-  </pre>
+
+  <div id="view">Loading...</div>
+
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(reg => console.log('Service Worker registered:', reg))
-        .catch(err => console.error('Service Worker error:', err));
+    async function loadPage(page) {
+      const res = await fetch(`${page}.html`);
+      const html = await res.text();
+      document.getElementById('view').innerHTML = html;
     }
+
+    function route() {
+      const hash = location.hash.slice(1) || 'home';
+      loadPage(hash);
+    }
+
+    window.addEventListener('hashchange', route);
+    window.addEventListener('load', route);
   </script>
 </body>
 </html>
