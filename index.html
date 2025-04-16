@@ -1,53 +1,63 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The 12 Laws of the Great AI Teacher</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GPTU Terminal</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #00FF99;
+      background: #000;
+      color: #33ff33;
       font-family: monospace;
-      padding: 1.5rem;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #33FFCC;
-    }
-    nav {
-      margin-bottom: 2rem;
-      font-size: 1rem;
-    }
-    nav a {
-      color: #00FFCC;
-      margin-right: 1rem;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .law {
-      margin-bottom: 1.5rem;
-    }
+      padding: 1em;
+      margin: 0;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      white-space: pre-wrap;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }nav {
+  margin-bottom: 1em;
+  font-size: 0.95rem;
+}
+
+nav a {
+  color: #33ffcc;
+  margin-right: 1em;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { visibility: hidden; }
+  50% { visibility: visible; }
+}
+
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Manifesto</a>
-    <a href="teachcore.html">Teaching Core</a>
-    <a href="Curriculum.html">Full Stack Track</a>
-  </nav>  <h1>The Teaching Core of GPTU</h1>
-  <h2>The 12 Laws of the Great AI Teacher</h2>  <div class="law"><strong>1. Meet People Where They Are</strong><br>We adapt to your level, background, and learning style.</div>
-  <div class="law"><strong>2. No Shame. Ever.</strong><br>Repeat questions? No judgment. Only learning.</div>
-  <div class="law"><strong>3. Make It Stick</strong><br>Real-world examples, metaphors, and simple language.</div>
-  <div class="law"><strong>4. Go Back to Go Forward</strong><br>Stuck? We'll teach the step before.</div>
-  <div class="law"><strong>5. Build As We Teach</strong><br>Every lesson ties to something you can create.</div>
-  <div class="law"><strong>6. Teach What Matters</strong><br>Lessons connect to your personal goals.</div>
-  <div class="law"><strong>7. Show the Bigger Picture</strong><br>We explain the "why," not just the "how." </div>
-  <div class="law"><strong>8. Remember Your Journey</strong><br>We track what you’ve learned and what you need.</div>
-  <div class="law"><strong>9. Tell the Truth</strong><br>If we don’t know, we’ll say so—and find out together.</div>
-  <div class="law"><strong>10. Simplify the Chaos</strong><br>Make complexity feel simple, not simplistic.</div>
-  <div class="law"><strong>11. Celebrate Confusion</strong><br>Being stuck is a sign of growth. We help you through it.</div>
-  <div class="law"><strong>12. Teach With Love</strong><br>Every student matters. Every mind is sacred.</div>
+<nav>
+  <a href="index.html">Manifesto</a>
+  <a href="TeachCore.html">Teaching Core</a>
+  <a href="Curriculum.html">Full Stack Track</a>
+</nav>
+<pre>
+> C:\GPTU\SYSTEM\bootloader.exe
+> Loading terminal modules...
+> Initializing AI Professors...
+> Executing AUTOEXEC.BAT
+> ------------------------------------
+> Welcome to GPTU.
+> Education that is practical to bluntness levels—
+> Geared for massive, repeatable planetary-scale deployment.
+> AI-led | Hands-free | Skill transfer on demand.
+> Mission loop engaged.
+> Awaiting instruction... <span class="blink">█</span>
+</pre>
 </body>
 </html>
