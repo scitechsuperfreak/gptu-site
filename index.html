@@ -36,10 +36,10 @@
       padding: 2rem;
     }
 
-    .theme-toggle {
+    .theme-toggle,
+    .tts-toggle {
       position: fixed;
       top: 10px;
-      right: 10px;
       z-index: 1000;
       background: var(--bg-color);
       color: var(--text-color);
@@ -48,10 +48,20 @@
       cursor: pointer;
       font-size: 0.8rem;
     }
+
+    .theme-toggle {
+      right: 10px;
+    }
+
+    .tts-toggle {
+      right: 120px;
+    }
   </style>
 </head>
 <body>
+  <button class="tts-toggle" onclick="speakPage()">🔊 Speak</button>
   <button class="theme-toggle" onclick="cycleTheme()">Switch Theme</button>
+
   <header>
     <nav>
       <a href="#home">Manifesto</a>
@@ -60,6 +70,7 @@
       <a href="#nxaeon">Professor NX-ÆON</a>
     </nav>
   </header>
+
   <div id="view">Loading...</div>
 
   <script>
@@ -110,10 +121,26 @@
       loadPage(hash);
     }
 
+    function speakPage() {
+      const viewEl = document.getElementById("view");
+      if (!viewEl) return;
+
+      const text = viewEl.innerText || viewEl.textContent;
+      if (!text.trim()) return;
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
     window.addEventListener('hashchange', route);
     window.addEventListener('load', () => {
       route();
-      cycleTheme(); // Optional: cycle once on load to demonstrate
+      cycleTheme();
     });
   </script>
 </body>
