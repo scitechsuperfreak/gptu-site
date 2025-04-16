@@ -1,0 +1,16 @@
+/* theme.css */
+:root {
+  --bg-color: black;
+  --text-color: #00ff00;
+  --link-color: #00bfff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: monospace;
+}
+
+a {
+  color: var(--link-color);
+}
