@@ -1,15 +1,12 @@
-<!DOCTYPE html><html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GPTU Terminal</title>
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#000000">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="GPTU">
-  <link rel="apple-touch-icon" href="/gptu-icon-192x192.png">
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#000000" />
   <style>
     body {
       background: #000;
@@ -22,20 +19,25 @@
       line-height: 1.5;
       overflow-x: hidden;
     }
+    pre {
+      background: none;
+      color: inherit;
+      font-family: inherit;
+    }
     header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background-color: #000;
-      border-bottom: 1px solid #00ffaa;
+      background: #000;
+      border-bottom: 1px solid #33ff33;
       padding: 0.75rem 1rem;
-      z-index: 1000;
+      z-index: 999;
     }
     header h1 {
+      color: #33ffff;
       margin: 0;
       font-size: 1rem;
-      color: #33ffff;
     }
     nav {
       margin-top: 0.5rem;
@@ -44,14 +46,10 @@
       color: #00ccff;
       margin-right: 1rem;
       text-decoration: none;
+      font-size: 0.9rem;
     }
     nav a:hover {
       text-decoration: underline;
-    }
-    pre {
-      background: none;
-      color: inherit;
-      font-family: inherit;
     }
     .blink {
       animation: blink 1s step-end infinite;
@@ -72,7 +70,7 @@
       <a href="nx-aeon-bio.html">Professor NX-ÆON</a>
     </nav>
   </header>
-<pre>
+  <pre>
 > C:\GPTU\SYSTEM\bootloader.exe
 > Loading terminal modules...
 > Initializing AI Professors...
@@ -84,13 +82,13 @@
 > AI-led | Hands-free | Skill transfer on demand.
 > Mission loop engaged.
 > Awaiting instruction... <span class="blink">█</span>
-</pre>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(reg => console.log('Service Worker registered:', reg))
-      .catch(err => console.error('Service Worker error:', err));
-  }
-</script>
+  </pre>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('Service Worker registered:', reg))
+        .catch(err => console.error('Service Worker error:', err));
+    }
+  </script>
 </body>
 </html>
