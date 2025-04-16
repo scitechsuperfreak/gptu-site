@@ -3,30 +3,24 @@
   <title>GPTU Terminal Boot</title>
   <meta charset="UTF-8">
   <style>
-    body {
-      background: black;
-      color: #33ff33;
-      font-family: monospace;
-      padding: 20px;
-      font-size: 1.1em;
-      white-space: pre-wrap;
-      overflow: hidden;
-    }
-    #terminal {
-      height: 100vh;
-      overflow-y: auto;
-    }
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      background: #33ff33;
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 1; }
-    }
-  </style>
+  body {
+    background: #000;
+    color: #33ff33;
+    font-family: monospace;
+    padding: 2em;
+    font-size: clamp(1rem, 2.5vw, 1.2em); /* Responsive sizing */
+    white-space: pre-wrap;
+  }
+
+  .blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    from, to { visibility: hidden; }
+    50% { visibility: visible; }
+  }
+</style>
 </head>
 <body>
   <div id="terminal"></div>  <script>
