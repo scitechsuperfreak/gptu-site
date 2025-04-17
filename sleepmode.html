@@ -31,5 +31,19 @@
   });
 </script>
 
+<script>
+  function playQA() {
+    const text = `Q001: What is HTML? A001: A markup language for creating web pages.
+    Q002: What is CSS? A002: A stylesheet language used to style HTML.`;
+    
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+  }
+</script>
+
+<button onclick="playQA()">Play Q&A</button>
+  
+
+  
 </body>
 </html>
