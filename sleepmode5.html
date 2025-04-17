@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NX-ÆON Sleep Mode</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 20px;
+    }
+    .hidden-qa {
+      color: black;
+      background-color: black;
+      font-size: 1px;
+      height: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .visible-notice {
+      font-size: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>NX-ÆON Sleep Mode</h1>
+  <p class="visible-notice">Activate the speaker button below to begin neural recitation...</p>
+
+  <div id="qa-content" class="hidden-qa" aria-hidden="false" tabindex="0">
+Q1: What is a closure? A1: A closure is a function that retains access to its lexical scope even when executed outside of it.
+Q2: What is a promise? A2: A promise is an object that represents the result of an asynchronous operation.
+Q3: What is event bubbling? A3: Event bubbling is a type of event propagation where the event starts at the most specific element and flows outward.
+Q4: What is hoisting? A4: Hoisting is JavaScript’s behavior of moving declarations to the top of the scope.
+Q5: What is the call stack? A5: The call stack is a mechanism for keeping track of function calls in JavaScript.
+Q6: What is the difference between var, let, and const? A6: var is function-scoped; let and const are block-scoped; const cannot be reassigned.
+Q7: What is an IIFE? A7: An Immediately Invoked Function Expression runs as soon as it is defined.
+Q8: What is NaN? A8: NaN stands for Not-a-Number and represents an invalid number result.
+Q9: What is typeof null? A9: 'object' — this is a long-standing bug in JavaScript.
+Q10: What is a template literal? A10: A string enclosed in backticks (`) that allows embedded expressions using ${}.
+  </div>
+</body>
+</html>
