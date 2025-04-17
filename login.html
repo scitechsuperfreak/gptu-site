@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | GPTU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    section {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: monospace;
+    }
+
+    h1 {
+      color: var(--link-color);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.4rem;
+      margin-top: 0.2rem;
+      background-color: black;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      font-family: monospace;
+    }
+
+    input[type="submit"] {
+      margin-top: 1.5rem;
+      width: 100%;
+      background: var(--text-color);
+      color: var(--bg-color);
+      border: none;
+      padding: 0.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background: var(--link-color);
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h1>Login to GPTU</h1>
+    <form action="/login" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="Login">
+    </form>
+  </section>
+</body>
+</html>
