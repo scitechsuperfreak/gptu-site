@@ -34,7 +34,7 @@
 <footer>NX-ÆON Neural Drill Mode</footer><script>
 let qaList = [], index = 0;
 
-fetch("/Full_Stack_Architect_1000_Enriched.txt")
+fetch("public/Full_Stack_Architect_1000_Enriched.txt")
   .then(r => r.text())
   .then(t => {
     const lines = t.trim().split(/\r?\n/);
