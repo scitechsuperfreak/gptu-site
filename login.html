@@ -1,51 +1,20 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GPTU | Login System</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #0f0;
-      font-family: monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    form {
-      border: 2px solid #0f0;
-      padding: 2rem;
-    }
-    input[type="text"],
-    input[type="password"] {
-      background-color: black;
-      color: lime;
-      border: 1px solid #0f0;
-      margin-bottom: 1rem;
-      width: 100%;
-      padding: 0.5rem;
-    }
-    input[type="submit"] {
-      background-color: #00ff00;
-      color: black;
-      font-weight: bold;
-      padding: 0.5rem;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <h1>Secure GPTU Login</h1>
-  <form action="/login" method="POST">
-    <label for="username">Username:</label><br />
-    <input type="text" name="username" required /><br /><label for="password">Password:</label><br />
-<input type="password" name="password" required /><br />
-
-<input type="submit" value="Login" />
-
-  </form>
-</body>
-</html>
+<!DOCTYPE html><html><body>
+<h2>Login to GPTU</h2>
+<form id="loginForm">
+  Username: <input name="username"><br>
+  Password: <input type="password" name="password"><br>
+  <button type="submit">Login</button>
+</form>
+<script>
+document.getElementById('loginForm').onsubmit = async (e) => {
+  e.preventDefault();
+  const form = new FormData(e.target);
+  const res = await fetch('/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.fromEntries(form)),
+  });
+  alert(await res.text());
+};
+</script>
+</body></html>
