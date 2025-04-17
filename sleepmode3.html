@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NX-ÆON Sleep Mode</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: monospace;
+      text-align: center;
+      padding: 2em;
+    }
+    button {
+      background-color: black;
+      border: 2px solid #00FF00;
+      color: #00FF00;
+      font-size: 1.5em;
+      padding: 0.5em 1.5em;
+      margin-top: 1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00FF00;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>NX-ÆON Sleep Mode</h1>
+  <p>Click the button to start TTS playback:</p>
+  <button id="playButton">Play Q&A</button>
+
+  <div id="qaText" style="display:none;">
+Q001: What is HTML? A001: HTML stands for HyperText Markup Language. It structures web content.
+Q002: What is CSS? A002: Cascading Style Sheets control the visual style of web elements.
+Q003: What is JavaScript? A003: JavaScript is a programming language used to make web pages interactive.
+Q004: What is the DOM? A004: The Document Object Model represents the structure of HTML as objects.
+Q005: What is a function in JS? A005: A reusable block of code that performs a specific task.
+Q006: What is an API? A006: An Application Programming Interface lets applications communicate.
+Q007: What is REST? A007: Representational State Transfer is a web API design architecture.
+Q008: What is a variable? A008: A container for storing data values in a program.
+Q009: What is a loop? A009: A control structure that repeats code while a condition is true.
+Q010: What is an array? A010: A data structure used to store multiple values in one variable.
+  </div>
+
+  <script>
+    function speakText() {
+      const text = document.getElementById("qaText").innerText;
+      if ('speechSynthesis' in window && text.trim().length > 0) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        speechSynthesis.cancel(); // Stop any current speech
+        speechSynthesis.speak(utterance);
+      } else {
+        alert("SpeechSynthesis not supported or text missing.");
+      }
+    }
+
+    document.getElementById("playButton").addEventListener("click", speakText);
+  </script>
+</body>
+</html>
