@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NX-ÆON Sleep Mode</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 20px;
+    }
+    .button {
+      background-color: black;
+      border: 2px solid #00FF00;
+      color: #00FF00;
+      padding: 20px 40px;
+      font-size: 24px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .button:hover {
+      background-color: #00FF00;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>NX-ÆON Sleep Mode</h1>
+  <p>Click the button to start TTS playback:</p>
+  <button class="button" onclick="playQA()">Play Q&amp;A</button>
+
+  <script>
+    const qaData = [
+      "Q1: What is an API? A1: An API is a set of functions and protocols for building and integrating application software.",
+      "Q2: What is REST? A2: REST is an architectural style for designing networked applications using stateless HTTP requests.",
+      "Q3: What is JSON? A3: JSON is a lightweight data-interchange format that's easy for humans and machines to read.",
+      "Q4: What is HTTP? A4: HTTP is the protocol used for transferring web pages on the internet.",
+      "Q5: What is HTTPS? A5: HTTPS is a secure version of HTTP using SSL/TLS encryption.",
+      "Q6: What is a database? A6: A database is a structured collection of data that can be accessed and managed easily.",
+      "Q7: What is SQL? A7: SQL stands for Structured Query Language and is used to manage and manipulate relational databases.",
+      "Q8: What is Git? A8: Git is a distributed version control system used to track code changes during software development.",
+      "Q9: What is a commit in Git? A9: A commit is a snapshot of changes made to code at a specific point in time.",
+      "Q10: What is a pull request? A10: A pull request is a way to propose changes to a codebase and collaborate before merging."
+    ];
+
+    function playQA() {
+      if ('speechSynthesis' in window) {
+        let i = 0;
+        const speakNext = () => {
+          if (i >= qaData.length) return;
+          const utterance = new SpeechSynthesisUtterance(qaData[i]);
+          utterance.onend = () => {
+            i++;
+            setTimeout(speakNext, 1000); // 1-second pause between Q&As
+          };
+          speechSynthesis.speak(utterance);
+        };
+        speakNext();
+      } else {
+        alert("TTS not supported in this browser.");
+      }
+    }
+  </script>
+</body>
+</html>
