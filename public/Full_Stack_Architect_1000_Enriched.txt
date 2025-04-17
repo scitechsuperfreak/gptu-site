@@ -1,149 +1,74 @@
 Q001: What is HTML?  
-A001: HyperText Markup Language, the standard markup for documents displayed in web browsers.
+A001: A markup language for creating web pages.
 
-Q002: What does CSS stand for?  
-A002: Cascading Style Sheets, used to style and layout web pages.
+Q002: What is CSS?  
+A002: A stylesheet language used to style HTML.
 
 Q003: What is JavaScript?  
-A003: A high-level, interpreted scripting language used to make web pages interactive.
+A003: A scripting language for adding interactivity to web pages.
 
-Q004: What is the DOM?  
-A004: The Document Object Model represents the structure of HTML as a tree that can be manipulated with JavaScript.
+Q004: What does DOM stand for?  
+A004: Document Object Model — the structure of HTML as a tree.
 
-Q005: What is the box model in CSS?  
-A005: It includes margins, borders, padding, and the actual content.
+Q005: What is the CSS box model?  
+A005: A model including content, padding, border, and margin.
 
-Q006: What does “responsive design” mean?  
-A006: Designing websites to adapt to various screen sizes and devices.
+Q006: What is Flexbox?  
+A006: A CSS layout for aligning and distributing space.
 
-Q007: What is a CSS media query?  
-A007: A rule that applies styles based on device characteristics like width or resolution.
+Q007: What is a media query?  
+A007: CSS rules that apply based on screen size or features.
 
-Q008: What is Flexbox?  
-A008: A CSS layout mode for distributing space and aligning items in a container.
+Q008: What is responsive design?  
+A008: Designing web content to adapt to various devices.
 
-Q009: What is the difference between “==” and “===” in JavaScript?  
-A009: “==” compares values loosely, while “===” compares both value and type strictly.
+Q009: What is a function?  
+A009: A reusable block of code to perform a task.
 
-Q010: What is a function in JavaScript?  
-A010: A reusable block of code designed to perform a specific task.
+Q010: What is an event listener?  
+A010: A JavaScript method for detecting user actions.
 
-Q011: What is an event listener?  
-A011: A method used to wait for user actions, like clicks or key presses.
+Q011: What is a callback function?  
+A011: A function passed into another to be called later.
 
-Q012: What is a callback?  
-A012: A function passed into another function to be executed later.
+Q012: What is a promise?  
+A012: An object representing the result of an async operation.
 
-Q013: What is a promise in JavaScript?  
-A013: An object representing the eventual completion or failure of an asynchronous operation.
+Q013: What is async/await?  
+A013: JavaScript syntax for writing asynchronous code more clearly.
 
-Q014: What is async/await?  
-A014: Syntactic sugar for working with promises more easily.
+Q014: What is fetch()?  
+A014: A built-in JavaScript method to make network requests.
 
-Q015: What is the fetch API?  
-A015: A modern way to make HTTP requests in the browser.
+Q015: What is JSON?  
+A015: A lightweight format for exchanging data.
 
-Q016: What is an API?  
-A016: An Application Programming Interface allows communication between software components.
+Q016: What is localStorage?  
+A016: A way to store data in the browser with no expiration.
 
-Q017: What is JSON?  
-A017: JavaScript Object Notation, a lightweight data-interchange format.
+Q017: What is an API?  
+A017: A set of rules that allow programs to communicate.
 
-Q018: What is localStorage?  
-A018: A web storage API that stores data in the browser with no expiration.
+Q018: What is HTTP?  
+A018: Hypertext Transfer Protocol, used for data exchange on the web.
 
-Q019: What is a cookie?  
-A019: A small piece of data stored by the browser for remembering state.
+Q019: What is a GET request?  
+A019: An HTTP method to retrieve data.
 
-Q020: What is HTTP?  
-A020: Hypertext Transfer Protocol — the foundation of communication on the web.
+Q020: What is a POST request?  
+A020: An HTTP method to send data to a server.
 
-Q021: What is HTTPS?  
-A021: The secure version of HTTP, using TLS for encryption.
+Q021: What is a REST API?  
+A021: An API that follows Representational State Transfer principles.
 
-Q022: What is a GET request?  
-A022: An HTTP request method used to retrieve data.
+Q022: What is CRUD?  
+A022: Create, Read, Update, Delete — basic database operations.
 
-Q023: What is a POST request?  
-A023: An HTTP method used to send data to a server.
+Q023: What is Node.js?  
+A023: A JavaScript runtime that runs on the server side.
 
-Q024: What is CRUD?  
-A024: Create, Read, Update, Delete — basic operations in persistent storage.
+Q024: What is Express.js?  
+A024: A minimal web framework for Node.js.
 
-Q025: What is a REST API?  
-A025: A design principle for networked applications using stateless HTTP operations.
-
-Q026: What is SQL?  
-A026: Structured Query Language used to manage relational databases.
-
-Q027: What is NoSQL?  
-A027: A type of database that stores data in non-tabular formats like documents or key-value pairs.
-
-Q028: What is a relational database?  
-A028: A database structured with tables, rows, and columns with relationships between them.
-
-Q029: What is a primary key?  
-A029: A column or group of columns that uniquely identifies each row in a table.
-
-Q030: What is a foreign key?  
-A030: A key used to link two tables together in a relational database.
-
-Q031: What is Node.js?  
-A031: A runtime environment that lets you run JavaScript on the server.
-
-Q032: What is Express.js?  
-A032: A fast, unopinionated web framework for Node.js.
-
-Q033: What is middleware in Express?  
-A033: Functions that run during the request-response cycle.
-
-Q034: What is MongoDB?  
-A034: A NoSQL document database that stores data in JSON-like format.
-
-Q035: What is Mongoose?  
-A035: An ODM (Object Data Modeling) library for MongoDB and Node.js.
-
-Q036: What is React?  
-A036: A JavaScript library for building user interfaces using components.
-
-Q037: What is a React component?  
-A037: A reusable, self-contained piece of UI.
-
-Q038: What is JSX?  
-A038: A syntax extension that lets you write HTML-like code in JavaScript.
-
-Q039: What is a React hook?  
-A039: A special function like useState or useEffect that adds features to components.
-
-Q040: What is useState?  
-A040: A React hook that lets you add state to functional components.
-
-Q041: What is useEffect?  
-A041: A React hook for handling side effects like data fetching or subscriptions.
-
-Q042: What is props in React?  
-A042: Short for properties, they are passed to components to customize behavior.
-
-Q043: What is state in React?  
-A043: A built-in object used to contain data or UI state for a component.
-
-Q044: What is React Router?  
-A044: A library for handling routing in React applications.
-
-Q045: What is SPA?  
-A045: A Single Page Application loads a single HTML page and updates it dynamically.
-
-Q046: What is version control?  
-A046: A system for tracking changes to code over time.
-
-Q047: What is Git?  
-A047: A distributed version control system for managing code history.
-
-Q048: What is GitHub?  
-A048: A platform for hosting Git repositories and collaborating on code.
-
-Q049: What is a branch in Git?  
-A049: A parallel version of your codebase for developing features independently.
-
-Q050: What is a merge conflict?  
-A050: When Git cannot automatically reconcile changes between branches.
+Q025: What is a React component?  
+A025: A reusable UI block in React applications.
