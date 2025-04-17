@@ -41,9 +41,15 @@
     }
 
     footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
       padding: 0.5rem 1rem;
       border-top: 1px solid var(--border-color);
+      background: var(--bg-color);
       text-align: center;
+      z-index: 100;
     }
 
     .footer-buttons {
@@ -61,6 +67,24 @@
       font-family: monospace;
       cursor: pointer;
     }
+
+    .footer-buttons button[title] {
+      position: relative;
+    }
+
+    .footer-buttons button[title]:hover::after {
+      content: attr(title);
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -77,8 +101,8 @@
 
   <footer>
     <div class="footer-buttons">
-      <button onclick="cycleTheme()">Switch Theme</button>
-      <button onclick="speakPage()">ðŸ”Š Speak</button>
+      <button onclick="cycleTheme()" title="Switch color themes">âš™ï¸</button>
+      <button onclick="speakPage()" title="Read this page aloud">ðŸ”Š</button>
     </div>
   </footer>
 
@@ -141,9 +165,7 @@
     }
 
     window.addEventListener('hashchange', route);
-    window.addEventListener('load', () => {
-      route();
-    });
+    window.addEventListener('load', route);
   </script>
 </body>
 </html>
