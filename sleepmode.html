@@ -2,28 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sleep Mode TTS</title>
+  <title>Sleep Mode</title>
   <style>
-    body { background: black; color: lime; font-family: monospace; text-align: center; padding: 2em; }
-    button { font-size: 1.2em; padding: 1em 2em; }
+    body { background-color: black; color: #00FF00; font-family: monospace; text-align: center; padding: 2em; }
+    button { font-size: 1.2em; padding: 1em; background: #111; color: lime; border: 2px solid lime; border-radius: 8px; }
   </style>
 </head>
 <body>
 
-<h1>NX-ÆON Sleep Mode</h1>
-<button onclick="startTTS()">Start Reading</button>
+<h2>NX-ÆON Sleep Mode</h2>
+<p>Click the button to start TTS playback:</p>
+<button id="speakBtn">Play Q&A</button>
 
 <script>
-  async function startTTS() {
-    const response = await fetch("/public/Full_Stack_Architect_1000_Enriched.txt");
-    const text = await response.text();
-    
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.9;
-    utterance.pitch = 1.1;
-    utterance.lang = 'en-US';
-    speechSynthesis.speak(utterance);
-  }
+  document.getElementById('speakBtn').addEventListener('click', async () => {
+    const res = await fetch('/public/Full_Stack_Architect_1000_Enriched.txt');
+    const text = await res.text();
+
+    // Split to avoid browser limits
+    const chunks = text.match(/[\s\S]{1,4000}/g); 
+    for (const chunk of chunks) {
+      const utterance = new SpeechSynthesisUtterance(chunk);
+      utterance.rate = 0.95;
+      utterance.pitch = 1.05;
+      utterance.lang = 'en-US';
+      speechSynthesis.speak(utterance);
+    }
+  });
 </script>
 
 </body>
