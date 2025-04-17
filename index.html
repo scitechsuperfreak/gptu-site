@@ -19,6 +19,9 @@
       color: var(--text-color);
       font-family: monospace;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
@@ -33,45 +36,51 @@
     }
 
     #view {
+      flex: 1;
       padding: 2rem;
     }
 
-    .theme-toggle,
-    .tts-toggle {
-      position: fixed;
-      top: 10px;
-      z-index: 1000;
+    footer {
+      padding: 0.5rem 1rem;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .footer-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .footer-buttons button {
       background: var(--bg-color);
       color: var(--text-color);
       border: 1px solid var(--border-color);
-      padding: 0.3rem 0.6rem;
-      cursor: pointer;
+      padding: 0.4rem 0.8rem;
       font-size: 0.8rem;
-    }
-
-    .theme-toggle {
-      right: 10px;
-    }
-
-    .tts-toggle {
-      right: 120px;
+      font-family: monospace;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <button class="tts-toggle" onclick="speakPage()">🔊</button>
-  <button class="theme-toggle" onclick="cycleTheme()">Theme</button>
-
   <header>
     <nav>
       <a href="#home">Manifesto</a>
       <a href="#teachcore">Teaching Core</a>
       <a href="#curriculum">Full Stack Track</a>
-      <a href="#nxaeon">Professor NX-ÆON</a>
+      <a href="#nxaeon">Professor NX-Ã†ON</a>
     </nav>
   </header>
 
   <div id="view">Loading...</div>
+
+  <footer>
+    <div class="footer-buttons">
+      <button onclick="cycleTheme()">Switch Theme</button>
+      <button onclick="speakPage()">ðŸ”Š Speak</button>
+    </div>
+  </footer>
 
   <script>
     const themes = {
@@ -122,17 +131,11 @@
     }
 
     function speakPage() {
-      const viewEl = document.getElementById("view");
-      if (!viewEl) return;
-
-      const text = viewEl.innerText || viewEl.textContent;
-      if (!text.trim()) return;
-
+      const text = document.getElementById('view').innerText;
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
       utterance.rate = 1.0;
       utterance.pitch = 1.0;
-
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(utterance);
     }
@@ -140,7 +143,6 @@
     window.addEventListener('hashchange', route);
     window.addEventListener('load', () => {
       route();
-      cycleTheme();
     });
   </script>
 </body>
