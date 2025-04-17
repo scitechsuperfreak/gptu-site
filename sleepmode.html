@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NX-ÆON Sleep Mode</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    #play {
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fdd835;
+      cursor: pointer;
+    }
+    footer {
+      position: fixed;
+      bottom: 10px;
+      text-align: center;
+      width: 100%;
+      color: #555;
+    }
+  </style>
+</head>
+<body><button id="play" onclick="startPlayback()">🔓</button>
+
+<footer>NX-ÆON Neural Drill Mode</footer><script>
+let qaList = [], index = 0;
+
+fetch("/Full_Stack_Architect_1000_Enriched.txt")
+  .then(r => r.text())
+  .then(t => {
+    const lines = t.trim().split(/\r?\n/);
+    for (let i = 0; i < lines.length; i += 2) {
+      const q = lines[i]?.replace(/^Q\d+:\s*/, '');
+      const a = lines[i+1]?.replace(/^A\d+:\s*/, '');
+      if (q && a) qaList.push({ q, a });
+    }
+  });
+
+function startPlayback() {
+  if (!qaList.length) return;
+  const qa = qaList[index];
+  const msg = new SpeechSynthesisUtterance(`Question: ${qa.q}. Answer: ${qa.a}`);
+  speechSynthesis.speak(msg);
+  index = (index + 1) % qaList.length;
+}
+</script></body>
+</html>
