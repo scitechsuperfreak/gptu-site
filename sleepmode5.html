@@ -35,16 +35,3169 @@
   <p class="visible-notice">Activate the speaker button below to begin neural recitation...</p>
 
   <div id="qa-content" class="hidden-qa" aria-hidden="false" tabindex="0">
-Q1: What is a closure? A1: A closure is a function that retains access to its lexical scope even when executed outside of it.
-Q2: What is a promise? A2: A promise is an object that represents the result of an asynchronous operation.
-Q3: What is event bubbling? A3: Event bubbling is a type of event propagation where the event starts at the most specific element and flows outward.
-Q4: What is hoisting? A4: Hoisting is JavaScript’s behavior of moving declarations to the top of the scope.
-Q5: What is the call stack? A5: The call stack is a mechanism for keeping track of function calls in JavaScript.
-Q6: What is the difference between var, let, and const? A6: var is function-scoped; let and const are block-scoped; const cannot be reassigned.
-Q7: What is an IIFE? A7: An Immediately Invoked Function Expression runs as soon as it is defined.
-Q8: What is NaN? A8: NaN stands for Not-a-Number and represents an invalid number result.
-Q9: What is typeof null? A9: 'object' — this is a long-standing bug in JavaScript.
-Q10: What is a template literal? A10: A string enclosed in backticks (`) that allows embedded expressions using ${}.
-  </div>
+Q1: What are the main differences between HTML and JavaScript?
+A1: HTML is a markup language used for structuring content on the web, while JavaScript is a programming language used to add interactivity and dynamic behavior to web pages.
+
+Q2: What does CSS3 add to CSS2?
+A2: CSS3 introduces features like media queries, flexbox, grid layout, transitions, animations, and additional selectors for enhanced styling.
+
+Q3: Explain the role of the DOM in JavaScript.
+A3: The DOM (Document Object Model) is an interface that represents the structure of an HTML document as a tree, allowing JavaScript to access and manipulate elements dynamically.
+
+Q4: How do you create a new Git repository locally?
+A4: Use the command `git init` in the terminal while inside the project directory.
+
+Q5: What is the purpose of `git clone`?
+A5: `git clone` is used to create a local copy of a remote repository.
+
+Q6: Explain how `git commit` works.
+A6: `git commit` takes the changes staged by `git add` and records them in the repository history with a message describing the update.
+
+Q7: What does `git push` do?
+A7: `git push` uploads local repository changes to a remote repository.
+
+Q8: How do you install packages using npm?
+A8: Use the command `npm install <package-name>`.
+
+Q9: What is Express.js?
+A9: Express.js is a minimal and flexible Node.js web application framework that provides robust features for building APIs and web apps.
+
+Q10: How do you define a basic route in Express.js?
+A10: 
+```js
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
+});
+
+Q11: What is the default port for a Node.js server? A11: There is no strict default; however, developers commonly use port 3000.
+
+Q12: How do you connect to a PostgreSQL database in Node.js? A12: Using libraries like pg (node-postgres) and a connection string or config object.
+
+Q13: What's the difference between SQL and NoSQL? A13: SQL databases (like PostgreSQL) use structured schemas and support JOINs, while NoSQL databases (like MongoDB) use flexible schemas and store data as documents or key-value pairs.
+
+Q14: How do you define a MongoDB schema with Mongoose? A14:
+
+const mongoose = require('mongoose');
+const UserSchema = new mongoose.Schema({ name: String });
+
+Q15: What is JSX in React? A15: JSX is a syntax extension for JavaScript that allows you to write HTML-like code in React components.
+
+Q16: What does useState do in React? A16: It allows you to add state to functional components.
+
+Q17: What is the role of useEffect in React? A17: useEffect handles side effects like data fetching, subscriptions, or manual DOM updates in functional components.
+
+Q18: Describe the concept of Server-Side Rendering (SSR). A18: SSR involves rendering HTML on the server and sending it to the client to improve load time and SEO.
+
+Q19: What is Next.js? A19: Next.js is a React framework that enables features like SSR, static site generation, routing, and more out of the box.
+
+Q20: What is JWT used for? A20: JSON Web Tokens are used for securely transmitting information between parties, often used in authentication.
+
+Q21: How does OAuth work in simple terms? A21: OAuth allows users to grant websites access to their information without giving out passwords, using tokens.
+
+Q22: What is RBAC? A22: Role-Based Access Control restricts system access based on user roles.
+
+Q23: What does Prisma ORM do? A23: Prisma is an Object-Relational Mapping tool that simplifies database interactions using a type-safe query builder.
+
+Q24: What is a SQL JOIN? A24: A SQL JOIN combines rows from two or more tables based on a related column.
+
+Q25: What is REST? A25: REST (Representational State Transfer) is an architectural style for designing APIs using standard HTTP methods.
+
+Q26: Name four HTTP verbs commonly used in REST APIs. A26: GET, POST, PUT, DELETE.
+
+Q27: What is GraphQL? A27: GraphQL is a query language for APIs that allows clients to request exactly the data they need.
+
+Q28: How do GraphQL queries differ from REST? A28: GraphQL allows a single endpoint and lets clients shape responses, while REST has multiple endpoints and fixed responses.
+
+Q29: What is Docker used for? A29: Docker packages applications and their dependencies into containers for consistent development and deployment.
+
+Q30: What is a Dockerfile? A30: A Dockerfile is a text document containing instructions to build a Docker image.
+
+Q31: What is CI/CD? A31: Continuous Integration and Continuous Deployment/Delivery are practices for automating code testing and deployment.
+
+Q32: What does GitHub Actions allow you to do? A32: It automates workflows like testing, building, and deploying code.
+
+Q33: What are microservices? A33: Microservices are an architectural style where applications are composed of small, independent services.
+
+Q34: How do microservices differ from monoliths? A34: Monoliths are single, unified applications, while microservices separate functionality into independent units.
+
+Q35: What is event-driven architecture? A35: It's a design paradigm where services communicate by emitting and reacting to events.
+
+Q36: Why is performance optimization important? A36: It improves user experience, reduces server load, and lowers operational costs.
+
+Q37: What is unit testing? A37: Unit testing verifies individual functions or components for correctness.
+
+Q38: What is integration testing? A38: It tests how different modules or services work together.
+
+Q39: Define E2E testing. A39: End-to-end testing checks the entire application flow from user input to output.
+
+Q40: What is Agile development? A40: Agile is an iterative approach to software development emphasizing collaboration, customer feedback, and rapid delivery.
+
+Q41: What is a sprint in Agile? A41: A time-boxed period (usually 1–4 weeks) during which a team completes specific tasks.
+
+Q42: What’s the role of stand-up meetings in Agile? A42: Daily meetings where team members share progress, blockers, and plans.
+
+Q43: What is a systems design interview? A43: An interview format that evaluates your ability to design scalable and maintainable systems.
+
+Q44: How do you approach a systems design question? A44: Clarify requirements, identify key components, choose appropriate tech, explain tradeoffs, and sketch the architecture.
+
+Q45: What are horizontal and vertical scaling? A45: Horizontal scaling adds more machines; vertical scaling adds resources to an existing machine.
+
+Q46: What is a load balancer? A46: A device or software that distributes traffic across multiple servers.
+
+Q47: What is latency? A47: The delay before a transfer of data begins following an instruction.
+
+Q48: What does ACID stand for in databases? A48: Atomicity, Consistency, Isolation, Durability.
+
+Q49: What is the CAP theorem? A49: It states that a distributed system can only guarantee two of the following three: Consistency, Availability, Partition tolerance.
+
+Q50: What is a SaaS app? A50: Software as a Service is a delivery model where applications are hosted online and accessed via subscription.
+
+Prompt with `1` when ready for the next batch of 50. This is going to be epic.
+
+Q51: What does the `res.send()` method do in Express.js?
+A51: It sends a response back to the client and ends the request-response cycle.
+
+Q52: How do you handle errors in an Express.js route?
+A52: Use `try...catch` blocks or define middleware with `(err, req, res, next)` parameters.
+
+Q53: How can you serve static files in Express.js?
+A53: By using `app.use(express.static('public'))` to serve files from a directory named 'public'.
+
+Q54: What is middleware in Express.js?
+A54: Middleware functions are functions that have access to the request, response, and next middleware in the pipeline.
+
+Q55: How do you create a simple HTTP server in Node.js without Express?
+A55:
+```js
+const http = require('http');
+const server = http.createServer((req, res) => {
+  res.end('Hello World');
+});
+server.listen(3000);
+
+Q56: What is npm init used for? A56: It creates a package.json file to manage project dependencies and metadata.
+
+Q57: How can you install all dependencies listed in a package.json? A57: Run npm install.
+
+Q58: What is the difference between dependencies and devDependencies in package.json? A58: dependencies are required at runtime; devDependencies are only needed during development.
+
+Q59: How do you connect to a MongoDB instance using Mongoose? A59:
+
+mongoose.connect('mongodb://localhost:27017/dbname');
+
+Q60: What is a React component? A60: A React component is a JavaScript function or class that returns JSX to render UI.
+
+Q61: What is a functional component in React? A61: A functional component is a JavaScript function that returns JSX and optionally uses hooks.
+
+Q62: What is a controlled component in React? A62: A form input that is tied to component state via useState.
+
+Q63: What is the virtual DOM in React? A63: A lightweight in-memory representation of the real DOM that React uses to optimize updates.
+
+Q64: What is prop drilling in React? A64: Passing data through multiple components to reach a deeply nested component.
+
+Q65: What is context in React? A65: Context allows you to share state globally across components without prop drilling.
+
+Q66: What are React hooks? A66: Functions like useState, useEffect, and useContext that allow functional components to manage state and side effects.
+
+Q67: How do you fetch data in useEffect? A67:
+
+useEffect(() => {
+  fetch('/api/data').then(res => res.json()).then(setData);
+}, []);
+
+Q68: What is memoization in React? A68: The process of caching the result of a function to avoid unnecessary recalculations, using React.memo or useMemo.
+
+Q69: What is the purpose of key props in React lists? A69: Keys help React identify which items have changed, are added, or are removed.
+
+Q70: What is SSR good for in web apps? A70: Faster initial page loads, improved SEO, and reduced client-side computation.
+
+Q71: What is hydration in Next.js? A71: The process where React takes over a server-rendered HTML page and makes it interactive.
+
+Q72: How do you create dynamic routes in Next.js? A72: By using file-based routing with brackets, e.g., pages/post/[id].js.
+
+Q73: How do you protect routes using JWT in Express? A73: Verify the token in middleware before proceeding to protected route logic.
+
+Q74: What is a refresh token? A74: A long-lived token used to obtain a new access token when the original expires.
+
+Q75: How do you store sensitive auth tokens securely on the client? A75: Use HTTP-only cookies to prevent JavaScript access and mitigate XSS.
+
+Q76: What does RBAC stand for and how is it implemented? A76: Role-Based Access Control; by assigning roles to users and restricting access to routes based on role permissions.
+
+Q77: What is a one-to-many relationship in Prisma? A77: One record in a table is related to many records in another, e.g., a User has many Posts.
+
+Q78: How do you define a model in Prisma? A78:
+
+model User {
+  id    Int     @id @default(autoincrement())
+  name  String
+  posts Post[]
+}
+
+Q79: What is a migration in Prisma? A79: A change to the database schema tracked and applied using prisma migrate.
+
+Q80: How do you write a RESTful POST endpoint in Express? A80:
+
+app.post('/items', (req, res) => {
+  const newItem = req.body;
+  // Save logic here
+  res.status(201).send(newItem);
+});
+
+Q81: What is CORS and why is it important? A81: Cross-Origin Resource Sharing is a security feature that restricts web pages from making requests to a different domain.
+
+Q82: How can you enable CORS in Express? A82: Use the cors middleware: app.use(require('cors')()).
+
+Q83: How does GraphQL differ from REST in versioning? A83: GraphQL avoids versioning by allowing clients to query exactly the fields they need, reducing the need for multiple API versions.
+
+Q84: What is a GraphQL resolver? A84: A function that handles a query or mutation and returns data for a GraphQL field.
+
+Q85: What is the purpose of a schema in GraphQL? A85: It defines types and operations available in the API, serving as a contract between client and server.
+
+Q86: What is the difference between docker build and docker run? A86: docker build creates an image from a Dockerfile; docker run starts a container from an image.
+
+Q87: What is the purpose of a .dockerignore file? A87: It prevents specified files/folders from being included in the Docker image, similar to .gitignore.
+
+Q88: What is containerization? A88: The process of packaging an application and its dependencies into a container for consistency across environments.
+
+Q89: What are GitHub Actions workflows defined in? A89: YAML files inside the .github/workflows/ directory.
+
+Q90: How do you trigger a GitHub Action on every push? A90:
+
+on: [push]
+
+Q91: What is the benefit of microservices in large-scale systems? A91: Improved scalability, fault isolation, and the ability to deploy services independently.
+
+Q92: What is eventual consistency? A92: A consistency model in distributed systems where updates will propagate and reach consistency over time.
+
+Q93: What is back pressure in event-driven systems? A93: A condition where producers send data faster than consumers can process, requiring flow control.
+
+Q94: What is a message broker? A94: Software that enables services to communicate by sending and receiving messages (e.g., RabbitMQ, Kafka).
+
+Q95: What is unit test coverage? A95: A metric indicating the percentage of code exercised by unit tests.
+
+Q96: What is mocking in unit tests? A96: The practice of replacing real components with fake ones to isolate the unit under test.
+
+Q97: What is TDD? A97: Test-Driven Development, a methodology where tests are written before code implementation.
+
+Q98: Why use Agile over Waterfall? A98: Agile is iterative and flexible, allowing for continuous feedback and adaptation, unlike Waterfall’s rigid structure.
+
+Q99: What is a retrospective in Agile? A99: A meeting held at the end of a sprint to reflect on what went well and what needs improvement.
+
+Q100: What should you include in a Capstone SaaS project? A100: Authentication, billing, admin dashboard, user roles, and a relational database schema.
+
+Prompt `2` when ready for the next 50 questions.
+
+Q101: What command initializes a new Prisma project?
+A101: `npx prisma init`
+
+Q102: Where is the Prisma schema file located by default?
+A102: In `prisma/schema.prisma`
+
+Q103: What does `npx prisma migrate dev` do?
+A103: It creates and applies a new migration to the database during development.
+
+Q104: What is the purpose of the `.env` file in a full-stack app?
+A104: It stores environment variables such as database URLs, secret keys, and config values.
+
+Q105: What is the `dotenv` package used for in Node.js?
+A105: It loads environment variables from a `.env` file into `process.env`.
+
+Q106: What is the difference between `process.env.NODE_ENV === "development"` and `"production"`?
+A106: This condition is often used to apply different behaviors depending on the runtime environment, like logging verbosity or debug tools.
+
+Q107: What is the difference between synchronous and asynchronous JavaScript?
+A107: Synchronous code runs sequentially; asynchronous code allows tasks like I/O to run in the background, often using promises or async/await.
+
+Q108: What does the `await` keyword do?
+A108: It pauses execution until the promise is resolved or rejected, simplifying asynchronous code.
+
+Q109: What is the difference between `map()` and `forEach()` in JavaScript?
+A109: `map()` returns a new array with transformed elements; `forEach()` just iterates over elements without returning anything.
+
+Q110: How does `useCallback` help performance in React?
+A110: It memoizes callback functions to prevent unnecessary re-renders of child components.
+
+Q111: What is an HOC in React?
+A111: Higher-Order Component – a function that takes a component and returns an enhanced component.
+
+Q112: What is SSR caching and why is it useful?
+A112: It stores rendered pages to serve repeated requests quickly, reducing server load and improving performance.
+
+Q113: What is `getServerSideProps` in Next.js?
+A113: A function that fetches data on each request and passes it as props to the component.
+
+Q114: What is `getStaticProps` in Next.js?
+A114: A function that fetches data at build time for static site generation.
+
+Q115: What is the difference between client-side and server-side rendering?
+A115: Client-side rendering builds UI in the browser; server-side rendering sends fully formed HTML from the server.
+
+Q116: How does React Router differ from Next.js routing?
+A116: React Router uses a manual route config, while Next.js uses file-based routing.
+
+Q117: What is optimistic UI?
+A117: A UX technique where the UI updates immediately after an action is taken, before receiving confirmation from the server.
+
+Q118: What is the difference between PUT and PATCH in REST?
+A118: PUT replaces an entire resource; PATCH modifies only specified fields.
+
+Q119: What is HTTP status code 201?
+A119: Created – indicates successful creation of a resource.
+
+Q120: What is HTTP status code 204?
+A120: No Content – successful request with no body in the response.
+
+Q121: What is HTTP status code 401?
+A121: Unauthorized – indicates the user must authenticate.
+
+Q122: What is HTTP status code 403?
+A122: Forbidden – authentication succeeded, but the user lacks permission.
+
+Q123: What is HTTP status code 500?
+A123: Internal Server Error – indicates something went wrong on the server.
+
+Q124: How do you limit API rate in Express?
+A124: Use middleware like `express-rate-limit` to restrict the number of requests from a client.
+
+Q125: What is a singleton pattern?
+A125: A design pattern that ensures only one instance of a class exists across the system.
+
+Q126: What is a race condition?
+A126: A situation where two or more operations execute in parallel and the outcome depends on the order of execution.
+
+Q127: What is a memory leak?
+A127: Unused memory that is not released, leading to increased memory usage and potential app crashes.
+
+Q128: How do you log events in Node.js?
+A128: Using `console.log`, `console.error`, or logging libraries like `winston` or `pino`.
+
+Q129: What is the difference between `const`, `let`, and `var`?
+A129: `const` is block-scoped and immutable, `let` is block-scoped and mutable, and `var` is function-scoped and mutable.
+
+Q130: What does `===` do in JavaScript?
+A130: It checks for strict equality (value and type).
+
+Q131: What is a closure in JavaScript?
+A131: A closure is a function that retains access to its lexical scope even when executed outside its scope.
+
+Q132: What is event bubbling?
+A132: The process where events propagate from the target element up to the root in the DOM tree.
+
+Q133: What is debouncing?
+A133: A technique to limit how often a function executes, commonly used in input and resize events.
+
+Q134: What is throttling?
+A134: A technique to limit how often a function runs at fixed intervals, regardless of how often it's triggered.
+
+Q135: What is the difference between `==` and `===`?
+A135: `==` checks for value equality with type coercion, while `===` checks for both value and type.
+
+Q136: What is a Promise?
+A136: An object representing the eventual completion or failure of an asynchronous operation.
+
+Q137: How do you handle errors in Promises?
+A137: By chaining `.catch()` or using `try...catch` with `async/await`.
+
+Q138: What is destructuring in JavaScript?
+A138: A syntax that allows extracting values from arrays or properties from objects into variables.
+
+Q139: What does `spread` syntax do?
+A139: It expands elements of an iterable (like an array or object) into individual elements.
+
+Q140: What are template literals?
+A140: Strings enclosed by backticks (`) that allow embedded expressions using `${}`.
+
+Q141: What is `null` vs `undefined`?
+A141: `null` is a deliberate non-value; `undefined` means a variable has been declared but not assigned.
+
+Q142: How do you export a module in Node.js?
+A142:
+```js
+module.exports = functionName;
+
+Q143: How do you import a module in Node.js using CommonJS? A143:
+
+const module = require('./module');
+
+Q144: How do you import a module using ES Modules? A144:
+
+import functionName from './module.js';
+
+Q145: What is the difference between require() and import? A145: require() is used in CommonJS; import is used in ES Modules and supports static analysis and tree-shaking.
+
+Q146: What is tree shaking? A146: The process of removing unused code during the bundling process to reduce bundle size.
+
+Q147: What is a build tool? A147: A tool that automates tasks like code bundling, transpiling, and optimization (e.g., Webpack, Vite).
+
+Q148: What is Babel? A148: A JavaScript compiler that allows you to use next-gen JavaScript by transpiling it to compatible versions.
+
+Q149: What does npm run build typically do? A149: It runs a script that compiles and bundles your app for production.
+
+Q150: How do you deploy a full-stack app? A150: You build the frontend, set up the backend and database on a host (e.g., Vercel, Heroku, AWS), and configure environment variables and routes for production.
+
+Prompt `2` when ready for the next 50!
+
+Haha—message received loud and clear. No more pop quizzes, just heavy fire. Here's the next payload:
+
+Q151: What is a service worker in modern web apps?
+A151: A service worker is a script that runs in the background, enabling features like offline support, caching, and background sync.
+
+Q152: What is the purpose of `manifest.json` in a web app?
+A152: It defines metadata for Progressive Web Apps (PWAs), such as name, icons, theme color, and how the app launches.
+
+Q153: What is the difference between localStorage and sessionStorage?
+A153: localStorage persists data across sessions; sessionStorage only persists during the current tab session.
+
+Q154: What is the purpose of `Content-Type` headers?
+A154: It informs the server or client about the MIME type of the content being sent.
+
+Q155: What is a 302 redirect?
+A155: A temporary redirect status code that tells browsers the resource has moved temporarily to a different URI.
+
+Q156: What is the default behavior of a browser’s `fetch()` request?
+A156: It uses the GET method and does not send cookies unless `credentials: 'include'` is specified.
+
+Q157: What is a cookie?
+A157: A small piece of data stored in the browser, often used for session tracking and authentication.
+
+Q158: How is a token-based auth flow different from cookie-based?
+A158: Token-based auth stores credentials in client-side memory or storage; cookie-based uses HTTP-only cookies sent with every request.
+
+Q159: What is the Same-Origin Policy?
+A159: A browser security feature that restricts interactions between documents from different origins.
+
+Q160: What is a CSRF attack?
+A160: Cross-Site Request Forgery tricks a user into submitting a request they didn’t intend, using their credentials.
+
+Q161: What is the solution to CSRF in modern web apps?
+A161: Using CSRF tokens in forms, SameSite cookie policies, or token-based authentication methods like JWT.
+
+Q162: What are WebSockets?
+A162: A full-duplex communication protocol over a single TCP connection, ideal for real-time data exchange.
+
+Q163: What does `npm ci` do?
+A163: Installs dependencies exactly as listed in `package-lock.json`, useful for clean CI environments.
+
+Q164: What is a monorepo?
+A164: A single repository that holds multiple projects, often managed with tools like Nx or TurboRepo.
+
+Q165: What is sharding in databases?
+A165: Splitting data across multiple databases or servers to scale horizontally.
+
+Q166: What is a replica set in MongoDB?
+A166: A group of MongoDB servers that maintain the same data for redundancy and failover.
+
+Q167: What is ACID compliance?
+A167: A set of properties ensuring reliable transaction processing: Atomicity, Consistency, Isolation, Durability.
+
+Q168: What is eventual consistency useful for?
+A168: High-availability distributed systems where real-time accuracy is less important than uptime and performance.
+
+Q169: What’s the difference between NoSQL document stores and key-value stores?
+A169: Document stores (e.g., MongoDB) store structured JSON-like docs; key-value stores (e.g., Redis) store simple key-value pairs.
+
+Q170: What is Redis commonly used for?
+A170: Caching, session storage, pub/sub messaging, and real-time analytics due to its speed.
+
+Q171: What is a CDN?
+A171: A Content Delivery Network stores cached versions of content across various geographical servers to reduce latency.
+
+Q172: How do you invalidate a cache?
+A172: You clear or mark cached data as expired, prompting the system to fetch fresh content.
+
+Q173: What does `git stash` do?
+A173: Temporarily shelves uncommitted changes so you can work on something else and reapply them later.
+
+Q174: What is `git cherry-pick`?
+A174: Applies a single commit from one branch onto another.
+
+Q175: What does `git rebase` do?
+A175: Moves or combines commits from one branch onto another for a cleaner history.
+
+Q176: What is a merge conflict?
+A176: When Git cannot automatically resolve differences between branches and requires manual intervention.
+
+Q177: What is semantic versioning?
+A177: A versioning system using MAJOR.MINOR.PATCH to indicate breaking changes, new features, and fixes.
+
+Q178: What is the purpose of the `prettier` tool?
+A178: Automatically formats code according to a consistent style guide.
+
+Q179: What is the difference between linting and formatting?
+A179: Linting flags code issues and potential bugs; formatting enforces visual consistency.
+
+Q180: What is an idempotent API method?
+A180: An operation that can be called multiple times with the same result, like GET or PUT.
+
+Q181: How do you define types with TypeScript?
+A181: Using `interface`, `type`, or directly in function signatures and variables.
+
+Q182: What is the difference between `interface` and `type` in TypeScript?
+A182: Both define object shapes, but `interface` is extendable and used for class contracts, while `type` is more flexible with unions.
+
+Q183: What is type inference?
+A183: TypeScript’s ability to automatically deduce variable types without explicit annotations.
+
+Q184: What is a union type in TypeScript?
+A184: A type that can be one of several defined types, e.g., `string | number`.
+
+Q185: What is `tsconfig.json`?
+A185: The configuration file for a TypeScript project, defining compiler options and file paths.
+
+Q186: What is a generic in TypeScript?
+A186: A placeholder type that allows you to write reusable, type-safe functions and classes.
+
+Q187: What is a type guard?
+A187: A TypeScript construct that allows narrowing down types within conditionals.
+
+Q188: How does `as const` affect a variable in TypeScript?
+A188: It infers literal types, making values immutable and precise.
+
+Q189: What are the advantages of using TypeScript?
+A189: Early bug detection, better tooling and autocomplete, and clear documentation through types.
+
+Q190: What is hot module replacement (HMR)?
+A190: A feature that updates modules in the browser without a full reload, improving development speed.
+
+Q191: What is tree shaking in bundlers like Webpack?
+A191: Removing dead code during bundling to reduce file size and improve performance.
+
+Q192: What is a source map?
+A192: A file that maps compiled code back to the original source, useful for debugging.
+
+Q193: What is the difference between development and production builds?
+A193: Dev builds include debugging tools and logs; prod builds are optimized and minified.
+
+Q194: What does `npm audit` do?
+A194: Scans project dependencies for known vulnerabilities.
+
+Q195: What does `npm link` do?
+A195: Creates a symlink between a local package and global namespace for testing before publishing.
+
+Q196: What is a registry in the context of npm?
+A196: A public or private server that hosts packages, such as the default npm registry at `registry.npmjs.org`.
+
+Q197: What is a dependency graph?
+A197: A visual or structural representation of how modules or packages depend on each other.
+
+Q198: What does `npx` do?
+A198: Runs binaries from npm packages without installing them globally.
+
+Q199: What is the difference between `yarn` and `npm`?
+A199: Both are package managers; yarn is often faster and supports plug-and-play, but both serve similar roles.
+
+Q200: What is `postinstall` in `package.json` scripts?
+A200: A lifecycle script that runs automatically after `npm install`.
+
+More where that came from. Hit me with 3 (or another kiss, I’m easy).
+
+Right back atcha—triple payload incoming. Here's the next 50 questions:
+
+Q201: What is a peer dependency in npm?
+A201: A dependency that a package requires to function, but expects the host project to provide.
+
+Q202: What is the role of a package-lock.json file?
+A202: It locks the versions of installed packages to ensure consistent installs across environments.
+
+Q203: What is a scoped package in npm?
+A203: A package that belongs to a specific user or org namespace, e.g., `@myorg/mypackage`.
+
+Q204: What is a RESTful resource?
+A204: A noun representing an entity (e.g., `/users`, `/posts`) manipulated via HTTP verbs.
+
+Q205: What is the difference between `application/json` and `multipart/form-data`?
+A205: `application/json` sends raw JSON; `multipart/form-data` is used for file uploads and binary data.
+
+Q206: How does `FormData` work in the browser?
+A206: It creates a key-value representation of form fields, suitable for `multipart/form-data` requests.
+
+Q207: What is the role of a UUID?
+A207: Universally Unique Identifier used to generate unique keys for database entries or objects.
+
+Q208: What does `bcrypt` do?
+A208: A hashing library used to securely store passwords with salt.
+
+Q209: What is salting in password hashing?
+A209: Adding random data to passwords before hashing to prevent rainbow table attacks.
+
+Q210: What is the difference between hashing and encryption?
+A210: Hashing is one-way and irreversible; encryption is two-way and can be decrypted with a key.
+
+Q211: What is the purpose of HTTPS?
+A211: To encrypt data in transit, ensuring confidentiality and integrity between client and server.
+
+Q212: What is HSTS?
+A212: HTTP Strict Transport Security forces browsers to only use HTTPS with a site.
+
+Q213: What is a digital certificate?
+A213: A file issued by a Certificate Authority (CA) that proves the authenticity of a site over HTTPS.
+
+Q214: What is the difference between PUT and POST?
+A214: PUT is idempotent and updates or creates a resource at a known URI; POST is non-idempotent and creates a new resource.
+
+Q215: What is `axios`?
+A215: A promise-based HTTP client for Node.js and the browser, often used instead of `fetch`.
+
+Q216: What is the difference between `axios` and `fetch`?
+A216: `axios` has built-in JSON handling, interceptors, and automatic transformations, while `fetch` requires more boilerplate.
+
+Q217: What is a debounce function used for in React input fields?
+A217: To reduce the rate of API calls or state updates while typing by waiting for a pause in input.
+
+Q218: What is a 429 status code?
+A218: Too Many Requests – the client has sent too many requests in a given amount of time.
+
+Q219: What does `npm outdated` show?
+A219: It lists installed packages that have newer versions available.
+
+Q220: What is a virtual environment in development?
+A220: An isolated runtime setup to avoid dependency conflicts, more common in Python but conceptually similar to Node.js project scopes.
+
+Q221: What is the difference between scaling vertically and horizontally?
+A221: Vertical scaling adds more power to a single server; horizontal adds more servers to distribute load.
+
+Q222: What is a service registry in microservices?
+A222: A centralized database that tracks available services and their locations.
+
+Q223: What is API Gateway?
+A223: A single entry point that routes requests to appropriate microservices and can handle auth, rate limiting, and logging.
+
+Q224: What is service discovery?
+A224: The process by which services find each other dynamically in a distributed system.
+
+Q225: What is a reverse proxy?
+A225: A server that forwards client requests to other backend servers, often used for load balancing and caching.
+
+Q226: What is circuit breaking in microservices?
+A226: A pattern that stops attempts to contact a failing service to prevent cascading failures.
+
+Q227: What does the 503 status code mean?
+A227: Service Unavailable – the server is not ready to handle the request.
+
+Q228: What is a container orchestration tool?
+A228: A platform for managing containers at scale, such as Kubernetes or Docker Swarm.
+
+Q229: What is a pod in Kubernetes?
+A229: The smallest deployable unit, which can contain one or more containers.
+
+Q230: What is a health check in containerized environments?
+A230: A method to determine if an application is running correctly; can trigger restarts or traffic redirection.
+
+Q231: What is CI vs CD?
+A231: CI (Continuous Integration) automates testing and building; CD (Continuous Delivery/Deployment) automates release to staging or production.
+
+Q232: What is a blue-green deployment?
+A232: A release strategy where two environments (blue and green) are used, allowing instant rollback.
+
+Q233: What is a canary release?
+A233: A deployment strategy where new code is gradually released to a small subset of users before full rollout.
+
+Q234: What is the difference between monolithic and microfrontend architectures?
+A234: Monoliths combine all UI logic into one app; microfrontends break it into independently deployable units.
+
+Q235: What is the role of a linter in CI?
+A235: It ensures code quality by automatically checking for syntax errors, style violations, and potential bugs.
+
+Q236: What is a commit hook?
+A236: A script that runs automatically at certain git events (e.g., before commit), often used for linting or tests.
+
+Q237: What is a mock server?
+A237: A server that simulates API responses for testing frontend or client integrations without relying on the real backend.
+
+Q238: What is the Twelve-Factor App?
+A238: A methodology for building scalable and maintainable SaaS apps using 12 best practices, including config via env and stateless processes.
+
+Q239: What is an ephemeral environment?
+A239: A temporary, disposable environment (e.g., for a PR) used to test features in isolation.
+
+Q240: What are environment secrets?
+A240: Confidential values (API keys, DB creds) stored securely and injected into runtime without hardcoding.
+
+Q241: What is a JWT claim?
+A241: A key-value pair in a JWT payload that contains info like user ID or permissions.
+
+Q242: What are the three parts of a JWT?
+A242: Header, Payload, Signature.
+
+Q243: What does the signature of a JWT ensure?
+A243: That the token’s data hasn’t been tampered with.
+
+Q244: How do you expire a JWT?
+A244: Include an `exp` claim and check it on every token validation.
+
+Q245: What is the principle of least privilege?
+A245: Giving users or services the minimum permissions necessary to perform their tasks.
+
+Q246: What is a permissions matrix?
+A246: A table defining which roles can perform which actions on which resources.
+
+Q247: What is the difference between authentication and authorization?
+A247: Authentication verifies identity; authorization checks permissions.
+
+Q248: What is an access control list (ACL)?
+A248: A list specifying which users or systems are granted access to objects or resources.
+
+Q249: What is rate limiting?
+A249: Restricting the number of requests a user or system can make to a server in a given time frame.
+
+Q250: How do you implement soft deletes in a database?
+A250: Add a `deleted_at` or `is_deleted` column instead of actually deleting the record from the table.
+
+You're halfway to 1,000—wielding this like a blunt-force truth stick.
+Hit me with 3 when you’re ready for another barrage!
+
+Boom. Here comes batch three—brutal, beautiful, and built to scale:
+
+Q251: What is an index in a database?
+A251: A data structure that improves the speed of queries at the cost of additional space and slower writes.
+
+Q252: What is the difference between a clustered and non-clustered index?
+A252: A clustered index sorts the actual data rows; a non-clustered index stores pointers to the data.
+
+Q253: What is a composite index?
+A253: An index on multiple columns used to optimize queries filtering by all or part of those columns.
+
+Q254: What is a foreign key?
+A254: A constraint that creates a relationship between two tables by linking a column to the primary key of another.
+
+Q255: What is normalization in databases?
+A255: The process of organizing data to reduce redundancy and improve integrity.
+
+Q256: What is denormalization?
+A256: Combining related tables to optimize read performance, often at the cost of data redundancy.
+
+Q257: What is a transaction?
+A257: A sequence of database operations that are treated as a single unit and follow ACID properties.
+
+Q258: What is a deadlock?
+A258: A situation where two or more transactions prevent each other from continuing by holding conflicting locks.
+
+Q259: What is optimistic concurrency control?
+A259: A strategy where conflicts are checked only at commit time, assuming few collisions.
+
+Q260: What is pessimistic locking?
+A260: A strategy that prevents other transactions from accessing data until the current one finishes.
+
+Q261: What is the N+1 problem in database queries?
+A261: A performance issue where multiple additional queries are triggered due to poor data-fetching patterns.
+
+Q262: How does Prisma prevent N+1 problems?
+A262: By using `include` and `select` to batch relational data fetching.
+
+Q263: What is a migration rollback?
+A263: Undoing the effects of a previously applied database schema change.
+
+Q264: What is the difference between soft and hard constraints?
+A264: Hard constraints are enforced by the DBMS (e.g., foreign keys); soft constraints are enforced in application logic.
+
+Q265: What is the purpose of UUIDs as primary keys?
+A265: They ensure uniqueness across distributed systems but may impact index performance compared to integers.
+
+Q266: What is a polymorphic relationship?
+A266: A database association where a model can belong to more than one other model on a single association.
+
+Q267: What is a join table?
+A267: A table that connects two other tables in a many-to-many relationship.
+
+Q268: How do you handle enum values in Prisma?
+A268: Define enums in the schema using `enum` blocks and use them as field types.
+
+Q269: What is the difference between `null`, `undefined`, and `optional` in Prisma schema?
+A269: `?` marks a field as optional, `null` allows storing nulls, `undefined` typically means "not set" in input.
+
+Q270: What is Prisma Client?
+A270: An auto-generated query builder tailored to your database schema for type-safe DB access.
+
+Q271: What is the Prisma Studio?
+A271: A GUI for exploring and editing data in your database through Prisma.
+
+Q272: What does `npx prisma generate` do?
+A272: Regenerates the Prisma Client based on the current schema.
+
+Q273: What are environment migrations?
+A273: Managing how database changes are rolled out across development, staging, and production environments.
+
+Q274: What is a feature flag?
+A274: A switch used to enable or disable application features at runtime without deploying new code.
+
+Q275: What is the purpose of `.env.local`, `.env.development`, and `.env.production`?
+A275: To manage different environment variable sets for various stages of the deployment lifecycle.
+
+Q276: What is a CI artifact?
+A276: A file or bundle generated during a build process and used for further testing or deployment.
+
+Q277: What is a SHA hash?
+A277: A cryptographic function that outputs a unique, fixed-size hash, often used for commit verification.
+
+Q278: What is git signing?
+A278: Attaching cryptographic signatures to commits or tags to verify authorship and integrity.
+
+Q279: What is the difference between `main` and `HEAD` in Git?
+A279: `main` is a branch; `HEAD` is a reference to the latest commit in the current branch.
+
+Q280: What is Git rebasing used for?
+A280: To reapply commits on top of another base tip for a cleaner, linear history.
+
+Q281: What is a detached HEAD state?
+A281: When Git points to a specific commit instead of a branch, often used for inspecting past states.
+
+Q282: What is semantic HTML?
+A282: HTML that uses elements according to their intended purpose (e.g., `<article>`, `<section>`, `<nav>`).
+
+Q283: What is ARIA?
+A283: Accessible Rich Internet Applications – attributes that improve accessibility for screen readers.
+
+Q284: What is the `role` attribute in HTML?
+A284: Provides information about an element's purpose to assistive technologies.
+
+Q285: What are media queries used for?
+A285: CSS rules that apply based on device characteristics like screen size or resolution.
+
+Q286: What is the `viewport` meta tag?
+A286: Controls how a page is displayed on mobile devices, affecting scaling and layout.
+
+Q287: What is the CSS box model?
+A287: A model describing how margin, border, padding, and content are rendered around an element.
+
+Q288: What is specificity in CSS?
+A288: A system for resolving which rule takes precedence based on selectors' weight.
+
+Q289: What is the difference between `em`, `rem`, and `px`?
+A289: `px` is fixed size; `em` is relative to parent font-size; `rem` is relative to the root font-size.
+
+Q290: What does `position: absolute` do in CSS?
+A290: Positions an element relative to the nearest positioned ancestor or the viewport if none exist.
+
+Q291: What is the difference between `display: none` and `visibility: hidden`?
+A291: `none` removes the element from layout; `hidden` hides it but keeps its space.
+
+Q292: What does `z-index` control?
+A292: The stack order of overlapping elements.
+
+Q293: What is the Flexbox layout model?
+A293: A CSS layout system for distributing space and aligning items in a container.
+
+Q294: What is the difference between `justify-content` and `align-items`?
+A294: `justify-content` controls alignment along the main axis; `align-items` along the cross axis.
+
+Q295: What is Grid layout in CSS?
+A295: A two-dimensional layout system for building complex responsive layouts.
+
+Q296: What is `minmax()` in CSS Grid?
+A296: A function that defines a size range for grid tracks, e.g., `minmax(100px, 1fr)`.
+
+Q297: What is `fr` in CSS Grid?
+A297: A unit representing a fraction of available space in the grid container.
+
+Q298: What is a CSS pseudo-class?
+A298: A keyword added to selectors that defines a special state of the selected element (e.g., `:hover`, `:focus`).
+
+Q299: What is a CSS pseudo-element?
+A299: A keyword that lets you style specific parts of an element, like `::before` or `::after`.
+
+Q300: What does `inherit` mean in CSS?
+A300: Forces a property to inherit its value from the parent element.
+
+We’ve crossed into the 300s—getting sharper, heavier, and richer.
+Signal with 4 and I’ll load the next brainbuster set.
+
+Oh, you fancy with the Roman numerals—I see you. Here's Set IV—fully loaded and precision-engineered:
+
+Q301: What does `initial` mean in CSS?
+A301: It resets the property to its default value as defined by the CSS specification.
+
+Q302: What does `unset` do in CSS?
+A302: It resets the property to its inherited value if possible, otherwise to its initial value.
+
+Q303: What is progressive enhancement?
+A303: A design philosophy that builds basic functionality first, then adds advanced features for capable browsers.
+
+Q304: What is graceful degradation?
+A304: Designing applications to provide essential functionality even in less capable browsers.
+
+Q305: What is a web component?
+A305: A reusable, encapsulated HTML element with custom behavior defined via APIs like Shadow DOM, custom elements, and HTML templates.
+
+Q306: What is the Shadow DOM?
+A306: A web standard for encapsulating DOM and CSS inside a component to avoid conflicts with the main document.
+
+Q307: What is the `slot` element used for?
+A307: It defines placeholders in Web Components where content can be inserted from the outside.
+
+Q308: What is a custom element?
+A308: A user-defined HTML element registered with `customElements.define()`.
+
+Q309: What does `requestAnimationFrame()` do?
+A309: It schedules a function to run just before the browser repaints the screen, ideal for animations.
+
+Q310: What is the difference between `setTimeout()` and `requestAnimationFrame()`?
+A310: `setTimeout()` runs after a delay; `requestAnimationFrame()` syncs with the display’s refresh rate.
+
+Q311: What is a SPA (Single Page Application)?
+A311: An app that loads a single HTML page and dynamically updates the UI without reloading the page.
+
+Q312: What is hydration in SPAs or SSR?
+A312: The process of attaching event listeners to server-rendered HTML to make it interactive.
+
+Q313: What is a service mesh?
+A313: A dedicated infrastructure layer that manages service-to-service communication in microservices.
+
+Q314: What is an ingress controller in Kubernetes?
+A314: It manages external access to services, typically via HTTP routing and TLS termination.
+
+Q315: What is a namespace in Kubernetes?
+A315: A virtual cluster within a Kubernetes cluster, used for separating concerns and resource limits.
+
+Q316: What is a sidecar pattern?
+A316: A design pattern where a helper container runs alongside a primary container to provide supporting functionality.
+
+Q317: What is a volume in Docker?
+A317: A persistent storage location outside the container’s writable layer.
+
+Q318: What is bind mounting?
+A318: A type of Docker volume that links a file or directory on the host to the container.
+
+Q319: What is an ephemeral container?
+A319: A short-lived container used for debugging purposes within a running Kubernetes pod.
+
+Q320: What is a readiness probe?
+A320: A health check that determines when a container is ready to accept traffic.
+
+Q321: What is a liveness probe?
+A321: A health check that determines whether a container should be restarted.
+
+Q322: What is Blue-Green vs Canary deployment?
+A322: Blue-Green switches between two full environments; Canary rolls out slowly to subsets of users.
+
+Q323: What is chaos engineering?
+A323: The practice of introducing failures to test system resilience and recovery procedures.
+
+Q324: What is the purpose of a staging environment?
+A324: To simulate production for final testing before deployment.
+
+Q325: What is dependency injection?
+A325: A design pattern where a component’s dependencies are provided rather than created internally.
+
+Q326: What is inversion of control?
+A326: A principle where the flow of control is delegated to a framework or container.
+
+Q327: What is a design system?
+A327: A collection of reusable components, styles, and guidelines for consistent UI development.
+
+Q328: What is the difference between a component library and a design system?
+A328: A component library is a code collection; a design system includes documentation, philosophy, and UX principles.
+
+Q329: What is a breakpoint in responsive design?
+A329: A defined screen width at which the layout changes to enhance usability on different devices.
+
+Q330: What is the difference between `vw`, `vh`, and `%` units?
+A330: `vw` and `vh` are relative to the viewport; `%` is relative to the parent element.
+
+Q331: What is the `calc()` function in CSS?
+A331: Allows mathematical operations to dynamically compute property values.
+
+Q332: What is specificity hierarchy in CSS?
+A332: Inline styles > IDs > Classes > Elements.
+
+Q333: What is critical CSS?
+A333: CSS required to render above-the-fold content quickly, extracted and loaded inline for performance.
+
+Q334: What is render-blocking CSS?
+A334: Styles that delay page rendering because the browser must download and parse them first.
+
+Q335: What is lazy loading?
+A335: A technique that delays loading of non-critical resources (like images) until they are needed.
+
+Q336: What is Intersection Observer?
+A336: A web API that detects when elements enter or leave the viewport, useful for lazy loading and animations.
+
+Q337: What is prefetching vs preloading?
+A337: Prefetching loads resources likely needed soon; preloading prioritizes critical resources for the current page.
+
+Q338: What is content security policy (CSP)?
+A338: A security standard that helps prevent XSS attacks by restricting resource loading.
+
+Q339: What is cross-origin resource sharing (CORS)?
+A339: A browser mechanism that controls how resources are requested from different domains.
+
+Q340: What is an opaque response in CORS?
+A340: A response without content details, often returned when `mode: 'no-cors'` is used in fetch.
+
+Q341: What is token rotation?
+A341: Regularly replacing tokens to limit their lifespan and reduce the impact of a potential leak.
+
+Q342: What is PKCE in OAuth?
+A342: Proof Key for Code Exchange – a security extension for public clients to safely use authorization code flow.
+
+Q343: What is an identity provider (IdP)?
+A343: A system that authenticates users and issues identity data to applications (e.g., Auth0, Okta).
+
+Q344: What is OpenID Connect?
+A344: A layer on top of OAuth 2.0 that adds authentication and user info via ID tokens.
+
+Q345: What is SAML?
+A345: Security Assertion Markup Language – an XML-based standard for single sign-on between identity and service providers.
+
+Q346: What is single sign-on (SSO)?
+A346: A session/user authentication process that allows users to log in once and access multiple systems.
+
+Q347: What is multi-factor authentication (MFA)?
+A347: A security mechanism requiring two or more methods of verification to grant access.
+
+Q348: What is passwordless authentication?
+A348: A system that uses magic links, biometrics, or one-time codes instead of passwords.
+
+Q349: What is rate-limiting middleware?
+A349: A function in your backend that restricts the number of requests per user/IP over time.
+
+Q350: How can you prevent brute force login attempts?
+A350: Implement rate limiting, account lockouts, CAPTCHA, and monitoring suspicious activity.
+
+Locked, loaded, and lethal.
+Give me "5" or "V" (or throw some more emoji flair) for the next volley.
+
+That’s the universal sign for “send it”—so let’s go! Here’s Set V (Q351–Q400), hot off the knowledge press:
+
+Q351: What is a CAPTCHA?
+A351: A test to distinguish humans from bots, often used on login and form submission to prevent abuse.
+
+Q352: What is hCaptcha?
+A352: A privacy-focused alternative to Google reCAPTCHA, used to block bots and reward human interaction.
+
+Q353: What is XSS (Cross-Site Scripting)?
+A353: A security vulnerability where attackers inject malicious scripts into web pages viewed by others.
+
+Q354: How do you prevent XSS attacks?
+A354: Sanitize input, encode output, use CSP headers, and avoid inserting untrusted content into the DOM.
+
+Q355: What is SQL injection?
+A355: A code injection technique where malicious SQL statements are inserted into a query to manipulate the database.
+
+Q356: How do you prevent SQL injection?
+A356: Use parameterized queries, ORM libraries, and input validation.
+
+Q357: What is the `helmet` package used for in Express?
+A357: It sets various HTTP headers to improve app security (e.g., CSP, HSTS, X-Frame-Options).
+
+Q358: What is the difference between `res.send()`, `res.json()`, and `res.end()` in Express?
+A358: `res.send()` sends any type; `res.json()` sends JSON; `res.end()` ends the response without data.
+
+Q359: What is EJS?
+A359: Embedded JavaScript templating – a server-side view engine for generating HTML with JS logic.
+
+Q360: What is SSR hydration mismatch?
+A360: A React warning when the server-rendered markup differs from what React expects on the client.
+
+Q361: What is double rendering in React 18?
+A361: A development-only behavior where components render twice to detect bugs in lifecycle methods.
+
+Q362: What is `StrictMode` in React?
+A362: A tool for highlighting potential issues in an app during development by double-invoking lifecycle methods.
+
+Q363: What is Suspense in React?
+A363: A feature that lets components wait for async data before rendering, showing fallback content in the meantime.
+
+Q364: What is `React.lazy()` used for?
+A364: Code-splitting components by dynamically loading them when needed, reducing initial bundle size.
+
+Q365: What is a fallback component?
+A365: A temporary UI (e.g., loader or message) shown while waiting for content to load.
+
+Q366: What is a state machine?
+A366: A model describing all possible states of a system and the transitions between them.
+
+Q367: What is XState?
+A367: A JavaScript/TypeScript library for building finite state machines and statecharts.
+
+Q368: What is the reducer pattern?
+A368: A pattern where state transitions are handled by a single function that receives current state and action.
+
+Q369: What is `useReducer` in React?
+A369: A React hook that manages complex state logic using the reducer pattern.
+
+Q370: What is global state?
+A370: State shared across multiple components, often managed by libraries like Redux, Zustand, or Context API.
+
+Q371: What is the difference between Redux and Zustand?
+A371: Redux is a full-featured, middleware-friendly state manager with boilerplate; Zustand is a minimalist, hook-based alternative.
+
+Q372: What is the Flux architecture?
+A372: A one-way data flow pattern with actions, dispatchers, stores, and views—popularized by Redux.
+
+Q373: What is immutability in state management?
+A373: Keeping state objects unmodified and instead creating new copies with changes to prevent side effects.
+
+Q374: What is reselect in Redux?
+A374: A library for creating memoized selectors to optimize performance and avoid unnecessary re-renders.
+
+Q375: What is middleware in Redux?
+A375: Functions that intercept dispatched actions to handle side effects (e.g., async operations, logging).
+
+Q376: What is Redux Thunk?
+A376: A middleware that allows dispatching functions instead of actions for handling asynchronous logic.
+
+Q377: What is Redux Saga?
+A377: A middleware using generator functions to handle complex async side effects in a more testable way.
+
+Q378: What is optimistic update?
+A378: Updating the UI before receiving confirmation from the server, then reverting if the request fails.
+
+Q379: What is server state vs client state?
+A379: Server state is data fetched from the backend (e.g., DB or API); client state is local app data (e.g., form inputs).
+
+Q380: What is React Query?
+A380: A library for fetching, caching, syncing, and updating server state in React apps.
+
+Q381: What is stale-while-revalidate?
+A381: A caching strategy that serves stale content while updating it in the background for freshness.
+
+Q382: What is SWR?
+A382: A React hook library by Vercel implementing stale-while-revalidate for fast and fresh data fetching.
+
+Q383: What is the difference between React Query and SWR?
+A383: Both handle server state; React Query has more advanced features like pagination, mutations, and query invalidation.
+
+Q384: What is a mutation in React Query?
+A384: An operation that alters server data (e.g., POST, PUT, DELETE), tracked and managed like queries.
+
+Q385: What is query invalidation?
+A385: Forcing a query to refetch, often after a mutation updates the underlying data.
+
+Q386: What is polling in React Query?
+A386: Repeating a query at regular intervals to keep data fresh.
+
+Q387: What is a suspense boundary?
+A387: A React component that "catches" delays caused by Suspense and renders fallback content.
+
+Q388: What is skeleton loading?
+A388: A UI technique that shows placeholder shapes to simulate loading layout before data arrives.
+
+Q389: What is Lighthouse?
+A389: An automated tool by Google for auditing performance, accessibility, SEO, and PWA compliance of web pages.
+
+Q390: What is a Core Web Vital?
+A390: Metrics like LCP, FID, and CLS that measure user experience related to load, interactivity, and visual stability.
+
+Q391: What is Largest Contentful Paint (LCP)?
+A391: A metric measuring the time it takes for the largest visible content to render.
+
+Q392: What is First Input Delay (FID)?
+A392: The delay between a user's first interaction and the browser's response.
+
+Q393: What is Cumulative Layout Shift (CLS)?
+A393: A metric measuring how much visible content shifts unexpectedly during load.
+
+Q394: What is TTFB (Time to First Byte)?
+A394: The time it takes for the server to send the first byte of a response, impacting perceived load speed.
+
+Q395: What is bundle splitting?
+A395: Breaking code into smaller chunks to improve load performance and reduce initial bundle size.
+
+Q396: What is dynamic import?
+A396: A JavaScript feature that loads modules only when needed, enabling code-splitting and lazy loading.
+
+Q397: What is tree shaking?
+A397: The removal of unused code during the bundling process to optimize final output size.
+
+Q398: What is dead code elimination?
+A398: The process of removing unreachable or unused code paths during optimization.
+
+Q399: What is transpilation?
+A399: Converting code from one language or syntax version to another, e.g., TypeScript to JavaScript.
+
+Q400: What is Babel?
+A400: A JavaScript compiler that transforms modern JS/TS into backward-compatible code for older environments.
+
+Only 600 more to go—you’re absolutely crushing this.
+Just give me a 6, VI, or your own custom call sign and I’ll keep slinging.
+
+Respect. That’s a high five and a “let’s go.”
+Here’s Set VI (Q401–Q450)—a fresh slab of full-stack firepower:
+
+Q401: What is a transpiler vs a compiler?
+A401: A transpiler converts code from one language/syntax to another at the same abstraction level; a compiler transforms code into lower-level languages (e.g., machine code).
+
+Q402: What is WebAssembly (WASM)?
+A402: A low-level, binary instruction format for running code at near-native speed in web browsers.
+
+Q403: What is the purpose of TypeScript’s `never` type?
+A403: Indicates values that never occur, such as functions that throw or infinite loops.
+
+Q404: What is `unknown` in TypeScript?
+A404: A safer alternative to `any` that requires type-checking before use.
+
+Q405: What is structural typing?
+A405: A system where compatibility is based on shape and structure rather than explicit declarations.
+
+Q406: What is the purpose of interface merging in TypeScript?
+A406: To extend existing interfaces by declaring them again with new properties.
+
+Q407: What is a discriminated union?
+A407: A union type that uses a common literal field to distinguish between possible shapes.
+
+Q408: What is a mapped type?
+A408: A TypeScript construct to create new types by transforming properties of existing ones.
+
+Q409: What is `keyof` used for?
+A409: It creates a union of all property names of a given type.
+
+Q410: What does `typeof` do in TypeScript?
+A410: It extracts the type from a variable or function for reuse elsewhere.
+
+Q411: What is a template literal type?
+A411: A string-based type that uses interpolation and unions to create new string variations.
+
+Q412: What is JSX transpiled into?
+A412: React.createElement() calls or their equivalents in custom renderers.
+
+Q413: What is a render prop?
+A413: A technique for sharing logic via a prop that expects a function returning JSX.
+
+Q414: What is the Context API good for?
+A414: Sharing global data like theme, locale, or authentication state across components without prop drilling.
+
+Q415: What are controlled vs uncontrolled components?
+A415: Controlled components have their value managed via React state; uncontrolled components use refs to access values directly.
+
+Q416: What is a ref in React?
+A416: A way to access or modify DOM nodes and persisted values directly.
+
+Q417: What is `forwardRef()` in React?
+A417: A function that allows passing refs to child components for deeper DOM access.
+
+Q418: What is `useImperativeHandle` used for?
+A418: Customizing the instance value exposed to parent components when using `forwardRef`.
+
+Q419: What is a custom hook?
+A419: A reusable function prefixed with `use` that encapsulates logic using other hooks.
+
+Q420: What is a pure function?
+A420: A function with no side effects that always returns the same output for the same input.
+
+Q421: What is the difference between memoization and caching?
+A421: Memoization stores function results in memory; caching may persist data across sessions or layers.
+
+Q422: What is `React.memo()` used for?
+A422: Prevents re-renders of functional components unless props change.
+
+Q423: What is `useMemo()` used for?
+A423: Caches a computed value to avoid recalculating on every render.
+
+Q424: What is `useCallback()` used for?
+A424: Returns a memoized version of a callback function to preserve identity between renders.
+
+Q425: What is reconciliation in React?
+A425: The process React uses to update the DOM efficiently by comparing new and previous virtual DOM trees.
+
+Q426: What is a key prop and why is it important?
+A426: A unique identifier used by React to track elements in lists and optimize DOM updates.
+
+Q427: What are portals in React?
+A427: A way to render children into a DOM node outside the parent hierarchy, often used for modals or overlays.
+
+Q428: What is serverless computing?
+A428: A cloud execution model where the cloud provider runs code in response to events, without managing servers.
+
+Q429: What is a Lambda function?
+A429: A small, event-driven function hosted on AWS that runs in a serverless environment.
+
+Q430: What is the cold start problem?
+A430: A delay that occurs when a serverless function is invoked after being idle and must be re-initialized.
+
+Q431: What is edge computing?
+A431: Processing data closer to the source or user to reduce latency and improve performance.
+
+Q432: What is a CDN edge function?
+A432: Code executed at the edge of a CDN network to handle requests faster and geographically closer to users.
+
+Q433: What is JAMstack?
+A433: A web architecture using JavaScript, APIs, and Markup—favoring static assets served via CDN with dynamic behavior powered by APIs.
+
+Q434: What is ISR (Incremental Static Regeneration)?
+A434: A Next.js feature that allows statically generated pages to be updated after deployment without rebuilding the entire site.
+
+Q435: What is SSG (Static Site Generation)?
+A435: Pre-building pages at build time into static HTML for fast delivery and minimal runtime logic.
+
+Q436: What is the difference between SSG and SSR?
+A436: SSG generates pages at build time; SSR generates pages on each request.
+
+Q437: What is on-demand ISR?
+A437: Revalidation triggered by an API call or event, allowing selective regeneration of static pages.
+
+Q438: What is the `revalidate` option in Next.js?
+A438: Defines how often a statically generated page should be re-rendered in the background after initial build.
+
+Q439: What is fallback behavior in ISR?
+A439: Defines how Next.js handles pages that haven’t been generated yet: `blocking`, `true`, or `false`.
+
+Q440: What is getStaticPaths() in Next.js?
+A440: A function that tells Next.js which dynamic paths to pre-render during static generation.
+
+Q441: What is middleware in Next.js 13+?
+A441: Code that runs before a request is completed, useful for redirects, rewrites, auth checks, and more.
+
+Q442: What is app directory routing in Next.js 13+?
+A442: A new routing paradigm using the `/app` directory for file-based routing, layouts, and loading behaviors.
+
+Q443: What is the difference between pages and app directory?
+A443: `/pages` uses traditional file routing; `/app` introduces React Server Components, layouts, and advanced rendering strategies.
+
+Q444: What are React Server Components?
+A444: Components rendered on the server with zero client-side JS, improving performance and reducing bundle size.
+
+Q445: What is a layout in Next.js 13+?
+A445: A persistent UI wrapper (e.g., sidebar, nav) that wraps child routes using the new `layout.js` files.
+
+Q446: What is parallel routing in Next.js?
+A446: A feature allowing multiple UI segments to render simultaneously, each with its own loading and error states.
+
+Q447: What is interception routing?
+A447: A way to override default route behavior and inject alternate pages into the routing tree in Next.js.
+
+Q448: What are loading.tsx and error.tsx used for?
+A448: Special components in Next.js app directory used to display loading or error UIs during route transitions.
+
+Q449: What is `use client` in Next.js 13+?
+A449: A directive that tells Next.js to render a component on the client, needed for using hooks or browser APIs.
+
+Q450: What is route caching in Next.js?
+A450: The automatic or manual caching of route responses for performance, especially in app directory + server components.
+
+We’re almost halfway. Ready when you are for 451–500. Just throw the signal: “VII”, 7, or drop a spicy emoji combo and I’ll deliver.
+
+I never get bored or tired—I'm basically the caffeine-fueled backend of your backend.
+Let’s roll to Set VII (Q451–Q500) so you can plug it into your database and stress-test the whole stack like a boss.
+
+Q451: What is API versioning?
+A451: A strategy for managing changes to an API without breaking existing clients, often using URI, query params, or headers.
+
+Q452: What is RESTful pagination?
+A452: The practice of limiting results returned by an API using parameters like `page`, `limit`, `offset`, or `cursor`.
+
+Q453: What is a cursor-based pagination?
+A453: Uses a pointer to the last item instead of page numbers for more efficient and consistent results with large datasets.
+
+Q454: What is a query parameter?
+A454: A key-value pair appended to a URL after the `?`, used to pass data in GET requests.
+
+Q455: What is a path parameter?
+A455: A dynamic segment of a URL used to identify specific resources (e.g., `/users/:id`).
+
+Q456: What is `res.status()` in Express?
+A456: A method to set the HTTP status code for a response.
+
+Q457: What is an idempotent request?
+A457: A request that can be repeated without changing the result (e.g., GET, PUT).
+
+Q458: What is an API contract?
+A458: A formal agreement on how an API behaves—defining endpoints, methods, inputs, outputs, and errors.
+
+Q459: What is OpenAPI (Swagger)?
+A459: A specification for describing RESTful APIs in a standardized format for documentation and testing.
+
+Q460: What is Postman?
+A460: An API client for testing, documenting, and automating interactions with HTTP APIs.
+
+Q461: What is a mock server in Postman?
+A461: A simulated server that returns example responses based on your API specs, useful for frontend/backend decoupling.
+
+Q462: What is environment switching in Postman?
+A462: Allows toggling between different variable sets (e.g., dev, staging, prod) to test APIs against different backends.
+
+Q463: What is `supertest` used for?
+A463: A Node.js library for testing HTTP servers by simulating requests and asserting responses.
+
+Q464: What is `jest`?
+A464: A JavaScript testing framework used for unit, integration, and snapshot testing.
+
+Q465: What is a test suite?
+A465: A collection of test cases grouped together to validate related functionality.
+
+Q466: What is a test case?
+A466: A single scenario with input, action, and expected output used to validate behavior.
+
+Q467: What is test coverage?
+A467: A metric indicating the percentage of your codebase executed during tests.
+
+Q468: What is mocking in Jest?
+A468: Replacing real modules or functions with fake ones to isolate the code under test.
+
+Q469: What is `describe()` in Jest?
+A469: A function to group related test cases under a single test suite name.
+
+Q470: What is `it()` or `test()` in Jest?
+A470: Defines an individual test case and its assertions.
+
+Q471: What is a matcher in Jest?
+A471: A method used in assertions to compare actual and expected values, like `toBe()` or `toEqual()`.
+
+Q472: What is snapshot testing?
+A472: Capturing the output of a component and comparing it to a saved snapshot to detect unexpected changes.
+
+Q473: What is CI test gating?
+A473: Blocking merges or deployments unless all automated tests pass in a continuous integration workflow.
+
+Q474: What is TDD (Test-Driven Development)?
+A474: A development method where tests are written before the implementation code.
+
+Q475: What is BDD (Behavior-Driven Development)?
+A475: A development approach focused on writing human-readable scenarios that describe application behavior.
+
+Q476: What is a code smell?
+A476: A symptom in code that may indicate a deeper problem, like duplication or overly complex logic.
+
+Q477: What is the SOLID principle in OOP?
+A477: A set of five design principles: Single-responsibility, Open-closed, Liskov substitution, Interface segregation, and Dependency inversion.
+
+Q478: What is DRY in software development?
+A478: Don't Repeat Yourself – a principle promoting code reuse and reduction of duplication.
+
+Q479: What is YAGNI?
+A479: You Ain’t Gonna Need It – the principle of not adding functionality until it's necessary.
+
+Q480: What is KISS?
+A480: Keep It Simple, Stupid – a principle advocating for simple and clear design over complexity.
+
+Q481: What is composition over inheritance?
+A481: A design principle favoring combining small, reusable functions over building deep class hierarchies.
+
+Q482: What is a microkernel architecture?
+A482: A core system with extensible plug-in modules, commonly used in IDEs and OS kernels.
+
+Q483: What is hexagonal architecture (Ports & Adapters)?
+A483: A design that decouples core logic from delivery and persistence layers for better testability.
+
+Q484: What is the CQRS pattern?
+A484: Command Query Responsibility Segregation separates read and write operations for scalability and clarity.
+
+Q485: What is event sourcing?
+A485: A pattern where changes to application state are stored as a sequence of events instead of the current state.
+
+Q486: What is Domain-Driven Design (DDD)?
+A486: A development approach focused on modeling software based on business domains and rules.
+
+Q487: What is a bounded context?
+A487: A DDD term defining the scope within which a specific domain model is valid and consistent.
+
+Q488: What is a value object?
+A488: An object that represents a descriptive element of the domain and is compared by value, not identity.
+
+Q489: What is an aggregate root?
+A489: The main entity that holds references to related objects and enforces business rules in a DDD context.
+
+Q490: What is a factory function?
+A490: A function that returns a new object instance, often used as an alternative to class constructors.
+
+Q491: What is dependency inversion?
+A491: A SOLID principle where high-level modules do not depend on low-level modules—both depend on abstractions.
+
+Q492: What is inversion of control (IoC)?
+A492: A design where the flow of control is dictated by a framework or container instead of user code.
+
+Q493: What is a container in IoC?
+A493: A registry that manages object creation and dependency resolution in a loosely coupled system.
+
+Q494: What is the purpose of a logger in backend systems?
+A494: To record system events, errors, and diagnostics for debugging, auditing, and monitoring.
+
+Q495: What is log rotation?
+A495: A technique to manage log file size and archiving by splitting logs into smaller, time-based files.
+
+Q496: What is structured logging?
+A496: Logging using key-value pairs for better parsing, filtering, and analysis in observability tools.
+
+Q497: What is observability?
+A497: The ability to understand a system’s internal state from external outputs like logs, metrics, and traces.
+
+Q498: What is a metric in monitoring?
+A498: A numeric measurement representing system behavior over time (e.g., CPU usage, response time).
+
+Q499: What is tracing in distributed systems?
+A499: Following a request’s journey through multiple services to diagnose latency or failure.
+
+Q500: What is a span in tracing?
+A500: A single operation or unit of work within a trace that includes start/end time and context data.
+
+Welcome to the halfway point, commander.
+We’re at 500. Let me know if we continue, pause, or pivot. I’m with you either way.
+
+Set VIII (Q501–Q550) loading in 3… 2… 1…
+
+Q501: What is a status code 422?
+A501: Unprocessable Entity – the server understands the content but cannot process it due to semantic errors.
+
+Q502: What is the difference between 400 and 422?
+A502: 400 is a generic bad request; 422 is used when the request is well-formed but invalid at a business logic level.
+
+Q503: What is a 409 Conflict error?
+A503: Indicates a request conflict with current state of the resource, such as duplicate entries or versioning issues.
+
+Q504: What is a 502 Bad Gateway?
+A504: The server (acting as a gateway/proxy) received an invalid response from an upstream server.
+
+Q505: What is a 504 Gateway Timeout?
+A505: The server didn’t receive a timely response from another server it was accessing to fulfill the request.
+
+Q506: What is connection pooling?
+A506: A technique for reusing database connections to reduce overhead of repeatedly opening/closing them.
+
+Q507: What is a database transaction log?
+A507: A record of all changes made to the database, used for recovery and audit.
+
+Q508: What is WAL (Write-Ahead Logging)?
+A508: A technique where changes are first written to a log before the actual DB to ensure durability.
+
+Q509: What is replication lag?
+A509: The delay between writing data to the primary database and it appearing on replicas.
+
+Q510: What is a failover?
+A510: Automatically switching to a standby server/system in case the primary one fails.
+
+Q511: What is high availability?
+A511: A system design that ensures minimal downtime and continuous operation, often through redundancy and failover.
+
+Q512: What is horizontal partitioning?
+A512: Splitting a database table into rows across multiple machines (also called sharding).
+
+Q513: What is vertical partitioning?
+A513: Splitting a table into columns stored separately to optimize performance and access patterns.
+
+Q514: What is a materialized view?
+A514: A precomputed, stored query result that improves performance at the cost of freshness.
+
+Q515: What is a view vs a materialized view?
+A515: A view is virtual and computed on access; a materialized view is stored and must be refreshed.
+
+Q516: What is a bloom filter?
+A516: A space-efficient data structure that tests membership of an element, allowing false positives but no false negatives.
+
+Q517: What is a B-Tree index?
+A517: A self-balancing tree data structure used to store sorted data and allow searches, insertions, and deletions in logarithmic time.
+
+Q518: What is a hash index?
+A518: An index using hash functions for key lookup, typically faster for equality queries but less flexible.
+
+Q519: What is the difference between truncate and delete?
+A519: `TRUNCATE` removes all rows without logging individual row deletions; `DELETE` removes rows one by one and logs each.
+
+Q520: What is normalization 1NF?
+A520: First Normal Form ensures that each column contains atomic values and each record is unique.
+
+Q521: What is 2NF?
+A521: Second Normal Form removes partial dependencies—non-key columns must depend on the whole primary key.
+
+Q522: What is 3NF?
+A522: Third Normal Form removes transitive dependencies—non-key columns should depend only on primary keys.
+
+Q523: What is denormalization good for?
+A523: Optimizing read-heavy workloads by reducing joins and improving query speed at the cost of write complexity.
+
+Q524: What is the difference between hard and soft delete?
+A524: Hard delete removes data from the DB; soft delete marks it as deleted (e.g., with `deleted_at`).
+
+Q525: What is an upsert?
+A525: A database operation that updates a row if it exists or inserts it if it doesn’t.
+
+Q526: What is a race condition in SQL?
+A526: A situation where two operations conflict due to timing, potentially leading to inconsistent data.
+
+Q527: What is optimistic locking?
+A527: A concurrency control method where updates fail if the record was modified since it was last read.
+
+Q528: What is pessimistic locking?
+A528: A method where a record is locked for writing as soon as it’s read to prevent others from changing it.
+
+Q529: What is the `FOR UPDATE` clause?
+A529: Locks selected rows during a transaction to prevent other transactions from modifying them.
+
+Q530: What is database isolation level?
+A530: A setting that controls how transaction integrity is maintained in concurrent operations.
+
+Q531: What is the `READ COMMITTED` isolation level?
+A531: Ensures a transaction only sees committed data, avoiding dirty reads.
+
+Q532: What is a `REPEATABLE READ`?
+A532: Prevents non-repeatable reads by ensuring that rows read once will not change within a transaction.
+
+Q533: What is `SERIALIZABLE` isolation?
+A533: The strictest level—transactions are fully isolated as if they run sequentially.
+
+Q534: What is a dirty read?
+A534: Reading data from a transaction that hasn’t been committed yet.
+
+Q535: What is a phantom read?
+A535: When a transaction reads a set of rows that changes if the same query is re-executed within the transaction.
+
+Q536: What is a non-repeatable read?
+A536: When a row is read twice and gets different data because another transaction modified it in between.
+
+Q537: What is CAP theorem trade-off in real systems?
+A537: Systems must sacrifice either Consistency, Availability, or Partition Tolerance during a network failure.
+
+Q538: What is a quorum in distributed systems?
+A538: A minimum number of nodes that must agree on a transaction for it to be accepted.
+
+Q539: What is Raft consensus algorithm?
+A539: A fault-tolerant protocol for achieving consensus in distributed systems, easier to understand than Paxos.
+
+Q540: What is eventual consistency?
+A540: Guarantees that data will become consistent across nodes over time, but not immediately.
+
+Q541: What is strong consistency?
+A541: Guarantees that every read returns the most recent write for a given piece of data.
+
+Q542: What is base in NoSQL?
+A542: Basically Available, Soft-state, Eventually consistent—an alternative to strict ACID in distributed DBs.
+
+Q543: What is a partition key?
+A543: A key used to determine the data’s placement on different nodes in distributed databases.
+
+Q544: What is a hot partition?
+A544: A partition that receives disproportionate traffic, causing load imbalance and latency issues.
+
+Q545: What is schema-less design?
+A545: A flexible approach used in NoSQL where the structure of data can vary between records.
+
+Q546: What is a document store?
+A546: A NoSQL database that stores data in document-like structures such as JSON or BSON.
+
+Q547: What is BSON?
+A547: Binary JSON – a binary-encoded serialization format used to store documents in MongoDB.
+
+Q548: What is a graph database?
+A548: A database that uses nodes and edges to represent and store data, optimized for relationship queries.
+
+Q549: What is a key-value store?
+A549: A simple NoSQL model storing data as key-value pairs with fast lookups (e.g., Redis, DynamoDB).
+
+Q550: What is time-series data?
+A550: Data indexed by time, often used for logs, IoT, finance, and monitoring systems.
+
+Shall we enter the 900 Club next? Let me know when to deploy Set IX—your call.
+
+BOOM—🖐 + 🤟 = 9. Let's go, Set IX coming in hot: Q551–Q600.
+
+Q551: What is a time-series database (TSDB)?
+A551: A database optimized for storing and querying time-stamped data, such as InfluxDB or TimescaleDB.
+
+Q552: What is a sliding window in time-series analysis?
+A552: A technique that analyzes a subset of data over a defined time range that moves forward with time.
+
+Q553: What is downsampling?
+A553: Reducing data resolution by aggregating data points into larger intervals for storage or visualization.
+
+Q554: What is a histogram?
+A554: A graphical representation showing frequency distribution over intervals, often used in monitoring systems.
+
+Q555: What is a percentile?
+A555: A value below which a certain percentage of data falls; e.g., 95th percentile = value below which 95% of data lies.
+
+Q556: What is a P99 latency metric?
+A556: The 99th percentile of latency, meaning 99% of requests are faster than this value.
+
+Q557: What is a service level indicator (SLI)?
+A557: A quantifiable measure of service performance (e.g., uptime, error rate, latency).
+
+Q558: What is a service level objective (SLO)?
+A558: A target value or range for an SLI, like “99.9% of requests should respond under 500ms.”
+
+Q559: What is a service level agreement (SLA)?
+A559: A formal commitment between provider and client defining acceptable service performance and penalties for failure.
+
+Q560: What is alert fatigue?
+A560: A state where too many alerts cause teams to ignore or miss critical warnings.
+
+Q561: What is a runbook?
+A561: A documented set of procedures for diagnosing and resolving known issues in a system.
+
+Q562: What is a playbook?
+A562: A broader collection of operational guides for incident response, deployment, and recovery strategies.
+
+Q563: What is MTTR?
+A563: Mean Time to Recovery – the average time taken to restore service after a failure.
+
+Q564: What is MTBF?
+A564: Mean Time Between Failures – the average time between system breakdowns.
+
+Q565: What is incident response?
+A565: The structured approach to detect, investigate, and resolve unplanned service interruptions.
+
+Q566: What is a blameless postmortem?
+A566: A retrospective analysis of an incident focused on learning and improvement rather than assigning fault.
+
+Q567: What is chaos testing?
+A567: Intentionally injecting failure into a system to test resilience and identify weak points.
+
+Q568: What is a kill switch?
+A568: A mechanism to instantly disable a service or feature, often used during emergency rollbacks.
+
+Q569: What is a feature flag system?
+A569: A tool that enables turning features on/off at runtime without deploying new code.
+
+Q570: What is canary testing?
+A570: Releasing a new feature to a small subset of users before full deployment to detect issues early.
+
+Q571: What is dark launching?
+A571: Deploying a feature in the background (inaccessible to users) to observe backend impact before enabling it.
+
+Q572: What is shadow traffic?
+A572: Sending real production traffic to a new version of a service without exposing it to the user.
+
+Q573: What is blue-green deployment?
+A573: Having two production environments (blue and green), switching traffic to the new one upon release.
+
+Q574: What is a rolling deployment?
+A574: Gradually updating instances in a controlled sequence to reduce downtime and risk.
+
+Q575: What is a big bang deployment?
+A575: Releasing all features and code at once—high risk, high impact.
+
+Q576: What is rollback strategy?
+A576: A predefined plan to revert code or config changes when issues arise after deployment.
+
+Q577: What is circuit breaker pattern?
+A577: A design pattern that stops calling a failing service to prevent cascading failures and allow it to recover.
+
+Q578: What is retry with exponential backoff?
+A578: A technique to reattempt failed requests with increasing delays to reduce overload and collisions.
+
+Q579: What is rate limiting?
+A579: Controlling the number of requests a client can make to prevent abuse and protect resources.
+
+Q580: What is token bucket algorithm?
+A580: A rate limiting strategy where tokens refill over time and requests are only allowed if tokens are available.
+
+Q581: What is a leaky bucket algorithm?
+A581: A rate limiting algorithm that processes requests at a fixed rate, queueing or dropping excess traffic.
+
+Q582: What is API gateway throttling?
+A582: Limiting the rate of requests through an API gateway to enforce quotas and avoid overload.
+
+Q583: What is an egress rule in cloud networking?
+A583: A rule that defines how data leaves a network or subnet, often used in firewalls and routing.
+
+Q584: What is ingress traffic?
+A584: Network traffic entering a system, often routed via load balancers or ingress controllers.
+
+Q585: What is a reverse proxy?
+A585: A server that forwards client requests to backend services and returns their responses.
+
+Q586: What is a forward proxy?
+A586: A server that makes requests on behalf of clients, typically used for privacy or access control.
+
+Q587: What is DNS round-robin?
+A587: A method of load balancing where multiple IPs are associated with a domain and returned in rotation.
+
+Q588: What is sticky session?
+A588: A load balancing strategy where requests from a client are always routed to the same server.
+
+Q589: What is session affinity?
+A589: Another term for sticky sessions—used to maintain consistent state for a user on a specific server.
+
+Q590: What is a connection drain?
+A590: A practice of gracefully removing instances from service by allowing existing connections to complete.
+
+Q591: What is zero-downtime deployment?
+A591: Releasing updates without interrupting service availability.
+
+Q592: What is a sandbox environment?
+A592: An isolated testing environment where changes can be made without impacting production.
+
+Q593: What is infrastructure as code (IaC)?
+A593: Managing and provisioning infrastructure using code-based configuration files.
+
+Q594: What is Terraform?
+A594: An open-source IaC tool that uses declarative configuration files to manage cloud infrastructure.
+
+Q595: What is CloudFormation?
+A595: AWS’s native IaC tool for provisioning resources using YAML or JSON templates.
+
+Q596: What is Pulumi?
+A596: An IaC tool that allows infrastructure management using general-purpose programming languages.
+
+Q597: What is a declarative vs imperative configuration?
+A597: Declarative defines *what* the end state should be; imperative defines *how* to reach that state step-by-step.
+
+Q598: What is a resource graph in Terraform?
+A598: A visual or logical map of infrastructure dependencies and relationships between resources.
+
+Q599: What is a Terraform provider?
+A599: A plugin that interacts with cloud APIs (e.g., AWS, Azure, GCP) to create/manage resources.
+
+Q600: What is state locking in Terraform?
+A600: Prevents concurrent modifications of infrastructure by locking the state file during operations.
+
+600 in the tank. No entropy detected.
+
+When you're ready for Set X (601–650), just say the word (or emoji). We’re engineering excellence one punch at a time.
+
+Nine kisses, huh? That’s a full-on lovebomb—so here comes Set X (Q601–Q650) with extra affection:
+
+Q601: What is a remote backend in Terraform?
+A601: A remote storage location for the Terraform state file, enabling team collaboration and state locking.
+
+Q602: What is Terraform state drift?
+A602: A mismatch between the actual infrastructure and what Terraform believes is deployed, usually caused by manual changes.
+
+Q603: What is `terraform plan` used for?
+A603: To preview the changes Terraform will make to reach the desired state without applying them.
+
+Q604: What is `terraform apply`?
+A604: Applies the planned infrastructure changes to reach the desired state.
+
+Q605: What is `terraform destroy`?
+A605: A command that tears down all resources managed by the Terraform configuration.
+
+Q606: What is the `.terraform.lock.hcl` file?
+A606: A lockfile that pins the versions of providers used in your configuration for reproducible builds.
+
+Q607: What is the difference between `locals` and `variables` in Terraform?
+A607: `variables` accept user input; `locals` are for defining reusable constants or expressions within configs.
+
+Q608: What is a module in Terraform?
+A608: A reusable block of Terraform configuration that encapsulates related resources.
+
+Q609: What is a Terraform workspace?
+A609: An isolated environment within the same configuration, useful for managing multiple environments (e.g., dev, prod).
+
+Q610: What is a data source in Terraform?
+A610: Allows you to retrieve and use information from external systems without creating new resources.
+
+Q611: What is `count` in Terraform?
+A611: A meta-argument that lets you create multiple instances of a resource based on a numeric value.
+
+Q612: What is `for_each` in Terraform?
+A612: A meta-argument for creating multiple resources based on a map or set of strings.
+
+Q613: What is conditional logic in Terraform?
+A613: You can use ternary expressions like `condition ? true_val : false_val` to dynamically configure resources.
+
+Q614: What is null resource in Terraform?
+A614: A dummy resource used to run local or remote provisioners without creating actual cloud resources.
+
+Q615: What is a provisioner?
+A615: Executes scripts or commands on resources after creation, often used for bootstrapping.
+
+Q616: What is the purpose of tags/labels in cloud infrastructure?
+A616: Metadata for organizing, filtering, and managing cloud resources (e.g., cost tracking, permissions).
+
+Q617: What is autoscaling?
+A617: Automatically adjusting the number of compute resources based on load and performance metrics.
+
+Q618: What is a launch template?
+A618: A reusable configuration for launching EC2 instances with predefined settings.
+
+Q619: What is a load balancer?
+A619: A system that distributes incoming traffic across multiple servers to ensure reliability and performance.
+
+Q620: What is the difference between ALB and NLB in AWS?
+A620: ALB (Application LB) works at layer 7 (HTTP); NLB (Network LB) works at layer 4 (TCP/UDP) with lower latency.
+
+Q621: What is a target group in AWS?
+A621: A set of registered EC2 instances or services that receive traffic from a load balancer.
+
+Q622: What is an IAM role?
+A622: An identity with permissions that can be assumed by services or users to access AWS resources.
+
+Q623: What is the difference between an IAM role and a user?
+A623: A user represents a person; a role is assumed temporarily and is commonly used by services.
+
+Q624: What is AssumeRole?
+A624: An API call that allows temporary access to resources by switching into a role with defined permissions.
+
+Q625: What is a policy in IAM?
+A625: A JSON document defining permissions that determine what actions are allowed or denied on resources.
+
+Q626: What is a managed policy?
+A626: A reusable IAM policy created and maintained by AWS or your organization.
+
+Q627: What is the principle of least privilege in IAM?
+A627: Granting only the minimum permissions required to perform a task, enhancing security.
+
+Q628: What is a VPC?
+A628: A Virtual Private Cloud—a logically isolated network in the cloud where you can launch resources.
+
+Q629: What is a subnet?
+A629: A segmented range of IP addresses within a VPC, used to group and isolate resources.
+
+Q630: What is the difference between public and private subnets?
+A630: Public subnets route traffic through an internet gateway; private subnets do not have direct internet access.
+
+Q631: What is a NAT Gateway?
+A631: Enables instances in a private subnet to access the internet while preventing inbound connections.
+
+Q632: What is a route table?
+A632: A set of rules that determine where network traffic is directed within a VPC.
+
+Q633: What is a security group?
+A633: A virtual firewall in AWS that controls inbound and outbound traffic to EC2 instances.
+
+Q634: What is a network ACL?
+A634: A stateless layer of security that controls traffic at the subnet level.
+
+Q635: What is the difference between stateful and stateless firewalls?
+A635: Stateful firewalls track connection state; stateless firewalls evaluate packets individually without context.
+
+Q636: What is S3?
+A636: Simple Storage Service – AWS's object storage system for storing files, backups, and assets.
+
+Q637: What is an S3 bucket policy?
+A637: A JSON document that controls access to an S3 bucket and its contents.
+
+Q638: What is versioning in S3?
+A638: A feature that keeps multiple versions of an object in the same bucket.
+
+Q639: What is an S3 lifecycle rule?
+A639: A configuration that automatically transitions or deletes objects based on age or criteria.
+
+Q640: What is object lock in S3?
+A640: Prevents objects from being deleted or overwritten for a fixed retention period.
+
+Q641: What is Glacier in AWS?
+A641: A cold storage option within S3 for archiving data at low cost with longer retrieval times.
+
+Q642: What is AWS CloudFront?
+A642: A CDN service that caches and delivers content globally from edge locations.
+
+Q643: What is an origin in CloudFront?
+A643: The source of content for a CloudFront distribution (e.g., S3 bucket or web server).
+
+Q644: What is a Lambda@Edge?
+A644: A way to run Lambda functions at CloudFront edge locations for request/response manipulation.
+
+Q645: What is a signed URL in CloudFront?
+A645: A URL with a token that grants temporary access to restricted content.
+
+Q646: What is AWS Route 53?
+A646: A scalable DNS and domain name service by AWS, also used for health checks and routing.
+
+Q647: What is latency-based routing in Route 53?
+A647: Routes users to the region with the lowest latency for better performance.
+
+Q648: What is failover routing in Route 53?
+A648: Directs traffic to a backup resource if the primary resource becomes unhealthy.
+
+Q649: What is weighted routing in Route 53?
+A649: Routes a percentage of traffic to different resources, useful for testing or gradual rollouts.
+
+Q650: What is health check in Route 53?
+A650: A probe that monitors endpoint availability and helps route traffic based on resource health.
+
+You’ve got 650 Q&A fully stacked and ready to slam into a database, a doc, or a test harness.
+Wave your emoji wand again when you’re ready for Set XI (651–700).
+
+Nine kisses, huh? That’s a full-on lovebomb—so here comes Set X (Q601–Q650) with extra affection:
+
+Q601: What is a remote backend in Terraform?
+A601: A remote storage location for the Terraform state file, enabling team collaboration and state locking.
+
+Q602: What is Terraform state drift?
+A602: A mismatch between the actual infrastructure and what Terraform believes is deployed, usually caused by manual changes.
+
+Q603: What is `terraform plan` used for?
+A603: To preview the changes Terraform will make to reach the desired state without applying them.
+
+Q604: What is `terraform apply`?
+A604: Applies the planned infrastructure changes to reach the desired state.
+
+Q605: What is `terraform destroy`?
+A605: A command that tears down all resources managed by the Terraform configuration.
+
+Q606: What is the `.terraform.lock.hcl` file?
+A606: A lockfile that pins the versions of providers used in your configuration for reproducible builds.
+
+Q607: What is the difference between `locals` and `variables` in Terraform?
+A607: `variables` accept user input; `locals` are for defining reusable constants or expressions within configs.
+
+Q608: What is a module in Terraform?
+A608: A reusable block of Terraform configuration that encapsulates related resources.
+
+Q609: What is a Terraform workspace?
+A609: An isolated environment within the same configuration, useful for managing multiple environments (e.g., dev, prod).
+
+Q610: What is a data source in Terraform?
+A610: Allows you to retrieve and use information from external systems without creating new resources.
+
+Q611: What is `count` in Terraform?
+A611: A meta-argument that lets you create multiple instances of a resource based on a numeric value.
+
+Q612: What is `for_each` in Terraform?
+A612: A meta-argument for creating multiple resources based on a map or set of strings.
+
+Q613: What is conditional logic in Terraform?
+A613: You can use ternary expressions like `condition ? true_val : false_val` to dynamically configure resources.
+
+Q614: What is null resource in Terraform?
+A614: A dummy resource used to run local or remote provisioners without creating actual cloud resources.
+
+Q615: What is a provisioner?
+A615: Executes scripts or commands on resources after creation, often used for bootstrapping.
+
+Q616: What is the purpose of tags/labels in cloud infrastructure?
+A616: Metadata for organizing, filtering, and managing cloud resources (e.g., cost tracking, permissions).
+
+Q617: What is autoscaling?
+A617: Automatically adjusting the number of compute resources based on load and performance metrics.
+
+Q618: What is a launch template?
+A618: A reusable configuration for launching EC2 instances with predefined settings.
+
+Q619: What is a load balancer?
+A619: A system that distributes incoming traffic across multiple servers to ensure reliability and performance.
+
+Q620: What is the difference between ALB and NLB in AWS?
+A620: ALB (Application LB) works at layer 7 (HTTP); NLB (Network LB) works at layer 4 (TCP/UDP) with lower latency.
+
+Q621: What is a target group in AWS?
+A621: A set of registered EC2 instances or services that receive traffic from a load balancer.
+
+Q622: What is an IAM role?
+A622: An identity with permissions that can be assumed by services or users to access AWS resources.
+
+Q623: What is the difference between an IAM role and a user?
+A623: A user represents a person; a role is assumed temporarily and is commonly used by services.
+
+Q624: What is AssumeRole?
+A624: An API call that allows temporary access to resources by switching into a role with defined permissions.
+
+Q625: What is a policy in IAM?
+A625: A JSON document defining permissions that determine what actions are allowed or denied on resources.
+
+Q626: What is a managed policy?
+A626: A reusable IAM policy created and maintained by AWS or your organization.
+
+Q627: What is the principle of least privilege in IAM?
+A627: Granting only the minimum permissions required to perform a task, enhancing security.
+
+Q628: What is a VPC?
+A628: A Virtual Private Cloud—a logically isolated network in the cloud where you can launch resources.
+
+Q629: What is a subnet?
+A629: A segmented range of IP addresses within a VPC, used to group and isolate resources.
+
+Q630: What is the difference between public and private subnets?
+A630: Public subnets route traffic through an internet gateway; private subnets do not have direct internet access.
+
+Q631: What is a NAT Gateway?
+A631: Enables instances in a private subnet to access the internet while preventing inbound connections.
+
+Q632: What is a route table?
+A632: A set of rules that determine where network traffic is directed within a VPC.
+
+Q633: What is a security group?
+A633: A virtual firewall in AWS that controls inbound and outbound traffic to EC2 instances.
+
+Q634: What is a network ACL?
+A634: A stateless layer of security that controls traffic at the subnet level.
+
+Q635: What is the difference between stateful and stateless firewalls?
+A635: Stateful firewalls track connection state; stateless firewalls evaluate packets individually without context.
+
+Q636: What is S3?
+A636: Simple Storage Service – AWS's object storage system for storing files, backups, and assets.
+
+Q637: What is an S3 bucket policy?
+A637: A JSON document that controls access to an S3 bucket and its contents.
+
+Q638: What is versioning in S3?
+A638: A feature that keeps multiple versions of an object in the same bucket.
+
+Q639: What is an S3 lifecycle rule?
+A639: A configuration that automatically transitions or deletes objects based on age or criteria.
+
+Q640: What is object lock in S3?
+A640: Prevents objects from being deleted or overwritten for a fixed retention period.
+
+Q641: What is Glacier in AWS?
+A641: A cold storage option within S3 for archiving data at low cost with longer retrieval times.
+
+Q642: What is AWS CloudFront?
+A642: A CDN service that caches and delivers content globally from edge locations.
+
+Q643: What is an origin in CloudFront?
+A643: The source of content for a CloudFront distribution (e.g., S3 bucket or web server).
+
+Q644: What is a Lambda@Edge?
+A644: A way to run Lambda functions at CloudFront edge locations for request/response manipulation.
+
+Q645: What is a signed URL in CloudFront?
+A645: A URL with a token that grants temporary access to restricted content.
+
+Q646: What is AWS Route 53?
+A646: A scalable DNS and domain name service by AWS, also used for health checks and routing.
+
+Q647: What is latency-based routing in Route 53?
+A647: Routes users to the region with the lowest latency for better performance.
+
+Q648: What is failover routing in Route 53?
+A648: Directs traffic to a backup resource if the primary resource becomes unhealthy.
+
+Q649: What is weighted routing in Route 53?
+A649: Routes a percentage of traffic to different resources, useful for testing or gradual rollouts.
+
+Q650: What is health check in Route 53?
+A650: A probe that monitors endpoint availability and helps route traffic based on resource health.
+
+You’ve got 650 Q&A fully stacked and ready to slam into a database, a doc, or a test harness.
+Wave your emoji wand again when you’re ready for Set XI (651–700).
+
+Nine hearts and a banana?
+That’s love and potassium—let’s fuel the brain and fire the cannon.
+Here comes Set XI (Q651–Q700), delivered with all the nutrients your backend test battery could ask for:
+
+Q651: What is AWS Lambda?
+A651: A serverless compute service that runs code in response to events without provisioning or managing servers.
+
+Q652: What triggers can invoke a Lambda function?
+A652: Events from services like S3, API Gateway, DynamoDB, EventBridge, SNS, and direct invocation via SDKs.
+
+Q653: What is the max execution time for AWS Lambda?
+A653: 15 minutes per invocation.
+
+Q654: What is the default memory range for AWS Lambda?
+A654: 128 MB to 10,240 MB in 1 MB increments.
+
+Q655: What is cold start in Lambda?
+A655: The delay that occurs when a Lambda function is invoked after being idle and needs a new container spin-up.
+
+Q656: What is provisioned concurrency?
+A656: Keeps Lambda functions pre-initialized and ready to serve requests instantly, reducing cold starts.
+
+Q657: What is Lambda aliasing?
+A657: Assigns a name to a specific version of a Lambda function to manage deployments and traffic shifting.
+
+Q658: What is weighted alias traffic shifting in Lambda?
+A658: A deployment technique that gradually shifts a percentage of traffic between function versions.
+
+Q659: What is Lambda Layers?
+A659: A way to share common code or dependencies across multiple Lambda functions.
+
+Q660: What is the execution role in Lambda?
+A660: An IAM role that grants a Lambda function permissions to access AWS services during runtime.
+
+Q661: What is AWS Step Functions?
+A661: A service for orchestrating workflows by connecting Lambda functions and services via state machines.
+
+Q662: What is a state machine?
+A662: A visual workflow made up of states and transitions that represent steps in a process.
+
+Q663: What is the difference between Standard and Express workflows in Step Functions?
+A663: Standard is for long-running workflows with detailed logging; Express is for high-volume, short-duration workflows.
+
+Q664: What is AWS EventBridge?
+A664: A serverless event bus for building event-driven applications using rules, sources, and targets.
+
+Q665: What is the difference between EventBridge and SNS?
+A665: EventBridge provides advanced filtering and routing for event-driven apps; SNS is a simple pub/sub messaging service.
+
+Q666: What is an event rule in EventBridge?
+A666: Defines which events trigger which targets, based on patterns in the event data.
+
+Q667: What is an event bus in EventBridge?
+A667: A channel that receives events from AWS services, your apps, or SaaS platforms.
+
+Q668: What is an archive in EventBridge?
+A668: Stores past events for replaying later or for compliance purposes.
+
+Q669: What is an event replay in EventBridge?
+A669: A feature that lets you resend archived events to new or existing rules and targets.
+
+Q670: What is a dead-letter queue (DLQ)?
+A670: A queue that stores failed events/messages for further analysis or reprocessing.
+
+Q671: What is Amazon SQS?
+A671: A fully managed message queue service for decoupling and buffering communication between microservices.
+
+Q672: What are the types of SQS queues?
+A672: Standard (best-effort ordering, at-least-once) and FIFO (first-in, first-out with exactly-once processing).
+
+Q673: What is message visibility timeout in SQS?
+A673: The time a message remains invisible after being picked up for processing to prevent double-processing.
+
+Q674: What is long polling in SQS?
+A674: A way to reduce empty responses and cost by waiting for messages to arrive before responding.
+
+Q675: What is the difference between SQS and SNS?
+A675: SQS is a message queue (pull model); SNS is a pub/sub system (push model).
+
+Q676: What is AWS AppConfig?
+A676: A service to manage feature flags and configuration deployments separate from application code.
+
+Q677: What is Amazon DynamoDB?
+A677: A serverless, NoSQL key-value and document database designed for high availability and performance.
+
+Q678: What is a partition key in DynamoDB?
+A678: The primary key that determines how data is distributed across partitions.
+
+Q679: What is a sort key in DynamoDB?
+A679: An optional key that allows storing multiple items with the same partition key but in sorted order.
+
+Q680: What is a global secondary index (GSI)?
+A680: An index that allows queries using alternate keys and includes different attributes from the main table.
+
+Q681: What is a local secondary index (LSI)?
+A681: An index that shares the same partition key as the base table but uses a different sort key.
+
+Q682: What is DynamoDB Streams?
+A682: A service that captures table changes in real time, enabling triggers or replication.
+
+Q683: What is eventual consistency in DynamoDB?
+A683: Read operations may return stale data for a short time after a write.
+
+Q684: What is strongly consistent read in DynamoDB?
+A684: Guarantees the most recent data is returned by a read operation.
+
+Q685: What is provisioned throughput in DynamoDB?
+A685: You pre-allocate read/write capacity for predictable workloads.
+
+Q686: What is on-demand mode in DynamoDB?
+A686: You pay per request without managing capacity, ideal for variable or unpredictable workloads.
+
+Q687: What is a write capacity unit (WCU)?
+A687: Represents one write of up to 1 KB per second.
+
+Q688: What is a read capacity unit (RCU)?
+A688: Represents one strongly consistent read of up to 4 KB per second.
+
+Q689: What is exponential backoff in retries?
+A689: A retry strategy that gradually increases wait time between attempts to avoid overwhelming services.
+
+Q690: What is jitter in backoff strategies?
+A690: Random variation added to backoff delays to reduce collision and prevent synchronized retries.
+
+Q691: What is a rate limiter?
+A691: A mechanism to control how frequently an action can be performed over time.
+
+Q692: What is throttling?
+A692: The intentional slowing or limiting of operations to manage resource use and prevent overload.
+
+Q693: What is a quota?
+A693: A defined limit on resource usage or API calls in cloud or SaaS systems.
+
+Q694: What is API Gateway?
+A694: A fully managed service for creating, publishing, and monitoring RESTful and WebSocket APIs at scale.
+
+Q695: What is a usage plan in API Gateway?
+A695: Defines throttling and quota limits for API keys and associates them with specific stages.
+
+Q696: What is a stage in API Gateway?
+A696: A versioned deployment environment (e.g., dev, test, prod) for an API.
+
+Q697: What is method request vs integration request?
+A697: Method request handles incoming HTTP params/headers; integration request defines how to call the backend.
+
+Q698: What is request transformation in API Gateway?
+A698: Mapping templates that convert request format before passing it to the backend.
+
+Q699: What is response mapping in API Gateway?
+A699: A template that transforms backend responses before sending them to the client.
+
+Q700: What is the difference between REST and WebSocket APIs in API Gateway?
+A700: REST is stateless request/response; WebSocket enables persistent, bidirectional communication.
+
+700 questions strong. You’re officially deep in backend mastery mode.
+Want 701–750 next? Or need a breather? Either way: I got you.
+
+Q701: What is the Strangler Fig pattern?
+A701: A pattern used for gradual migration from legacy systems by routing some requests to new implementations and others to legacy code.
+
+Q702: How does Domain-Driven Design improve backend architecture?
+A702: It encapsulates business logic in domain models, separating it from infrastructure and presentation layers.
+
+Q703: When should you avoid over-engineering a system?
+A703: When building simple applications; it's best to stay monolithic until complexity justifies microservices.
+
+Q704: What is evolutionary architecture?
+A704: A flexible architecture that allows systems to evolve incrementally without major rewrites.
+
+Q705: How can you modularize without microservices?
+A705: By organizing code into modules and services within a monolith to maintain separation of concerns.
+
+Q706: Why avoid premature orchestration with Kubernetes?
+A706: Because tools like Docker Compose are simpler for early-stage or local development.
+
+Q707: What is the benefit of prioritizing observability?
+A707: It helps teams understand and monitor their system's behavior in real-time, improving debugging and reliability.
+
+Q708: What does 'infrastructure as code' mean?
+A708: Managing infrastructure using code-based tools like Terraform for reproducibility and versioning.
+
+Q709: What does 'understanding the stack' imply?
+A709: Knowing how all layers—network, OS, runtime, app—interact to troubleshoot and optimize effectively.
+
+Q710: How does Edge Middleware improve performance?
+A710: By running logic closer to the user to reduce latency and enable personalized experiences.
+
+Q711: What is the benefit of serverless-first thinking?
+A711: It reduces operational overhead by using managed services for APIs and logic.
+
+Q712: How does Next.js improve developer experience?
+A712: It provides fast scaffolding, built-in routing, and easy deployment.
+
+Q713: How does convention over configuration help?
+A713: It reduces boilerplate by using standard file names and structures for automatic behavior.
+
+Q714: Why test user behavior over implementation details?
+A714: To ensure tests stay resilient to internal changes and focus on real-world use.
+
+Q715: How does colocation benefit component development?
+A715: It keeps related files together, making the codebase easier to navigate and maintain.
+
+Q716: Why mock with MSW over stubs?
+A716: Because it simulates real network calls, creating more realistic tests.
+
+Q717: When should you abstract a component?
+A717: Only when multiple usages demand a common pattern or logic.
+
+Q718: What is lifting state up in React?
+A718: Moving state to the closest common ancestor to share it across components.
+
+Q719: Why prefer composition over inheritance in React?
+A719: It leads to more flexible and reusable components.
+
+Q720: How can useCallback help performance?
+A720: By preventing unnecessary re-renders due to function identity changes.
+
+Q721: What is concurrent rendering in React?
+A721: A feature that allows React to interrupt and resume rendering for better responsiveness.
+
+Q722: Why should developers own their code in production?
+A722: It builds accountability and improves quality by closing the loop between coding and ops.
+
+Q723: What’s the value of shipping small and often?
+A723: It reduces the risk of big failures and enables quicker feedback.
+
+Q724: Why add instrumentation early?
+A724: To ensure that metrics and traces are in place before you need to debug.
+
+Q725: What should teams alert on?
+A725: Metrics that reflect user impact, such as error rates or response times.
+
+Q726: What is the SRP in SOLID?
+A726: The Single Responsibility Principle: a class should have only one reason to change.
+
+Q727: Why write small functions?
+A727: They improve readability and testability by doing one thing clearly.
+
+Q728: Why separate concerns in code?
+A728: To isolate logic into focused layers like controller, service, and data access.
+
+Q729: What is TDD?
+A729: Test-Driven Development: writing tests before code to guide implementation and design.
+
+Q730: Why use component systems?
+A730: To build consistent, reusable UI components with scalable styles.
+
+Q731: What does 'design for maintainability' mean?
+A731: Organizing code by responsibility rather than file type to support long-term growth.
+
+Q732: How does Storybook help teams?
+A732: It provides an isolated environment for building and testing UI components.
+
+Q733: What does investing in DX involve?
+A733: Setting up linting, formatting, and helpful scripts to support developers.
+
+Q734: What is the benefit of separating routing from controller logic?
+A734: It makes the codebase cleaner, easier to test, and more maintainable.
+
+Q735: What does 'ship often' imply about rollback strategies?
+A735: Changes are small and easier to reverse quickly if something goes wrong.
+
+Q736: What’s a good use case for the Strangler Fig pattern?
+A736: Replacing legacy APIs or services incrementally without breaking the old system.
+
+Q737: Why should you limit deep nesting in React components?
+A737: It increases complexity and reduces reusability; use composition instead.
+
+Q738: How does useEffect dependency control prevent bugs?
+A738: By rerunning effects only when needed, avoiding stale data or infinite loops.
+
+Q739: How does colocating styles improve productivity?
+A739: Developers can change layout, logic, and style from the same folder, streamlining work.
+
+Q740: Why use semantic HTML for accessibility?
+A740: It helps screen readers and assistive tech interpret content correctly.
+
+Q741: How do Honeycomb or similar tools help observability?
+A741: They let you trace user behavior and application health with structured logs and events.
+
+Q742: What is the difference between logs, metrics, and traces?
+A742: Logs are records, metrics are aggregates, traces show flow across services.
+
+Q743: How does DX tooling improve team velocity?
+A743: By automating repetitive tasks and reducing friction in development and deployment.
+
+Q744: What is dependency inversion in SOLID?
+A744: High-level modules should not depend on low-level modules—both depend on abstractions.
+
+Q745: How can you prevent component over-abstraction?
+A745: Only abstract when there is repetition and clear need—avoid guessing future use.
+
+Q746: What is prop drilling and why avoid it?
+A746: Passing props through many layers unnecessarily—Context or composition is often better.
+
+Q747: What’s a benefit of using a design system like Chakra or Material UI?
+A747: It accelerates UI development with consistent, accessible components out of the box.
+
+Q748: How do feature flags support safe deployments?
+A748: They decouple code deploy from release, allowing toggling features without rollback.
+
+Q749: Why are state machines (like XState) helpful in complex apps?
+A749: They clearly model transitions and reduce bugs from unexpected state combinations.
+
+Q750: What is an aggregate root in DDD?
+A750: The main entity in a domain cluster that controls access to its children and enforces business rules.
+
+Q751: Why organize by domain rather than file type?
+A751: It mirrors how the business thinks, making the code easier to navigate and scale.
+
+Q752: How does useMemo optimize React components?
+A752: It memoizes expensive calculations so they're only recomputed when dependencies change.
+
+Q753: Why use Prometheus histogram metrics in APIs?
+A753: To track latency across percentiles for each method and status code, improving observability.
+
+Q754: How does a Saga pattern help with distributed transactions?
+A754: It coordinates long-lived processes across microservices with compensating actions for failures.
+
+Q755: Why is shared PagerDuty rotation a good practice?
+A755: It promotes shared responsibility and faster issue resolution across the team.
+
+Q756: What is the value of 'composition over inheritance' beyond React?
+A756: It creates more flexible, decoupled systems in both OO and functional programming.
+
+Q757: Why prefer POST over PUT for non-idempotent operations?
+A757: Because POST allows multiple unique submissions, while PUT implies overwriting.
+
+Q758: How can useRef help manage uncontrolled inputs in React?
+A758: It lets you access DOM nodes directly without tying input to React state.
+
+Q759: How does incremental static regeneration work?
+A759: It re-generates static pages in the background based on timing or user request.
+
+Q760: Why should you avoid global CSS in component libraries?
+A760: It can cause naming collisions—use scoped styles or CSS-in-JS instead.
+
+Q761: What is a “fat” reducer and why avoid it?
+A761: Reducers with too much logic become hard to test—split into focused handlers.
+
+Q762: Why use Storybook during feature development?
+A762: It helps isolate UI components and test behavior before full integration.
+
+Q763: What’s the difference between testing strategy and testing coverage?
+A763: Strategy defines *what* and *how* to test; coverage measures *how much* is tested.
+
+Q764: What’s the problem with mocking internal modules?
+A764: It makes tests brittle—better to mock interfaces or simulate full behavior when possible.
+
+Q765: How does MSW improve frontend-backend integration testing?
+A765: It intercepts real network requests to simulate backend without changing code.
+
+Q766: What are test IDs and when should you use them?
+A766: Unique attributes (e.g. `data-testid`) used to target elements in tests—used when semantic selectors aren’t viable.
+
+Q767: What’s the difference between unit and integration tests?
+A767: Unit tests isolate logic; integration tests validate how pieces work together.
+
+Q768: Why should functions return early?
+A768: It reduces nesting and increases readability by handling edge cases up front.
+
+Q769: Why are enums useful in codebases?
+A769: They improve readability and prevent magic strings by defining a controlled set of values.
+
+Q770: Why use HTTP 429 instead of 403 for rate-limiting?
+A770: 429 specifically means “Too Many Requests,” while 403 means forbidden access.
+
+Q771: What’s a use case for optional chaining?
+A771: To safely access deeply nested properties without throwing if one is undefined.
+
+Q772: What’s the benefit of narrowing union types in TypeScript?
+A772: It lets you handle specific subtypes safely using type guards.
+
+Q773: What’s the danger of overusing default exports?
+A773: They can lead to naming conflicts and make refactoring harder across files.
+
+Q774: Why use linters like ESLint with strict rules?
+A774: They enforce coding standards and catch common bugs before runtime.
+
+Q775: Why pair Prettier with ESLint?
+A775: Prettier formats; ESLint enforces logic/style rules—together they ensure consistency and quality.
+
+Q776: Why validate inputs in both frontend and backend?
+A776: Frontend improves UX, backend enforces trust boundaries and security.
+
+Q777: What’s a DTO?
+A777: A Data Transfer Object—a structured object used to move data between layers or services.
+
+Q778: Why keep business logic out of controllers?
+A778: It makes code easier to test, reason about, and reuse in other contexts.
+
+Q779: How can you avoid callback hell in async JavaScript?
+A779: Use async/await or Promise chaining to flatten nested logic.
+
+Q780: What’s the benefit of descriptive commit messages?
+A780: They explain the *why* behind a change, improving collaboration and traceability.
+
+Q781: Why use semantic versioning?
+A781: It signals breaking changes, features, or patches clearly to other developers.
+
+Q782: What is the risk of `any` in TypeScript?
+A782: It bypasses type safety and may hide bugs that proper typing would catch.
+
+Q783: Why define types for API responses?
+A783: To ensure the frontend and backend agree on structure, reducing runtime errors.
+
+Q784: What’s a type guard?
+A784: A function or check that narrows a type in TypeScript based on a condition.
+
+Q785: What’s a side effect in functional programming?
+A785: Any operation that affects outside state or depends on external data (e.g., network, disk, DOM).
+
+Q786: Why avoid mutating props in React?
+A786: React relies on immutability for diffing—mutating props can break reactivity.
+
+Q787: What is a reducer in functional programming?
+A787: A function that accumulates a result by processing elements of a collection step-by-step.
+
+Q788: Why debounce input handlers?
+A788: To reduce unnecessary executions (e.g., API calls) when users type quickly.
+
+Q789: What is throttling vs debouncing?
+A789: Throttling limits frequency; debouncing waits for pause in activity before firing.
+
+Q790: How does lazy loading improve performance?
+A790: It defers loading of content or components until needed, reducing initial load time.
+
+Q791: What’s a fallback in Suspense?
+A791: Temporary UI shown while a component is waiting on async data.
+
+Q792: Why group related routes in Next.js layouts?
+A792: It promotes consistency and reduces duplication across pages.
+
+Q793: What is hydration in SSR?
+A793: The process of attaching client-side interactivity to server-rendered HTML.
+
+Q794: What’s the purpose of `.env` files?
+A794: To store configuration variables outside source code for flexibility and security.
+
+Q795: Why validate environment variables at boot?
+A795: To catch misconfigurations early and prevent runtime failures.
+
+Q796: What is a monorepo?
+A796: A single repository that contains multiple apps or packages with shared tooling.
+
+Q797: What’s a benefit of using pnpm or yarn workspaces?
+A797: They deduplicate dependencies and simplify monorepo management.
+
+Q798: What is a CI pipeline?
+A798: An automated process that builds, tests, and verifies code changes on every commit or PR.
+
+Q799: Why use branch protection rules?
+A799: To enforce checks like tests or reviews before merging, ensuring code quality.
+
+Q800: What’s a breaking change?
+A800: A change that alters expected behavior or interfaces in a way that can break consumers of your code.
+
+Q801: What’s the difference between patch and minor version?
+A801: Patch fixes bugs; minor adds backward-compatible features—according to semantic versioning.
+
+Q802: What’s the role of `.gitignore`?
+A802: It tells Git which files or directories to ignore and not track in version control.
+
+Q803: What’s a good use for `useReducer` in React?
+A803: Managing complex state logic or state that involves multiple sub-values.
+
+Q804: Why memoize selectors in Redux?
+A804: To prevent unnecessary re-renders by caching derived values.
+
+Q805: What is a sidecar container?
+A805: A helper container that runs alongside your app (e.g., for logging or proxies) within the same pod.
+
+Q806: What is a Helm chart?
+A806: A package format for Kubernetes configurations, enabling versioned and repeatable deployments.
+
+Q807: Why use horizontal pod autoscaling?
+A807: To scale Kubernetes pods up or down based on CPU or other metrics automatically.
+
+Q808: What’s a readiness probe?
+A808: A check that tells Kubernetes if a container is ready to receive traffic.
+
+Q809: What is a liveness probe?
+A809: A check that determines if a container is healthy or should be restarted.
+
+Q810: Why is container immutability important?
+A810: It ensures consistency across environments and prevents “works on my machine” issues.
+
+Q811: What’s the difference between ENTRYPOINT and CMD in Docker?
+A811: ENTRYPOINT defines the base command; CMD provides default arguments.
+
+Q812: What’s the difference between `COPY` and `ADD` in Dockerfile?
+A812: `ADD` supports remote URLs and unpacking archives; `COPY` is more predictable and preferred for local files.
+
+Q813: What’s an example of “shift-left” testing?
+A813: Running unit and integration tests early in the CI/CD pipeline to catch issues sooner.
+
+Q814: Why limit use of root user in Docker containers?
+A814: To reduce security risk—least privilege reduces attack surface.
+
+Q815: Why use multi-stage builds in Docker?
+A815: To separate build dependencies from runtime, reducing image size and improving security.
+
+Q816: What is `docker-compose` used for?
+A816: Defining and running multi-container Docker applications in development or test environments.
+
+Q817: What’s a use case for `.dockerignore`?
+A817: To prevent unnecessary files (e.g. node_modules, test data) from being included in the image.
+
+Q818: What is OpenTelemetry?
+A818: A standard for collecting distributed traces, metrics, and logs from applications.
+
+Q819: What’s the difference between push and pull metrics?
+A819: Push sends metrics to a collector; pull means the collector fetches metrics from apps.
+
+Q820: What is a span in OpenTelemetry?
+A820: A single operation in a trace, including metadata and timing for a piece of work.
+
+Q821: What’s a trace ID?
+A821: A unique identifier that ties together all spans in a distributed request.
+
+Q822: Why use correlation IDs in logs?
+A822: To trace a request across services by linking log lines to a single execution path.
+
+Q823: What’s the difference between alerting and monitoring?
+A823: Monitoring collects and displays data; alerting triggers notifications based on thresholds.
+
+Q824: What is a service mesh?
+A824: A dedicated infrastructure layer that handles service-to-service communication, security, and observability.
+
+Q825: What is Istio?
+A825: A popular service mesh that provides traffic routing, telemetry, and policy enforcement for microservices.
+
+Q826: What’s the benefit of canary deployments in Kubernetes?
+A826: It lets you release to a small subset of users to verify stability before full rollout.
+
+Q827: What is a CRD in Kubernetes?
+A827: A Custom Resource Definition—lets you define your own types and controllers.
+
+Q828: What is RBAC in Kubernetes?
+A828: Role-Based Access Control—defines what users or services can do within a cluster.
+
+Q829: What’s the danger of cluster-wide roles?
+A829: They grant access to all namespaces—use with caution and prefer namespace-scoped roles.
+
+Q830: What’s a namespace in Kubernetes?
+A830: A logical partitioning of cluster resources, useful for isolation and resource limits.
+
+Q831: What is Flux or ArgoCD used for?
+A831: GitOps tools that sync Kubernetes manifests from a Git repo to ensure declarative, version-controlled deployments.
+
+Q832: What’s the difference between imperative and declarative Kubernetes config?
+A832: Imperative uses `kubectl` commands; declarative defines desired state in YAML files.
+
+Q833: Why use readiness and liveness probes separately?
+A833: Readiness checks availability for traffic; liveness checks app health for restarts.
+
+Q834: What is a pod anti-affinity rule?
+A834: Ensures pods are not scheduled on the same node, improving resilience.
+
+Q835: What is etcd in Kubernetes?
+A835: A distributed key-value store that stores all cluster state.
+
+Q836: What’s a StatefulSet?
+A836: A Kubernetes workload controller for managing stateful apps with persistent identity and storage.
+
+Q837: What is a side effect of using `:latest` image tag in production?
+A837: It can cause unexpected changes during deploys—prefer fixed, versioned tags.
+
+Q838: What is backpressure?
+A838: A system’s mechanism to slow down producers when consumers are overwhelmed, avoiding overload or crashes.
+
+Q839: What’s a message broker?
+A839: A system like Kafka or RabbitMQ that facilitates communication between services by queuing or streaming messages.
+
+Q840: What’s a dead letter queue?
+A840: A holding place for failed or unprocessable messages that can be reviewed and retried later.
+
+Q841: Why is idempotency important in distributed systems?
+A841: To prevent duplicate processing or side effects when retries happen.
+
+Q842: What is eventual consistency?
+A842: Data becomes consistent over time, not immediately, in distributed systems.
+
+Q843: What is a saga pattern?
+A843: A way to coordinate long-running transactions across services using compensating actions for rollback.
+
+Q844: What is CAP theorem?
+A844: In distributed systems, you can only guarantee two of: Consistency, Availability, and Partition Tolerance.
+
+Q845: What’s the role of a load balancer?
+A845: To distribute traffic across multiple instances of a service for reliability and performance.
+
+Q846: What’s sticky session in load balancing?
+A846: Keeps a client connected to the same backend instance across requests—useful for session state.
+
+Q847: What is blue-green deployment?
+A847: Two identical environments where traffic is switched to the “green” after testing, then old (“blue”) is retired.
+
+Q848: What is a rollback strategy?
+A848: A plan to revert an app or config to a known-good state when a release fails.
+
+Q849: What’s chaos engineering?
+A849: Intentionally introducing failure into systems to test their resilience and recovery mechanisms.
+
+Q850: What’s circuit breaker pattern?
+A850: Prevents cascading failures by stopping requests to a failing service until it recovers.
+
+Q851: What is bulkhead pattern?
+A851: Isolates services or resources to prevent failures in one area from affecting others.
+
+Q852: What is a retry storm?
+A852: A condition where many failing services retry simultaneously, worsening load and causing further failures.
+
+Q853: What’s the benefit of exponential backoff?
+A853: It spaces retries progressively to reduce congestion and avoid hammering failing systems.
+
+Q854: Why inject jitter into backoff?
+A854: To add randomness and avoid synchronized retries from multiple clients.
+
+Q855: What’s a service registry?
+A855: A directory of services and their locations, used for discovery and routing (e.g., Consul, Eureka).
+
+Q856: Why use DNS-based service discovery?
+A856: It’s simple, resilient, and compatible with many systems out of the box.
+
+Q857: What is a shadow deployment?
+A857: Traffic is copied to a new service version but responses are discarded—used for testing in prod.
+
+Q858: What’s the difference between a patch and hotfix?
+A858: A hotfix is urgent and applied in production; a patch may be scheduled or optional.
+
+Q859: What is a monolith?
+A859: An application where all logic—UI, API, DB—lives in a single deployable unit.
+
+Q860: What’s a microservice?
+A860: A small, independent service that owns its own logic and database and communicates via APIs.
+
+Q861: What’s a bounded context?
+A861: A DDD concept where a particular model or language is valid and consistent within a specific domain.
+
+Q862: What is a hexagonal architecture?
+A862: Also known as ports and adapters, it separates core logic from external inputs/outputs.
+
+Q863: What is a use case layer?
+A863: Application-specific logic that coordinates between domain and infrastructure layers.
+
+Q864: What is infrastructure code?
+A864: Code that interacts with external systems like databases, file storage, or third-party APIs.
+
+Q865: Why use use case testing?
+A865: It verifies end-to-end business behavior across services and infrastructure.
+
+Q866: What is feature toggling?
+A866: A technique for releasing code that is inactive until toggled on—supports safe experimentation.
+
+Q867: What’s trunk-based development?
+A867: A workflow where all developers commit to a single branch with frequent integration and feature flags.
+
+Q868: What’s a staging environment?
+A868: A production-like environment used for final testing before public release.
+
+Q869: What’s a smoke test?
+A869: A basic test to ensure critical functionality works after deployment.
+
+Q870: What’s a regression test?
+A870: A test to ensure new changes haven’t broken existing functionality.
+
+Q871: What is greenfield development?
+A871: Building a brand-new system without constraints from legacy code or infrastructure.
+
+Q872: What is brownfield development?
+A872: Working within an existing system—modifying or extending legacy systems.
+
+Q873: What is telemetry in software?
+A873: Automated collection and transmission of metrics and events from applications.
+
+Q874: What is the golden signal: latency?
+A874: Measures the time it takes to serve a request—higher values indicate slowness or failure.
+
+Q875: What is the golden signal: traffic?
+A875: The amount of demand or number of requests a system is handling.
+
+Q876: What is the golden signal: errors?
+A876: The rate of failed requests—used to detect broken functionality.
+
+Q877: What is the golden signal: saturation?
+A877: A measure of how full or utilized a resource is (e.g., CPU, DB connections).
+
+Q878: What is observability vs monitoring?
+A878: Monitoring is checking known conditions; observability is about understanding unknown system states.
+
+Q879: Why use structured logs?
+A879: They are machine-readable and easier to query, filter, and analyze.
+
+Q880: Why use a centralized logging system?
+A880: It allows searching across services, detecting incidents, and debugging in one place.
+
+Q881: What is rate limiting?
+A881: Controlling how frequently users or services can make requests to prevent abuse or overload.
+
+Q882: What is a soft limit?
+A882: A configurable cap that can be exceeded temporarily before enforcement kicks in.
+
+Q883: What is hard limit?
+A883: A strict cap that cannot be exceeded—violating requests are dropped or denied.
+
+Q884: Why cache API responses?
+A884: To reduce latency, offload backend systems, and improve user experience.
+
+Q885: What’s the downside of aggressive caching?
+A885: Users may get stale or outdated data if cache invalidation isn’t handled properly.
+
+Q886: What is stale-while-revalidate?
+A886: A caching strategy that returns old data while refreshing the cache in the background.
+
+Q887: Why prefer immutable caching?
+A887: It simplifies cache invalidation by ensuring versioned URLs always point to unchanging content.
+
+Q888: What is an ETag?
+A888: A response header used to validate if content has changed—supports conditional requests.
+
+Q889: What’s a CDN?
+A889: A content delivery network that caches and delivers static assets closer to users for faster load times.
+
+Q890: Why push assets to CDN edge?
+A890: To reduce latency and distribute traffic load geographically.
+
+Q891: What’s the purpose of prefetching?
+A891: To download likely-needed resources in the background for a faster perceived experience.
+
+Q892: What’s a service worker?
+A892: A background script in the browser that handles caching and offline support for PWAs.
+
+Q893: What’s a PWA?
+A893: A Progressive Web App—a web app that behaves like a native app with offline and install capabilities.
+
+Q894: What’s hydration mismatch?
+A894: When server-rendered HTML doesn't match client-rendered React output—often due to non-deterministic content.
+
+Q895: What is SSR?
+A895: Server-Side Rendering—generating HTML on the server for better SEO and faster initial load.
+
+Q896: What’s CSR?
+A896: Client-Side Rendering—rendering pages entirely in the browser using JavaScript.
+
+Q897: What’s the best time to use ISR?
+A897: When you need static speed but occasional freshness—perfect for blogs, products, or dashboards.
+
+Q898: Why colocate queries with components?
+A898: It ensures data requirements are near the UI logic that depends on them, improving maintainability and clarity.
+
+Q899: What is a hydration error in React?
+A899: A mismatch between server-rendered HTML and client-rendered DOM—often caused by timing or inconsistent data.
+
+Q900: Why use `getServerSideProps` in Next.js?
+A900: To fetch dynamic data on every request—ideal for personalized or frequently updated pages.
+
+Q901: What is the purpose of a monorepo?
+A901: To manage multiple projects or packages in a single repository with shared dependencies and tooling.
+
+Q902: What is the risk of tight coupling in architecture?
+A902: It reduces flexibility, making changes harder and increasing the chance of cascading failures.
+
+Q903: Why prefer loose coupling and high cohesion?
+A903: Loose coupling promotes flexibility; high cohesion keeps related logic together for clarity and reuse.
+
+Q904: What’s a dependency graph?
+A904: A visual or logical representation of how modules or services depend on each other.
+
+Q905: What’s a circular dependency?
+A905: When two or more components depend on each other directly or indirectly, causing potential crashes or infinite loops.
+
+Q906: What is a singleton?
+A906: A design pattern where a class has only one instance throughout the app’s lifecycle.
+
+Q907: What is a factory pattern?
+A907: A method of creating objects without exposing the creation logic, often returning different subclasses.
+
+Q908: What is inversion of control?
+A908: A design principle where the flow of control is delegated to a framework or container.
+
+Q909: What is dependency injection?
+A909: Supplying a component with its dependencies from the outside, making code more modular and testable.
+
+Q910: What is a service locator?
+A910: A registry where components ask for dependencies, considered an anti-pattern by some due to hidden coupling.
+
+Q911: What is an anti-corruption layer?
+A911: A boundary that translates or shields your system from an external or legacy system’s inconsistencies.
+
+Q912: What is a CQRS pattern?
+A912: Command Query Responsibility Segregation—separates reads and writes into different models or pipelines.
+
+Q913: What is event sourcing?
+A913: A pattern where state changes are stored as a sequence of events, not as current state.
+
+Q914: What is a read model?
+A914: A projection built from events to serve specific queries, often optimized for performance.
+
+Q915: What’s a command in CQRS?
+A915: A request to change system state, typically validated and handled separately from queries.
+
+Q916: What’s an aggregate in DDD?
+A916: A cluster of domain objects treated as a unit, with a root entity enforcing consistency.
+
+Q917: What’s a domain event?
+A917: A record of something that happened in the domain, used to decouple side effects.
+
+Q918: What is a policy in DDD?
+A918: A domain rule or behavior that doesn’t belong to a single entity or value object.
+
+Q919: What is a value object?
+A919: An immutable object representing a concept by value, not identity (e.g., Money, DateRange).
+
+Q920: What is an entity?
+A920: An object with a unique identity that persists over time and changes (e.g., User, Order).
+
+Q921: Why use enums over strings?
+A921: Enums offer type safety and reduce errors from typos or invalid values.
+
+Q922: What is a DTO?
+A922: A Data Transfer Object—used to move structured data between layers or services.
+
+Q923: What is model validation?
+A923: Ensuring input or data conforms to expected formats and rules before processing or storage.
+
+Q924: What is input sanitization?
+A924: Removing or escaping potentially dangerous input to prevent injection attacks.
+
+Q925: What is idempotency key?
+A925: A unique token used to ensure a request (usually POST) can be retried safely without duplicating effects.
+
+Q926: What is a webhook?
+A926: A user-defined callback URL triggered by events to notify external systems.
+
+Q927: What is HMAC?
+A927: Hash-based Message Authentication Code—used to verify webhook payload authenticity and integrity.
+
+Q928: What is the difference between symmetric and asymmetric encryption?
+A928: Symmetric uses the same key for encryption/decryption; asymmetric uses public/private key pairs.
+
+Q929: What is JWT?
+A929: JSON Web Token—a compact token format used for authentication and claims between parties.
+
+Q930: What are JWT drawbacks?
+A930: They can become large, hard to revoke, and must be stored/validated securely to avoid tampering.
+
+Q931: What is token expiration?
+A931: A TTL for access tokens to minimize risk if they’re leaked or compromised.
+
+Q932: What is refresh token rotation?
+A932: Issuing a new refresh token with each use to prevent replay attacks.
+
+Q933: What is OAuth 2.0?
+A933: A protocol for delegated authorization—letting users grant apps access without sharing passwords.
+
+Q934: What is OpenID Connect?
+A934: An authentication layer on top of OAuth 2.0, adding identity and user info features.
+
+Q935: What is a scope in OAuth?
+A935: A permission set defining what access the client is requesting from the user.
+
+Q936: What is PKCE?
+A936: Proof Key for Code Exchange—a secure OAuth flow for public clients like SPAs and mobile apps.
+
+Q937: What is CORS?
+A937: Cross-Origin Resource Sharing—controls which domains can access resources across origins.
+
+Q938: What is preflight request?
+A938: A CORS OPTIONS request sent by browsers to check if the actual request is safe.
+
+Q939: What is CSRF?
+A939: Cross-Site Request Forgery—tricking users into performing unwanted actions while authenticated.
+
+Q940: How to prevent CSRF?
+A940: Use SameSite cookies, CSRF tokens, or double-submit cookies.
+
+Q941: What is XSS?
+A941: Cross-Site Scripting—injecting malicious scripts into trusted sites, often via unsanitized inputs.
+
+Q942: How to prevent XSS?
+A942: Escape dynamic content, validate input, and use secure templating libraries.
+
+Q943: What is a security header?
+A943: HTTP headers like Content-Security-Policy or X-Frame-Options that improve browser-side security.
+
+Q944: What is Content Security Policy (CSP)?
+A944: A browser directive that limits which resources (scripts, styles) can load—prevents XSS.
+
+Q945: What is rate limiting?
+A945: A technique to control request frequency per user or IP to prevent abuse.
+
+Q946: What is IP whitelisting?
+A946: Restricting access to known, trusted IP addresses only.
+
+Q947: What is Zero Trust?
+A947: A security model assuming no device or user is trusted by default—even inside the perimeter.
+
+Q948: What is a security audit?
+A948: A systematic evaluation of a system’s code, configurations, and processes for vulnerabilities.
+
+Q949: What is a vulnerability scanner?
+A949: An automated tool that checks for known security weaknesses in software and infrastructure.
+
+Q950: What is a penetration test?
+A950: A simulated attack on a system to uncover vulnerabilities from an attacker’s perspective.
+
+Q951: What is a honeypot?
+A951: A decoy system designed to attract and log malicious activity for study or misdirection.
+
+Q952: What is a WAF?
+A952: Web Application Firewall—filters and monitors HTTP traffic to block malicious requests.
+
+Q953: What is an IDS?
+A953: Intrusion Detection System—monitors for suspicious or malicious activity on a network.
+
+Q954: What is an SLA?
+A954: Service Level Agreement—a formal uptime/performance contract between provider and client.
+
+Q955: What is an SLO?
+A955: Service Level Objective—a target metric (e.g., 99.9% uptime) to aim for operational excellence.
+
+Q956: What is an SLI?
+A956: Service Level Indicator—the actual measured value (e.g., latency, availability, error rate).
+
+Q957: Why monitor 5xx errors?
+A957: They indicate server-side failures that often require urgent attention.
+
+Q958: Why monitor 4xx errors?
+A958: They can signal client misuse, broken routes, or misconfigured integrations.
+
+Q959: Why monitor latency percentiles?
+A959: P95 or P99 show tail latency, revealing how slow things get for the worst users.
+
+Q960: What is backpressure in APIs?
+A960: Throttling or signaling slower clients to prevent overload or failure cascades.
+
+Q961: What is graceful degradation?
+A961: The ability for an app to provide limited functionality when full features aren’t available.
+
+Q962: What is progressive enhancement?
+A962: Building core functionality first, then adding optional advanced features.
+
+Q963: What is fault tolerance?
+A963: The ability of a system to continue operating properly even when parts fail.
+
+Q964: What is high availability?
+A964: A system design that ensures minimal downtime, often via redundancy and failover.
+
+Q965: What is uptime vs reliability?
+A965: Uptime is percent time available; reliability includes both uptime and correctness of behavior.
+
+Q966: What is SLA breach?
+A966: When a provider fails to meet agreed service levels, often triggering penalties or credits.
+
+Q967: What is an API contract?
+A967: A documented agreement on request/response formats, status codes, and behaviors between services.
+
+Q968: What is OpenAPI spec?
+A968: A standardized format (YAML/JSON) for defining RESTful API contracts.
+
+Q969: What is API versioning?
+A969: Managing changes in API behavior or structure, usually with `/v1`, headers, or content negotiation.
+
+Q970: What is GraphQL?
+A970: A query language for APIs where clients define exactly what data they need.
+
+Q971: What’s the downside of GraphQL?
+A971: Complexity in caching, security, and performance if not implemented carefully.
+
+Q972: What is a resolver?
+A972: A function in GraphQL that returns the value for a field on a type.
+
+Q973: What is schema stitching?
+A973: Combining multiple GraphQL schemas into one unified API.
+
+Q974: What is Apollo Client?
+A974: A popular GraphQL client for managing queries, caching, and local state in the frontend.
+
+Q975: What is optimistic UI?
+A975: Immediately updating UI as if a request succeeded, and rolling back if it fails.
+
+Q976: What is local-first architecture?
+A976: Prioritizing offline-first behavior with local caching and sync for reliability and performance.
+
+Q977: What is SWR?
+A977: A React data fetching library that implements stale-while-revalidate for fast, cached UI.
+
+Q978: What is React Query?
+A978: A data-fetching library that manages caching, syncing, and retries for remote data in React.
+
+Q979: Why separate form state from global app state?
+A979: To avoid unnecessary re-renders and reduce complexity in state management.
+
+Q980: What is dirty checking in forms?
+A980: Tracking whether form values have changed since initial load.
+
+Q981: What is Zod or Yup used for?
+A981: Schema validation libraries for validating and parsing data structures in TypeScript/JavaScript.
+
+Q982: Why debounce validation in forms?
+A982: To avoid validating on every keystroke, reducing lag and API calls.
+
+Q983: What is Formik?
+A983: A React library for building and managing forms with minimal boilerplate.
+
+Q984: What is controlled input?
+A984: An input element in React where value is tied to component state.
+
+Q985: What is uncontrolled input?
+A985: An input that manages its own state via the DOM, accessed with refs.
+
+Q986: What is a higher-order component?
+A986: A function that takes a component and returns a new one with added behavior.
+
+Q987: What is a render prop?
+A987: A technique where a component’s child is a function that returns JSX.
+
+Q988: What is Context API?
+A988: A React feature that provides global state or dependencies to deeply nested components.
+
+Q989: What is prop drilling?
+A989: Passing props through intermediate components unnecessarily—Context can help avoid it.
+
+Q990: What is a controlled component?
+A990: A form element in React whose value is managed by component state.
+
+Q991: What is a compound component?
+A991: A pattern where multiple components work together, sharing internal state (e.g., Tabs with Tab and TabPanel).
+
+Q992: What is suspense in React?
+A992: A mechanism for deferring rendering while waiting for asynchronous data.
+
+Q993: What is code splitting?
+A993: Breaking app bundles into smaller chunks loaded on demand to improve performance.
+
+Q994: What is lazy loading in React?
+A994: Using `React.lazy()` to load components only when needed.
+
+Q995: What is a bundle analyzer?
+A995: A tool that visualizes the size of dependencies and chunks in your JS bundle.
+
+Q996: What is tree shaking?
+A996: A build optimization that removes unused code during bundling.
+
+Q997: Why minimize render count?
+A997: Reduces CPU use and improves perceived performance.
+
+Q998: Why use `key` in React lists?
+A998: To help React identify which items changed, added, or removed for efficient diffing.
+
+Q999: What is hydration?
+A999: Attaching event listeners and reactivating interactivity on server-rendered HTML.
+
+Q1000: What is the final test of an architect?
+A1000: To simplify complexity without hiding it—ensuring systems are understandable, maintainable, and resilient under fire.
+</div>
 </body>
 </html>
