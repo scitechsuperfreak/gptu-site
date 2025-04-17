@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NX-ÆON Sleep Mode</title>
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      padding: 2em;
+    }
+    button {
+      font-size: 1.5em;
+      padding: 0.75em 1.5em;
+      background-color: black;
+      color: lime;
+      border: 2px solid lime;
+      border-radius: 0.25em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: lime;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>NX-ÆON Sleep Mode</h1>
+  <p>Click the button to start TTS playback:</p>
+  <button onclick="playQA()">Play Q&amp;A</button>  <script>
+    function playQA() {
+      const qa = `Q001: What is HTML? A001: A markup language for structuring web content.
+Q002: What is CSS? A002: A stylesheet language for styling HTML elements.
+Q003: What is JavaScript? A003: A scripting language used to create dynamic website behavior.
+Q004: What is a function? A004: A reusable block of code that performs a specific task.
+Q005: What is an API? A005: An interface allowing communication between different software components.`;
+
+      const utterance = new SpeechSynthesisUtterance(qa);
+      speechSynthesis.cancel(); // stop any current speech
+      speechSynthesis.speak(utterance);
+    }
+  </script></body>
+</html>
