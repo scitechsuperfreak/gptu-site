@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NX-ÆON Sleep Mode</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: monospace;
+      text-align: center;
+      padding: 2em;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    #speech-btn {
+      background: none;
+      border: 2px solid #00FF00;
+      color: #00FF00;
+      padding: 1em;
+      font-size: 1.2em;
+      margin-top: 2em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>NX-ÆON Sleep Mode</h1>
+  <p>Activate the speaker button below to begin neural recitation...</p>
+  <button id="speech-btn">Read Q&A Aloud</button>
+
+  <script>
+    document.getElementById('speech-btn').addEventListener('click', () => {
+      fetch('/public/Full_Stack_Architect_1000_Enriched_QA.txt')
+        .then(response => response.text())
+        .then(text => {
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.rate = 1;
+          speechSynthesis.cancel();  // stop any existing speech
+          speechSynthesis.speak(utterance);
+        })
+        .catch(error => {
+          console.error('Failed to fetch or speak the Q&A text:', error);
+        });
+    });
+  </script>
+</body>
+</html>
