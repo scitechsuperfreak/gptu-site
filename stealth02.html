@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NX-ÆON Stealth Mode 02</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 20px;
+    }
+    .hidden-qa {
+      color: black;
+      background-color: black;
+      font-size: 1px;
+      height: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .visible-notice {
+      font-size: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>NX-ÆON Sleep Mode II</h1>
+  <p class="visible-notice">Activate the speaker button below to begin neural recitation...</p>
+
+  <div id="qa-content" class="hidden-qa" aria-hidden="false" tabindex="0">
+    Q1: What are the main differences between HTML and JavaScript? A1: HTML is a markup language used for structuring content on the web, while JavaScript is a programming language used to add interactivity and dynamic behavior to web pages.
+    Q2: What does CSS3 add to CSS2? A2: CSS3 introduces features like media queries, flexbox, grid layout, transitions, animations, and additional selectors for enhanced styling.
+    Q3: Explain the role of the DOM in JavaScript. A3: The DOM (Document Object Model) is an interface that represents the structure of an HTML document as a tree, allowing JavaScript to access and manipulate elements dynamically.
+    Q9: What is Express.js? A9: Express.js is a minimal and flexible Node.js web application framework that provides robust features for building APIs and web apps.
+    Q54: What is middleware in Express.js? A54: Middleware functions are functions that have access to the request, response, and next middleware in the pipeline.
+    Q107: What is the difference between synchronous and asynchronous JavaScript? A107: Synchronous code runs sequentially; asynchronous code allows tasks like I/O to run in the background, often using promises or async/await.
+    Q111: What is an HOC in React? A111: Higher-Order Component – a function that takes a component and returns an enhanced component.
+    Q112: What is SSR caching and why is it useful? A112: It stores rendered pages to serve repeated requests quickly, reducing server load and improving performance.
+    Q115: What is the difference between client-side and server-side rendering? A115: Client-side rendering builds UI in the browser; server-side rendering sends fully formed HTML from the server.
+    Q116: How does React Router differ from Next.js routing? A116: React Router uses a manual route config, while Next.js uses file-based routing.
+    Q117: What is optimistic UI? A117: A UX technique where the UI updates immediately after an action is taken, before receiving confirmation from the server.
+    Q118: What is the difference between PUT and PATCH in REST? A118: PUT replaces an entire resource; PATCH modifies only specified fields.
+    Q119: What is HTTP status code 201? A119: Created – indicates successful creation of a resource.
+    Q120: What is HTTP status code 204? A120: No Content – successful request with no body in the response.
+    Q121: What is HTTP status code 401? A121: Unauthorized – indicates the user must authenticate.
+    Q122: What is HTTP status code 403? A122: Forbidden – authentication succeeded, but the user lacks permission.
+    Q123: What is HTTP status code 500? A123: Internal Server Error – indicates something went wrong on the server.
+    Q125: What is a singleton pattern? A125: A design pattern that ensures only one instance of a class exists across the system.
+    Q126: What is a race condition? A126: A situation where two or more operations execute in parallel and the outcome depends on the order of execution.
+    Q127: What is a memory leak? A127: Unused memory that is not released, leading to increased memory usage and potential app crashes.
+    Q131: What is a closure in JavaScript? A131: A closure is a function that retains access to its lexical scope even when executed outside its scope.
+    Q132: What is event bubbling? A132: The process where events propagate from the target element up to the root in the DOM tree.
+    Q133: What is debouncing? A133: A technique to limit how often a function executes, commonly used in input and resize events.
+    Q134: What is throttling? A134: A technique to limit how often a function runs at fixed intervals, regardless of how often it's triggered.
+    Q136: What is a Promise? A136: An object representing the eventual completion or failure of an asynchronous operation.
+    Q138: What is destructuring in JavaScript? A138: A syntax that allows extracting values from arrays or properties from objects into variables.
+    Q153: What is the difference between localStorage and sessionStorage? A153: localStorage persists data across sessions; sessionStorage only persists during the current tab session.
+    Q155: What is a 302 redirect? A155: A temporary redirect status code that tells browsers the resource has moved temporarily to a different URI.
+    Q157: What is a cookie? A157: A small piece of data stored in the browser, often used for session tracking and authentication.
+    Q158: How is a token-based auth flow different from cookie-based? A158: Token-based auth stores credentials in client-side memory or storage; cookie-based uses HTTP-only cookies sent with every request.
+    Q159: What is the Same-Origin Policy? A159: A browser security feature that restricts interactions between documents from different origins.
+    Q160: What is a CSRF attack? A160: Cross-Site Request Forgery tricks a user into submitting a request they didn’t intend, using their credentials.
+    Q161: What is the solution to CSRF in modern web apps? A161: Using CSRF tokens in forms, SameSite cookie policies, or token-based authentication methods like JWT.
+    Q162: What are WebSockets? A162: A full-duplex communication protocol over a single TCP connection, ideal for real-time data exchange.
+    Q164: What is a monorepo? A164: A single repository that holds multiple projects, often managed with tools like Nx or TurboRepo.
+    Q165: What is sharding in databases? A165: Splitting data across multiple databases or servers to scale horizontally.
+    Q166: What is a replica set in MongoDB? A166: A group of MongoDB servers that maintain the same data for redundancy and failover.
+    Q167: What is ACID compliance? A167: A set of properties ensuring reliable transaction processing: Atomicity, Consistency, Isolation, Durability.
+    Q168: What is eventual consistency useful for? A168: High-availability distributed systems where real-time accuracy is less important than uptime and performance.
+    Q169: What’s the difference between NoSQL document stores and key-value stores? A169: Document stores (e.g., MongoDB) store structured JSON-like docs; key-value stores (e.g., Redis) store simple key-value pairs.
+    Q170: What is Redis commonly used for? A170: Caching, session storage, pub/sub messaging, and real-time analytics due to its speed.
+    Q171: What is a CDN? A171: A Content Delivery Network stores cached versions of content across various geographical servers to reduce latency.
+    Q172: How do you invalidate a cache? A172: You clear or mark cached data as expired, prompting the system to fetch fresh content.
+    Q176: What is a merge conflict? A176: When Git cannot automatically resolve differences between branches and requires manual intervention.
+    Q177: What is semantic versioning? A177: A versioning system using MAJOR.MINOR.PATCH to indicate breaking changes, new features, and fixes.
+    Q179: What is the difference between linting and formatting? A179: Linting flags code issues and potential bugs; formatting enforces visual consistency.
+    Q180: What is an idempotent API method? A180: An operation that can be called multiple times with the same result, like GET or PUT.
+    Q183: What is type inference? A183: TypeScript’s ability to automatically deduce variable types without explicit annotations.
+    Q186: What is a generic in TypeScript? A186: A placeholder type that allows you to write reusable, type-safe functions and classes.
+    Q187: What is a type guard? A187: A TypeScript construct that allows narrowing down types within conditionals.
+    Q189: What are the advantages of using TypeScript? A189: Early bug detection, better tooling and autocomplete, and clear documentation through types.
+    Q190: What is hot module replacement (HMR)? A190: A feature that updates modules in the browser without a full reload, improving development speed.
+    Q191: What is tree shaking in bundlers like Webpack? A191: Removing dead code during bundling to reduce file size and improve performance.
+    Q192: What is a source map? A192: A file that maps compiled code back to the original source, useful for debugging.
+    Q193: What is the difference between development and production builds? A193: Dev builds include debugging tools and logs; prod builds are optimized and minified.
+    Q197: What is a dependency graph? A197: A visual or structural representation of how modules or packages depend on each other.
+    Q201: What is a peer dependency in npm? A201: A dependency that a package requires to function, but expects the host project to provide.
+    Q202: What is the role of a package-lock.json file? A202: It locks the versions of installed packages to ensure consistent installs across environments.
+    Q207: What is the role of a UUID? A207: Universally Unique Identifier used to generate unique keys for database entries or objects.
+    Q209: What is salting in password hashing? A209: Adding random data to passwords before hashing to prevent rainbow table attacks.
+    Q210: What is the difference between hashing and encryption? A210: Hashing is one-way and irreversible; encryption is two-way and can be decrypted with a key.
+    Q211: What is the purpose of HTTPS? A211: To encrypt data in transit, ensuring confidentiality and integrity between client and server.
+    Q212: What is HSTS? A212: HTTP Strict Transport Security forces browsers to only use HTTPS with a site.
+    Q213: What is a digital certificate? A213: A file issued by a Certificate Authority (CA) that proves the authenticity of a site over HTTPS.
+    Q214: What is the difference between PUT and POST? A214: PUT is idempotent and updates or creates a resource at a known URI; POST is non-idempotent and creates a new resource.
+    Q217: What is a debounce function used for in React input fields? A217: To reduce the rate of API calls or state updates while typing by waiting for a pause in input.
+    Q218: What is a 429 status code? A218: Too Many Requests – the client has sent too many requests in a given amount of time.
+    Q220: What is a virtual environment in development? A220: An isolated runtime setup to avoid dependency conflicts, more common in Python but conceptually similar to Node.js project scopes.
+    Q221: What is the difference between scaling vertically and horizontally? A221: Vertical scaling adds more power to a single server; horizontal adds more servers to distribute load.
+    Q222: What is a service registry in microservices? A222: A centralized database that tracks available services and their locations.
+    Q223: What is API Gateway? A223: A single entry point that routes requests to appropriate microservices and can handle auth, rate limiting, and logging.
+    Q224: What is service discovery? A224: The process by which services find each other dynamically in a distributed system.
+    Q225: What is a reverse proxy? A225: A server that forwards client requests to other backend servers, often used for load balancing and caching.
+    Q226: What is circuit breaking in microservices? A226: A pattern that stops attempts to contact a failing service to prevent cascading failures.
+    Q227: What does the 503 status code mean? A227: Service Unavailable – the server is not ready to handle the request.
+    Q228: What is a container orchestration tool? A228: A platform for managing containers at scale, such as Kubernetes or Docker Swarm.
+    Q229: What is a pod in Kubernetes? A229: The smallest deployable unit, which can contain one or more containers.
+    Q230: What is a health check in containerized environments? A230: A method to determine if an application is running correctly; can trigger restarts or traffic redirection.
+    Q231: What is CI vs CD? A231: CI (Continuous Integration) automates testing and building; CD (Continuous Delivery/Deployment) automates release to staging or production.
+    Q232: What is a blue-green deployment? A232: A release strategy where two environments (blue and green) are used, allowing instant rollback.
+    Q233: What is a canary release? A233: A deployment strategy where new code is gradually released to a small subset of users before full rollout.
+    Q234: What is the difference between monolithic and microfrontend architectures? A234: Monoliths combine all UI logic into one app; microfrontends break it into independently deployable units.
+    Q235: What is the role of a linter in CI? A235: It ensures code quality by automatically checking for syntax errors, style violations, and potential bugs.
+    Q236: What is a commit hook? A236: A script that runs automatically at certain git events (e.g., before commit), often used for linting or tests.
+    Q237: What is a mock server? A237: A server that simulates API responses for testing frontend or client integrations without relying on the real backend.
+    Q238: What is the Twelve-Factor App? A238: A methodology for building scalable and maintainable SaaS apps using 12 best practices, including config via env and stateless processes.
+    Q239: What is an ephemeral environment? A239: A temporary, disposable environment (e.g., for a PR) used to test features in isolation.
+    Q240: What are environment secrets? A240: Confidential values (API keys, DB creds) stored securely and injected into runtime without hardcoding.
+    Q241: What is a JWT claim? A241: A key-value pair in a JWT payload that contains info like user ID or permissions. JWTs are signed using a secret or public/private key pair. They're compact, URL-safe, and typically used in stateless authentication systems.
+    Q242: What are the three parts of a JWT? A242: Header, Payload, Signature. JWTs are signed using a secret or public/private key pair. They're compact, URL-safe, and typically used in stateless authentication systems.
+    Q243: What does the signature of a JWT ensure? A243: That the token’s data hasn’t been tampered with. JWTs are signed using a secret or public/private key pair. They're compact, URL-safe, and typically used in stateless authentication systems.
+    Q245: What is the principle of least privilege? A245: Giving users or services the minimum permissions necessary to perform their tasks.
+    Q246: What is a permissions matrix? A246: A table defining which roles can perform which actions on which resources.
+    Q247: What is the difference between authentication and authorization? A247: Authentication verifies identity; authorization checks permissions.
+    Q248: What is an access control list (ACL)? A248: A list specifying which users or systems are granted access to objects or resources.
+    Q249: What is rate limiting? A249: Restricting the number of requests a user or system can make to a server in a given time frame.
+    Q251: What is an index in a database? A251: A data structure that improves the speed of queries at the cost of additional space and slower writes.
+    Q252: What is the difference between a clustered and non-clustered index? A252: A clustered index sorts the actual data rows; a non-clustered index stores pointers to the data.
+    Q253: What is a composite index? A253: An index on multiple columns used to optimize queries filtering by all or part of those columns.
+    Q254: What is a foreign key? A254: A constraint that creates a relationship between two tables by linking a column to the primary key of another.
+  </div>
+</body>
+</html>
