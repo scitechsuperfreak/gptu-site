@@ -1,27 +1,23 @@
-const express = require('express');
-const { Pool } = require('pg');
-const cors = require('cors');
-
-require('dotenv').config();
+import express from 'express';
+import session from 'express-session';
+import authRoutes from './auth.js';
 
 const app = express();
-app.use(cors());
+app.use(express.json());
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+app.use(session({
+  secret: 'gptu_secret_key',
+  resave: false,
+  saveUninitialized: false,
+}));
+
+app.get('/', (req, res) => {
+  res.send('API is live');
 });
 
-app.get('/api/questions', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT question_text, answer_text FROM questions WHERE is_verified = true ORDER BY created_at DESC LIMIT 50');
-    res.json(result.rows);
-  } catch (err) {
-    res.status(500).json({ error: 'DB error' });
-  }
-});
+app.use('/', authRoutes);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`API server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
