@@ -1,10 +1,10 @@
 [
   {
-    "question": "What are the main differences between HTML and JavaScript?",
-    "answer": "HTML is for structure; JavaScript is for interactivity."
+    "question": "What is HTML?",
+    "answer": "HTML is the standard markup language for documents."
   },
   {
-    "question": "What does CSS3 add to CSS2?",
-    "answer": "CSS3 adds media queries, flexbox, animations, etc."
+    "question": "What is JavaScript?",
+    "answer": "JavaScript enables interactive web pages."
   }
 ]
