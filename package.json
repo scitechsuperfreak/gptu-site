@@ -1,4 +1,9 @@
 {
+
+"scripts": {
+  "start": "node server.js"
+}
+
   "name": "gptu-api",
   "version": "1.0.0",
   "main": "server/auth.js",
