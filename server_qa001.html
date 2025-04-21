@@ -1,17 +1,79 @@
-<h2>Full Stack Architect Q&A</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GPTU API QA</title>
+</head>
+<body>
+  <h1>GPTU API Tester</h1>
 
-<div class="qa-block">
-  <p><strong>Q:</strong> What is OAuth2 and why is it important?</p>
-  <p><strong>A:</strong> OAuth2 is an authorization framework that allows applications to obtain limited access to user accounts without exposing credentials. It enables secure delegated access for APIs.</p>
-</div>
+  <h2>Register</h2>
+  <form id="registerForm">
+    <input type="text" placeholder="Username" id="regUser" required />
+    <input type="password" placeholder="Password" id="regPass" required />
+    <button type="submit">Register</button>
+  </form>
+  <p id="regResult"></p>
 
-<style>
-  .qa-block {
-    margin-top: 2rem;
-    background: #111;
-    border: 1px solid var(--border-color);
-    padding: 1rem;
-    font-family: monospace;
-    line-height: 1.6;
-}
-</style>
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="text" placeholder="Username" id="logUser" required />
+    <input type="password" placeholder="Password" id="logPass" required />
+    <button type="submit">Login</button>
+  </form>
+  <p id="logResult"></p>
+
+  <h2>Protected Route</h2>
+  <button id="protectedBtn">Access Protected</button>
+  <p id="protectedResult"></p>
+
+  <h2>Live users.json</h2>
+  <pre id="usersJson">Loading...</pre>
+
+  <script>
+    const apiBase = "/"; // Update if deployed under subdir
+
+    async function fetchJson() {
+      try {
+        const res = await fetch(apiBase + "users.json");
+        const json = await res.json();
+        document.getElementById("usersJson").textContent = JSON.stringify(json, null, 2);
+      } catch (err) {
+        document.getElementById("usersJson").textContent = "Error loading users.json";
+      }
+    }
+
+    document.getElementById("registerForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const username = regUser.value;
+      const password = regPass.value;
+      const res = await fetch(apiBase + "register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+      regResult.textContent = await res.text();
+      fetchJson();
+    });
+
+    document.getElementById("loginForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const username = logUser.value;
+      const password = logPass.value;
+      const res = await fetch(apiBase + "login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+      logResult.textContent = await res.text();
+    });
+
+    document.getElementById("protectedBtn").addEventListener("click", async () => {
+      const res = await fetch(apiBase + "protected");
+      protectedResult.textContent = await res.text();
+    });
+
+    fetchJson();
+  </script>
+</body>
+</html>
