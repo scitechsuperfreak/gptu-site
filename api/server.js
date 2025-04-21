@@ -1,24 +1,22 @@
-import express from 'express';
-import path from 'path';
-import fs from 'fs';
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
 
-const __dirname = path.resolve();
 const app = express();
+const __dirnameResolved = path.resolve();
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirnameResolved, 'views'));
 
-// Serve static assets (CSS, images, etc.)
+// Serve static files from 'public' (if any)
 app.use(express.static('public'));
-app.use(express.json()); // Enable parsing JSON request bodies
 
-// Route: Render Q&A page
+// Route to render QA page with JSON data
 app.get('/qa', (req, res) => {
   try {
-    const qaData = JSON.parse(
-      fs.readFileSync(path.resolve(__dirname, 'server', 'bft.json'), 'utf-8')
-    );
+    const filePath = path.join(__dirnameResolved, '../server/bft.json');
+    const qaData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     res.render('qa', { qaData });
   } catch (err) {
     console.error('Failed to load /qa route:', err);
@@ -26,10 +24,9 @@ app.get('/qa', (req, res) => {
   }
 });
 
-// Route: Catch-all for testing 404s
-app.post('/register', (req, res) => {
-  console.log('Incoming /register POST:', req.body);
-  res.send({ status: 'ok', message: 'Received POST!' });
+// Catch-all fallback (optional)
+app.get('*', (req, res) => {
+  res.status(404).send('Page not found');
 });
 
 const PORT = process.env.PORT || 3000;
