@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GPTU Blunt Force Q&A</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 20px;
+    }
+    .hidden-qa {
+      color: black;
+      background-color: black;
+      font-size: 1px;
+      height: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .visible-notice {
+      font-size: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>GPTU Blunt Force Testing Q&A</h1>
+  <p class="visible-notice">Activate the speaker button below to begin neural recitation...</p>
+
+  <div id="qa-content" class="hidden-qa" aria-hidden="false" tabindex="0">
+    <% qaData.forEach((item, index) => { %>
+      Q<%= index + 1 %>: <%= item.question %>
+      A<%= index + 1 %>: <%= item.answer %>
+    <% }); %>
+  </div>
+</body>
+</html>
