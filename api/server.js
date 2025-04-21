@@ -1,35 +1,34 @@
 const express = require('express');
 const { Pool } = require('pg');
-const path = require('path');
-
 const app = express();
-const port = process.env.PORT || 10000;
+const PORT = process.env.PORT || 10000;
 
-// Middleware
+// PostgreSQL connection config via environment variables
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL, // Set in Render's env vars
+  ssl: { rejectUnauthorized: false }
+});
+
+// Middleware to parse JSON (optional for GETs)
 app.use(express.json());
 
-// PostgreSQL connection
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false } // Needed for Render's SSL
-});
-
-// Basic route to test API
+// Basic root route
 app.get('/', (req, res) => {
-  res.send('API is live');
+  res.send('GPTU API is live.');
 });
 
-// Route to fetch questions
+// /questions route: fetch data from questions table
 app.get('/questions', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM questions');
+    const result = await pool.query('SELECT * FROM questions LIMIT 50');
     res.json(result.rows);
-  } catch (err) {
-    console.error('Error fetching questions:', err);
+  } catch (error) {
+    console.error('Error fetching questions:', error);
     res.status(500).send('Internal Server Error');
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
