@@ -1,19 +1,26 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
-const session = require('express-session');
-const fs = require('fs');
+import express from 'express';
+import bcrypt from 'bcrypt';
+import session from 'express-session';
+import fs from 'fs';
 
 const router = express.Router();
 const USERS_FILE = './server/users.json';
 
-let users = JSON.parse(fs.readFileSync(USERS_FILE));
+let users = {};
+try {
+  users = JSON.parse(fs.readFileSync(USERS_FILE));
+} catch {
+  users = {};
+}
 
+// Session middleware
 router.use(session({
   secret: 'gptu_secret_key',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: false
 }));
 
+// Register
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   if (users[username]) return res.status(400).send('User exists');
@@ -21,9 +28,11 @@ router.post('/register', async (req, res) => {
   const hash = await bcrypt.hash(password, 10);
   users[username] = { password: hash };
   fs.writeFileSync(USERS_FILE, JSON.stringify(users));
+
   res.status(200).send('Registered');
 });
 
+// Login
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   const user = users[username];
@@ -36,9 +45,10 @@ router.post('/login', async (req, res) => {
   res.status(200).send('Logged in');
 });
 
+// Protected route
 router.get('/protected', (req, res) => {
   if (!req.session.user) return res.status(401).send('Unauthorized');
   res.send(`Welcome to protected content, ${req.session.user}`);
 });
 
-module.exports = router;
+export default router;
