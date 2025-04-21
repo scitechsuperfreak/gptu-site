@@ -1,15 +1,22 @@
 import express from 'express';
-import authRoutes from './server/auth.js';
+import session from 'express-session';
+import authRoutes from './auth.js';
 
 const app = express();
-app.use(express.json()); // Middleware to parse JSON
+app.use(express.json());
 
-app.use((req, res, next) => {
-  console.log(`Received ${req.method} request to ${req.url}`);
-  next();
+app.use(session({
+  secret: 'gptu_secret_key',
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// Health check
+app.get('/', (req, res) => {
+  res.send('API is live');
 });
 
-app.use('/', authRoutes); // Mount auth routes
+app.use('/', authRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
