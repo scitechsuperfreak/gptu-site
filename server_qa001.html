@@ -2,50 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GPTU BFT Q&A</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GPTU Blunt Force Q&A</title>
   <style>
     body {
       background-color: black;
-      color: #00ff00;
-      font-family: monospace;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
       padding: 20px;
     }
-    h1 {
-      color: #00ff00;
+    .hidden-qa {
+      color: black;
+      background-color: black;
+      font-size: 1px;
+      height: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
     }
-    .qa {
-      margin-bottom: 16px;
-    }
-    .question {
-      color: #00ffff;
+    .visible-notice {
+      font-size: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <h1>GPTU Blunt Force Q&A</h1>
-  <div id="qa-list">Loading...</div>
+  <h1>GPTU Blunt Force Testing Q&A</h1>
+  <p class="visible-notice">Activate the speaker button below to begin neural recitation...</p>
 
-  <script>
-    async function loadQA() {
-      const res = await fetch('/users.json');
-      const data = await res.json();
-      const out = document.getElementById('qa-list');
-      let html = '';
-      let counter = 1;
+  <div id="qa-content" class="hidden-qa" aria-hidden="false" tabindex="0">
+Q1: What are the main differences between HTML and JavaScript?
+A1: HTML is for structure; JavaScript is for behavior and interactivity.
 
-      for (const user of Object.values(data)) {
-        if (Array.isArray(user.questions)) {
-          for (const q of user.questions) {
-            html += `<div class="qa"><div class="question">Q${counter}: ${q}</div><div>A${counter}: </div></div>`;
-            counter++;
-          }
-        }
-      }
+Q2: What does CSS3 add to CSS2?
+A2: CSS3 adds media queries, flexbox, grid, animations, and new selectors.
 
-      out.innerHTML = html || 'No questions found.';
-    }
+Q3: Explain the role of the DOM in JavaScript.
+A3: The DOM lets JS dynamically access and manipulate the document structure.
 
-    loadQA();
-  </script>
+Q4: How do you create a new Git repository locally?
+A4: Use `git init` inside your project folder.
+
+Q5: What is the purpose of `git clone`?
+A5: It copies a remote repository to your local machine.
+
+Q6: Explain how `git commit` works.
+A6: Commits staged changes to local repository history with a message.
+
+Q7: What does `git push` do?
+A7: Uploads local commits to the remote repository.
+
+Q8: How do you install packages using npm?
+A8: Run `npm install <package-name>` in the terminal.
+
+Q9: What is Express.js?
+A9: A Node.js web framework for APIs and server-side apps.
+
+Q10: How do you define a basic route in Express.js?
+A10: `app.get('/', (req, res) => res.send('Hello'))`
+
+Q11: What is the default port for a Node.js server?
+A11: Port 3000 is commonly used, though not enforced.
+
+Q12: How do you connect to a PostgreSQL database in Node.js?
+A12: Use the `pg` library with a connection string or config.
+
+Q13: What's the difference between SQL and NoSQL?
+A13: SQL is structured; NoSQL is flexible and document- or key-based.
+
+Q14: How do you define a MongoDB schema with Mongoose?
+A14: Use `new mongoose.Schema({ key: type })`.
+
+Q15: What is JSX in React?
+A15: JSX lets you write HTML-like syntax in React code.
+
+Q16: What does useState do in React?
+A16: It adds state to functional components.
+
+Q17: What is the role of useEffect in React?
+A17: It manages side effects like API calls or event listeners.
+
+Q18: Describe the concept of Server-Side Rendering (SSR).
+A18: SSR renders HTML on the server for faster initial load.
+
+Q19: What is Next.js?
+A19: A React framework with SSR, routing, and static generation.
+
+Q20: What is JWT used for?
+A20: JWT transmits verified identity or claims securely.
+
+Q21: How does OAuth work in simple terms?
+A21: Users grant app access via tokens, not passwords.
+
+Q22: What is RBAC?
+A22: Role-Based Access Control restricts access by user role.
+
+Q23: What does Prisma ORM do?
+A23: Prisma provides type-safe, auto-generated DB queries.
+
+Q24: What is a SQL JOIN?
+A24: A SQL JOIN combines data from multiple tables via keys.
+
+Q25: What is REST?
+A25: REST is an API design style using standard HTTP verbs.
+
+<!-- You can append Q26–Q50 as needed -->
+  </div>
 </body>
 </html>
