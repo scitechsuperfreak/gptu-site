@@ -42,4 +42,4 @@ router.get('/protected', (req, res) => {
   res.send('Welcome to protected content, ' + req.session.user);
 });
 
-module.exports = router;
+export default router;
