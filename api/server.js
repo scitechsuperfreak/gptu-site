@@ -20,10 +20,12 @@ app.get('/', (req, res) => {
 // /questions route: fetch data from questions table
 app.get('/questions', async (req, res) => {
   try {
+    console.log('Connecting to database...');
     const result = await pool.query('SELECT * FROM questions LIMIT 50');
+    console.log('Query successful. Rows:', result.rows.length);
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching questions:', error);
+    console.error('Error fetching questions:', error.message);
     res.status(500).send('Internal Server Error');
   }
 });
