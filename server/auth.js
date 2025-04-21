@@ -15,7 +15,6 @@ router.post('/register', async (req, res) => {
   if (users[username]) {
     return res.status(400).send('User exists');
   }
-
   const hash = await bcrypt.hash(password, 10);
   users[username] = { password: hash };
   fs.writeFileSync(USERS_FILE, JSON.stringify(users));
