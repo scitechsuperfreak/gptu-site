@@ -1,27 +1,25 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
-import bodyParser from 'body-parser';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+const __dirname = path.resolve();
 const app = express();
 
-// Middleware
-app.use(bodyParser.json());
-app.use(express.static('public'));
+// Middleware to parse JSON bodies
+app.use(express.json());
 
-// Set EJS as view engine
+// Set EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// GET /qa
+// Serve static files
+app.use(express.static('public'));
+
+// QA endpoint
 app.get('/qa', (req, res) => {
   try {
     const qaData = JSON.parse(
-      fs.readFileSync(path.resolve(__dirname, '../server/bft.json'), 'utf-8')
+      fs.readFileSync(path.join(__dirname, 'server', 'bft.json'), 'utf-8')
     );
     res.render('qa', { qaData });
   } catch (err) {
@@ -30,34 +28,33 @@ app.get('/qa', (req, res) => {
   }
 });
 
-// POST /register
+// Register endpoint
 app.post('/register', (req, res) => {
   const { username, password } = req.body;
+
   if (!username || !password) {
-    return res.status(400).json({ error: 'Username and password required' });
+    return res.status(400).json({ message: 'Missing username or password' });
   }
 
+  const newUser = { username, password };
+
+  const filePath = path.join(__dirname, 'server', 'users.json');
+  let users = [];
+
   try {
-    const usersFile = path.resolve(__dirname, '../server/users.json');
-    let users = [];
-
-    if (fs.existsSync(usersFile)) {
-      users = JSON.parse(fs.readFileSync(usersFile, 'utf-8'));
+    if (fs.existsSync(filePath)) {
+      users = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     }
-
-    if (users.find((user) => user.username === username)) {
-      return res.status(409).json({ error: 'User already exists' });
-    }
-
-    users.push({ username, password }); // (In production, hash this!)
-    fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
-    res.status(201).json({ message: 'User registered successfully' });
+    users.push(newUser);
+    fs.writeFileSync(filePath, JSON.stringify(users, null, 2));
+    res.status(200).json({ message: 'User registered' });
   } catch (err) {
-    console.error('Registration error:', err);
+    console.error('Error saving user:', err);
     res.status(500).send('Internal Server Error');
   }
 });
 
+// Port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
