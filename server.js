@@ -2,16 +2,14 @@ import express from 'express';
 import authRoutes from './server/auth.js';
 
 const app = express();
-app.use(express.json());
+app.use(express.json()); // Enables parsing of JSON bodies
 
-// Logging middleware (optional)
 app.use((req, res, next) => {
   console.log(`Received ${req.method} request to ${req.url}`);
   next();
 });
 
-// Mount auth routes
-app.use('/', authRoutes);
+app.use('/', authRoutes); // Mount the auth router
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
