@@ -1,8 +1,5 @@
 const express = require('express');
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
-});
+const { Pool } = require('pg'); // You forgot to import Pool!
 const app = express();
 const PORT = process.env.PORT || 10000;
 
@@ -33,7 +30,6 @@ app.get('/questions', async (req, res) => {
   }
 });
 
-
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
@@ -52,7 +48,6 @@ app.post('/register', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
 
 // Start server
 app.listen(PORT, () => {
