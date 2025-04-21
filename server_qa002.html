@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GPTU BFT Viewer</title>
+  <style>
+    body {
+      background: black;
+      color: #00ff00;
+      font-family: monospace;
+      padding: 20px;
+    }
+    pre {
+      background: #111;
+      padding: 10px;
+      border: 1px solid #00ff00;
+      overflow-x: auto;
+    }
+    button {
+      background: #111;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>GPTU Blunt Force Testing Data</h1>
+  <button onclick="loadData()">Reload Data</button>
+  <pre id="data">Loading...</pre>
+
+  <script>
+    async function loadData() {
+      try {
+        const res = await fetch('/users.json');
+        const json = await res.json();
+        document.getElementById('data').textContent = JSON.stringify(json, null, 2);
+      } catch (e) {
+        document.getElementById('data').textContent = 'Error loading users.json';
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
