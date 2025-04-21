@@ -1,8 +1,9 @@
 // auth.js - Auth routes for login/register
-const express = require('express');
-const bcrypt = require('bcrypt');
-const session = require('express-session');
-const fs = require('fs');
+
+import express from 'express';
+import bcrypt from 'bcrypt';
+import session from 'express-session';
+import fs from 'fs';
 
 const router = express.Router();
 const USERS_FILE = './server/users.json';
