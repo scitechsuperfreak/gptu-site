@@ -1,26 +1,20 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import session from 'express-session';
 import fs from 'fs';
 
 const router = express.Router();
-const USERS_FILE = './server/users.json';
+const USERS_FILE = './users.json';
 
 let users = {};
 if (fs.existsSync(USERS_FILE)) {
   users = JSON.parse(fs.readFileSync(USERS_FILE));
 }
 
-router.use(session({
-  secret: 'gptu_secret_key',
-  resave: false,
-  saveUninitialized: false,
-}));
-
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
-  if (!username || !password) return res.status(400).send('Missing fields');
-  if (users[username]) return res.status(400).send('User exists');
+  if (users[username]) {
+    return res.status(400).send('User exists');
+  }
 
   const hash = await bcrypt.hash(password, 10);
   users[username] = { password: hash };
@@ -41,7 +35,9 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/protected', (req, res) => {
-  if (!req.session.user) return res.status(401).send('Unauthorized');
+  if (!req.session.user) {
+    return res.status(401).send('Unauthorized');
+  }
   res.send(`Welcome to protected content, ${req.session.user}`);
 });
 
