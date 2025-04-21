@@ -28,6 +28,27 @@ app.get('/questions', async (req, res) => {
   }
 });
 
+
+app.post('/register', async (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Missing username or password' });
+  }
+
+  try {
+    const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *';
+    const values = [username, password];
+
+    const result = await pool.query(query, values);
+    res.status(201).json({ user: result.rows[0] });
+  } catch (error) {
+    console.error('Error registering user:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
