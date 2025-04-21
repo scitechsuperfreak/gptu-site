@@ -1,9 +1,7 @@
-// auth.js - Auth routes for login/register
-
-import express from 'express';
-import bcrypt from 'bcrypt';
-import session from 'express-session';
-import fs from 'fs';
+const express = require('express');
+const bcrypt = require('bcrypt');
+const session = require('express-session');
+const fs = require('fs');
 
 const router = express.Router();
 const USERS_FILE = './server/users.json';
@@ -40,7 +38,7 @@ router.post('/login', async (req, res) => {
 
 router.get('/protected', (req, res) => {
   if (!req.session.user) return res.status(401).send('Unauthorized');
-  res.send('Welcome to protected content, ' + req.session.user);
+  res.send(`Welcome to protected content, ${req.session.user}`);
 });
 
-export default router;
+module.exports = router;
