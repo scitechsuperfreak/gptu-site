@@ -2,46 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GPTU BFT Viewer</title>
+  <title>GPTU BFT Q&A</title>
   <style>
     body {
-      background: black;
+      background-color: black;
       color: #00ff00;
       font-family: monospace;
       padding: 20px;
     }
-    pre {
-      background: #111;
-      padding: 10px;
-      border: 1px solid #00ff00;
-      overflow-x: auto;
-    }
-    button {
-      background: #111;
+    h1 {
       color: #00ff00;
-      border: 1px solid #00ff00;
-      padding: 5px 10px;
-      cursor: pointer;
+    }
+    .qa {
+      margin-bottom: 16px;
+    }
+    .question {
+      color: #00ffff;
     }
   </style>
 </head>
 <body>
-  <h1>GPTU Blunt Force Testing Data</h1>
-  <button onclick="loadData()">Reload Data</button>
-  <pre id="data">Loading...</pre>
+  <h1>GPTU Blunt Force Q&A</h1>
+  <div id="qa-list">Loading...</div>
 
   <script>
-    async function loadData() {
-      try {
-        const res = await fetch('/users.json');
-        const json = await res.json();
-        document.getElementById('data').textContent = JSON.stringify(json, null, 2);
-      } catch (e) {
-        document.getElementById('data').textContent = 'Error loading users.json';
+    async function loadQA() {
+      const res = await fetch('/users.json');
+      const data = await res.json();
+      const out = document.getElementById('qa-list');
+      let html = '';
+      let counter = 1;
+
+      for (const user of Object.values(data)) {
+        if (Array.isArray(user.questions)) {
+          for (const q of user.questions) {
+            html += `<div class="qa"><div class="question">Q${counter}: ${q}</div><div>A${counter}: </div></div>`;
+            counter++;
+          }
+        }
       }
+
+      out.innerHTML = html || 'No questions found.';
     }
 
-    loadData();
+    loadQA();
   </script>
 </body>
 </html>
