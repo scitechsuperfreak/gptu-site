@@ -1,16 +1,23 @@
 const express = require('express');
-const { Pool } = require('pg'); // You forgot to import Pool!
+const { Pool } = require('pg');
+const path = require('path');
+const fs = require('fs');
+
 const app = express();
 const PORT = process.env.PORT || 10000;
 
 // PostgreSQL connection config via environment variables
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // Set in Render's env vars
+  connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 });
 
-// Middleware to parse JSON (optional for GETs)
+// Middleware to parse JSON
 app.use(express.json());
+
+// Set view engine and views directory
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../views'));
 
 // Basic root route
 app.get('/', (req, res) => {
@@ -20,9 +27,7 @@ app.get('/', (req, res) => {
 // /questions route: fetch data from questions table
 app.get('/questions', async (req, res) => {
   try {
-    console.log('Connecting to database...');
     const result = await pool.query('SELECT * FROM questions LIMIT 50');
-    console.log('Query successful. Rows:', result.rows.length);
     res.json(result.rows);
   } catch (error) {
     console.error('Error fetching questions:', error.message);
@@ -30,6 +35,19 @@ app.get('/questions', async (req, res) => {
   }
 });
 
+// Optional: load bft.json if needed
+app.get('/bft', (req, res) => {
+  const bftPath = path.join(__dirname, '../server/bft.json');
+  fs.readFile(bftPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading bft.json:', err.message);
+      return res.status(500).send('Unable to read file');
+    }
+    res.json(JSON.parse(data));
+  });
+});
+
+// /register route: insert user into users table
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
@@ -44,7 +62,7 @@ app.post('/register', async (req, res) => {
     const result = await pool.query(query, values);
     res.status(201).json({ user: result.rows[0] });
   } catch (error) {
-    console.error('Error registering user:', error);
+    console.error('Error registering user:', error.message);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
