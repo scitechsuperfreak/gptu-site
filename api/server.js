@@ -76,9 +76,8 @@ console.log('With values:', values);
     console.log('User registered successfully:', result.rows[0]);
     res.status(201).json({ user: result.rows[0] });
   } catch (error) {
-    console.error('Error registering user:', error.message);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
+    console.error('Error registering user:', error); // Add this line
+    res.status(500).json({ error: 'Internal Server Error', detail: error.message }); // Optional: send message for debugging}
 });
 
 // Start server
