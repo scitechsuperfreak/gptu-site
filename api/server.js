@@ -65,10 +65,8 @@ app.post('/register', async (req, res) => {
   try {
     const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *';
     const values = [username, password];
-
-    console.log('Registering user with query:', query);
-    console.log('With values:', values);
-
+console.log('Registering user with query:', query);
+console.log('With values:', values);
     const result = await pool.query(query, values);
 
     console.log('User registered successfully:', result.rows[0]);
