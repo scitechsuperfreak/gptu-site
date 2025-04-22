@@ -12,6 +12,8 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
+console.log('DATABASE_URL:', process.env.DATABASE_URL);
+
 // Middleware to parse JSON
 app.use(express.json());
 
