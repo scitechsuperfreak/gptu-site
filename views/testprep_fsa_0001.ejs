@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Prep Q&A</title>
+</head>
+<body>
+  <h1>Test Prep: FSA 0001</h1>
+  <% questions.forEach(q => { %>
+    <div class="qa-block">
+      <div class="question">Q<%= q.id %>: <%= q.question %></div>
+      <div class="answer">A<%= q.id %>: <%= q.answer %></div>
+    </div>
+    <hr />
+  <% }) %>
+</body>
+</html>
