@@ -27,7 +27,6 @@ app.get('/', (req, res) => {
 });
 
 // /questions route: fetch data from questions table
-
 app.get('/questions', async (req, res) => {
   try {
     console.log('Connecting to database...');
@@ -39,7 +38,6 @@ app.get('/questions', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-
 
 // Optional: load bft.json if needed
 app.get('/bft', (req, res) => {
@@ -54,38 +52,35 @@ app.get('/bft', (req, res) => {
 });
 
 // /register route: insert user into users table
-
-app.use(express.json());
-
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
-console.log('Request body:', req.body);
+  console.log('Request body:', req.body);
 
   if (!username || !password) {
     return res.status(400).json({ error: 'Missing username or password' });
   }
 
   try {
-const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *';
+    const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *';
     const values = [username, password];
-console.log('Registering user with query:', query);
-console.log('With values:', values);
+    console.log('Registering user with query:', query);
+    console.log('With values:', values);
     const result = await pool.query(query, values);
 
     console.log('User registered successfully:', result.rows[0]);
     res.status(201).json({ user: result.rows[0] });
 
-
-} catch (error) {
-  console.error('Error registering user:', error);
-  console.error('Error registering user (message only):', error.message); // <- this one
-  res.status(500).json({
-    error: 'Internal Server Error',
-    detail: error.message,
-    stack: error.stack
-  });
-}
+  } catch (error) {
+    console.error('Error registering user:', error);
+    console.error('Error registering user (message only):', error.message);
+    res.status(500).json({
+      error: 'Internal Server Error',
+      detail: error.message,
+      stack: error.stack
+    });
+  }
+});
 
 // Start server
 app.listen(PORT, () => {
