@@ -3,15 +3,8 @@
 <head>
   <title>Test Prep Q&A</title>
   <style>
-    .qa-block {
-      margin: 10px 0;
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
-    .question, .answer {
-      font-size: 18px;
-      margin: 5px 0;
-    }
+    .qa-block { padding: 10px; border-bottom: 1px solid #ccc; }
+    .question, .answer { font-size: 1.2em; }
   </style>
 </head>
 <body>
@@ -19,12 +12,10 @@
 
   <% questions.forEach(q => { %>
     <div class="qa-block">
-
-<div class="question">Q: <%= q.question %></div>
-<div class="answer">A: <%= q.answer %></div>
-
-
+      <div class="question"><strong>Q:</strong> <%= q.question_text %></div>
+      <div class="answer"><strong>A:</strong> <%= q.answer_text %></div>
     </div>
   <% }) %>
+
 </body>
 </html>
