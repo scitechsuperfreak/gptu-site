@@ -16,7 +16,10 @@ const pool = new Pool({
 
 // Tell Express to use EJS for rendering
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views")); // points to /api/views
+
+app.set("views", path.join(__dirname, "../views"));
+
+// old --> app.set("views", path.join(__dirname, "views")); // points to /api/views
 
 // Serve static files like CSS/JS if needed
 app.use(express.static(path.join(__dirname, "public")));
