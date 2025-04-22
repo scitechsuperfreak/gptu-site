@@ -6,7 +6,7 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-// PostgreSQL connection config via environment variables
+// PostgreSQL connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
@@ -14,32 +14,27 @@ const pool = new Pool({
 
 console.log('DATABASE_URL:', process.env.DATABASE_URL);
 
-// Middleware to parse JSON
 app.use(express.json());
-
-// Set view engine and views directory
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
 
-// Basic root route
+// Basic test route
 app.get('/', (req, res) => {
   res.send('GPTU API is live.');
 });
 
-// /questions route: fetch data from questions table
+// Questions API endpoint
 app.get('/questions', async (req, res) => {
   try {
-    console.log('Connecting to database...');
     const result = await pool.query('SELECT * FROM questions LIMIT 50');
-    console.log('Query successful. Rows:', result.rows.length);
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching questions:', error); // FULL OBJECT, not just .message
+    console.error('Error fetching questions:', error);
     res.status(500).send('Internal Server Error');
   }
 });
 
-// Optional: load bft.json if needed
+// Optional JSON file reader
 app.get('/bft', (req, res) => {
   const bftPath = path.join(__dirname, '../server/bft.json');
   fs.readFile(bftPath, 'utf8', (err, data) => {
@@ -51,34 +46,64 @@ app.get('/bft', (req, res) => {
   });
 });
 
-// /register route: insert user into users table
+// Register route
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
-
-  console.log('Request body:', req.body);
-
   if (!username || !password) {
     return res.status(400).json({ error: 'Missing username or password' });
   }
 
   try {
-    const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *';
+    const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id, username';
     const values = [username, password];
-    console.log('Registering user with query:', query);
-    console.log('With values:', values);
     const result = await pool.query(query, values);
-
-    console.log('User registered successfully:', result.rows[0]);
     res.status(201).json({ user: result.rows[0] });
-
   } catch (error) {
     console.error('Error registering user:', error);
-    console.error('Error registering user (message only):', error.message);
     res.status(500).json({
       error: 'Internal Server Error',
       detail: error.message,
       stack: error.stack
     });
+  }
+});
+
+// Login route
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Missing username or password' });
+  }
+
+  try {
+    const result = await pool.query(
+      'SELECT id, username FROM users WHERE username = $1 AND password = $2',
+      [username, password]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    res.json({ user: result.rows[0] });
+  } catch (error) {
+    console.error('Error logging in:', error);
+    res.status(500).json({
+      error: 'Internal Server Error',
+      detail: error.message,
+      stack: error.stack
+    });
+  }
+});
+
+// Rendered Q/A page for TTS playback
+app.get('/testprep_fsa_0001.html', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT id, question, answer FROM questions LIMIT 50');
+    res.render('testprep_fsa_0001', { questions: result.rows });
+  } catch (error) {
+    console.error('Error rendering Q/A page:', error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
