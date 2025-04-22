@@ -57,11 +57,12 @@ app.get('/testprep_fsa_0001.html', async (req, res) => {
 // JSON API version of the same data
 app.get('/questions', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM questions LIMIT 50');
+    const result = await pool.query('SELECT * FROM questions LIMIT 10');
+    console.log('Sample rows:', result.rows);  // <<< Add this
     res.json(result.rows);
-  } catch (err) {
-    console.error('Error fetching /questions:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
+  } catch (error) {
+    console.error('Error fetching questions:', error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
