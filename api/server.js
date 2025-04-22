@@ -70,3 +70,20 @@ app.get('/questions', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
+// Test prep route: render testprep_fsa_0001.ejs with 50 questions
+app.get('/testprep', async (req, res) => {
+  try {
+    console.log('Fetching questions for test prep page...');
+    const result = await pool.query('SELECT * FROM questions LIMIT 50');
+
+    console.log(`Questions fetched: ${result.rows.length}`);
+
+    // Render EJS template with 'questions' passed to it
+    res.render('testprep_fsa_0001', { questions: result.rows });
+  } catch (error) {
+    console.error('Error rendering test prep:', error.message);
+    res.status(500).send('Internal Server Error');
+  }
+});
