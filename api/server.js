@@ -75,12 +75,15 @@ console.log('With values:', values);
 
     console.log('User registered successfully:', result.rows[0]);
     res.status(201).json({ user: result.rows[0] });
+
+
 } catch (error) {
-  console.error('Error registering user:', error); 
-  res.status(500).json({ 
-    error: 'Internal Server Error', 
+  console.error('Error registering user:', error);
+  console.error('Error registering user (message only):', error.message); // <- this one
+  res.status(500).json({
+    error: 'Internal Server Error',
     detail: error.message,
-    stack: error.stack 
+    stack: error.stack
   });
 }
 
