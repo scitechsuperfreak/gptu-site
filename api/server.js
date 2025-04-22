@@ -67,7 +67,7 @@ console.log('Request body:', req.body);
   }
 
   try {
-const query = 'INSERT INTO "users" ("username", "password") VALUES ($1, $2) RETURNING *';
+const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *';
     const values = [username, password];
 console.log('Registering user with query:', query);
 console.log('With values:', values);
