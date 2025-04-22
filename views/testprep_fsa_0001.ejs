@@ -2,20 +2,15 @@
 <html>
 <head>
   <title>Test Prep Q&A</title>
-  <style>
-    .qa-block { padding: 10px; border-bottom: 1px solid #ccc; }
-    .question, .answer { font-size: 1.2em; }
-  </style>
 </head>
 <body>
   <h1>Test Prep: FSA 0001</h1>
-
   <% questions.forEach(q => { %>
     <div class="qa-block">
       <div class="question"><strong>Q:</strong> <%= q.question_text %></div>
       <div class="answer"><strong>A:</strong> <%= q.answer_text %></div>
     </div>
+    <hr />
   <% }) %>
-
 </body>
 </html>
