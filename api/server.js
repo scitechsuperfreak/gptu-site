@@ -55,6 +55,8 @@ app.get('/bft', (req, res) => {
 
 // /register route: insert user into users table
 
+app.use(express.json());
+
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
