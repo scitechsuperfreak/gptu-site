@@ -19,8 +19,11 @@
 
   <% questions.forEach(q => { %>
     <div class="qa-block">
-      <div class="question"><strong>Q:</strong> <%= q.question %></div>
-      <div class="answer"><strong>A:</strong> <%= q.answer %></div>
+
+<div class="question">Q: <%= q.question %></div>
+<div class="answer">A: <%= q.answer %></div>
+
+
     </div>
   <% }) %>
 </body>
