@@ -54,6 +54,7 @@ app.get('/bft', (req, res) => {
 });
 
 // /register route: insert user into users table
+
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
@@ -65,7 +66,12 @@ app.post('/register', async (req, res) => {
     const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *';
     const values = [username, password];
 
+    console.log('Registering user with query:', query);
+    console.log('With values:', values);
+
     const result = await pool.query(query, values);
+
+    console.log('User registered successfully:', result.rows[0]);
     res.status(201).json({ user: result.rows[0] });
   } catch (error) {
     console.error('Error registering user:', error.message);
