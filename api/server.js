@@ -40,6 +40,20 @@ app.get("/testprep", async (req, res) => {
   }
 });
 
+
+app.get("/api/questions", async (req, res) => {
+  try {
+    const result = await pool.query(
+      `SELECT question_text, answer_text FROM questions LIMIT 50`
+    );
+    res.json(result.rows);
+  } catch (err) {
+    console.error("API Error fetching questions:", err.message);
+    res.status(500).json({ error: "Failed to load questions" });
+  }
+});
+
+
 // Start server
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
