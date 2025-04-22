@@ -58,6 +58,8 @@ app.get('/bft', (req, res) => {
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
+console.log('Request body:', req.body);
+
   if (!username || !password) {
     return res.status(400).json({ error: 'Missing username or password' });
   }
