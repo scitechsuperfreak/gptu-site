@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Declares this is an HTML5 document -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +7,7 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#000000">
 
-  <!-- === INLINE BASE STYLE (CAN OVERRIDE LATER) === -->
+  <!-- === BASE DARK THEME === -->
   <style>
     :root {
       --bg-color: #000000;
@@ -88,23 +87,22 @@
 </head>
 
 <body>
-  <!-- === PAGE HEADER === -->
+  <!-- === NAVIGATION BAR === -->
   <header>
     <nav>
-      <!-- These links update the #hash route, triggering JS routing logic -->
       <a href="#home">Manifesto</a>
       <a href="#teachcore">Teaching Core</a>
       <a href="#curriculum">Full Stack</a>
       <a href="#nxaeon">Professor NX-ÆON</a>
       <a href="#faith">Faith</a>
-      <a href="#qa">Q/A</a> <!-- Special handler below -->
+      <a href="#qa">Q/A</a> <!-- Special logic below for TTS -->
     </nav>
   </header>
 
-  <!-- === MAIN CONTENT AREA === -->
+  <!-- === MAIN VIEWPORT === -->
   <div id="view">Loading...</div>
 
-  <!-- === FIXED FOOTER WITH TOOL BUTTONS === -->
+  <!-- === BOTTOM TOOLBAR === -->
   <footer>
     <div class="footer-buttons">
       <button onclick="cycleTheme()" title="Switch color themes">⚙️</button>
@@ -113,9 +111,9 @@
     </div>
   </footer>
 
-  <!-- === JAVASCRIPT ROUTER + LOGIC === -->
+  <!-- === SCRIPTS === -->
   <script>
-    // === THEME PRESETS ===
+    // === COLOR THEMES ===
     const themes = {
       green: {
         "--bg-color": "#000000",
@@ -137,7 +135,6 @@
       }
     };
 
-    // === COLOR THEME CYCLER ===
     let themeOrder = ["green", "noir", "comfort"];
     let currentThemeIndex = 0;
 
@@ -149,7 +146,7 @@
       }
     }
 
-    // === PAGE LOADER FOR STANDARD ROUTES ===
+    // === MAIN PAGE LOADER (default handler for most pages) ===
     async function loadPage(page) {
       try {
         const res = await fetch(page + '.html');
@@ -160,51 +157,59 @@
       }
     }
 
-    // === HASH ROUTER ===
+    // === TTS FUNCTION (manual or auto-call) ===
+    function speakPage() {
+      const text = document.getElementById('view')?.innerText;
+      if (!text || text.trim().length < 5) {
+        alert("Nothing to read yet. Wait a second and try again.");
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // === PAGE ROUTER ===
     function route() {
       const hash = location.hash.slice(1) || 'home';
 
-      // === SPECIAL CASE: #qa ===
       if (hash === 'qa') {
-        // Inject base HTML layout manually (bypassing fetch)
+        // === INJECT STATIC LAYOUT FOR QA PAGE ===
         document.getElementById("view").innerHTML = `
           <h1>TestPrep Q&A</h1>
           <div id="testprep-content">Loading...</div>
         `;
 
-        // Fetch data directly from your API and inject it as plain text
+        // === FETCH CONTENT FROM THE API ===
         fetch('https://gptu-api.onrender.com/api/testprep.txt')
-          .then(res => res.ok ? res.text() : "Failed to fetch Q&A.")
+          .then(res => res.ok ? res.text() : Promise.reject("Fetch error"))
           .then(data => {
             document.getElementById("testprep-content").textContent = data;
+
+            // === AUTO-TRIGGER TTS ON SUCCESSFUL LOAD ===
+            speakPage(); // *BAM* It speaks on arrival!
           })
           .catch(err => {
-            console.error("Fetch error:", err);
+            console.error("Failed to fetch Q&A:", err);
             document.getElementById("testprep-content").textContent =
-              "Failed to load Q&A from API.";
+              "Could not load Q&A from the server.";
           });
 
-        return; // Stop here so we don’t call loadPage()
+        return; // Exit before fallback loadPage
       }
 
-      // === ALL OTHER ROUTES ===
+      // === DEFAULT HANDLING FOR ALL OTHER ROUTES ===
       loadPage(hash);
     }
 
-    // === TEXT TO SPEECH FUNCTION ===
-    function speakPage() {
-      const text = document.getElementById('view').innerText;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'en-US';
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      window.speechSynthesis.cancel(); // stop any current speech
-      window.speechSynthesis.speak(utterance); // speak new content
-    }
-
-    // === ROUTING EVENTS ===
-    window.addEventListener('hashchange', route); // hash navigation
-    window.addEventListener('load', route);       // initial load
+    // === ROUTE HANDLERS ===
+    window.addEventListener('hashchange', route);
+    window.addEventListener('load', route);
   </script>
 </body>
 </html>
