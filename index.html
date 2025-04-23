@@ -7,7 +7,7 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#000000">
   <style>
-    /* Theme color variables so you can switch styles later */
+    /* === THEME SETUP === */
     :root {
       --bg-color: #000000;
       --text-color: #33ff33;
@@ -15,7 +15,7 @@
       --border-color: #33ff33;
     }
 
-    /* Main body styling */
+    /* === GLOBAL LAYOUT === */
     body {
       background: var(--bg-color);
       color: var(--text-color);
@@ -86,6 +86,7 @@
   </style>
 </head>
 <body>
+  <!-- === HEADER NAVIGATION === -->
   <header>
     <nav>
       <a href="#home">Manifesto</a>
@@ -93,13 +94,14 @@
       <a href="#curriculum">Full Stack</a>
       <a href="#nxaeon">Professor NX-ÆON</a>
       <a href="#faith">Faith</a>
-      <!-- NEW: Q/A route using internal wrapper for TTS and full styling -->
-      <a href="#qa">Q/A</a>
+      <a href="#qa">Q/A</a> <!-- This triggers our special route -->
     </nav>
   </header>
 
+  <!-- === MAIN CONTENT CONTAINER === -->
   <div id="view">Loading...</div>
 
+  <!-- === FIXED FOOTER CONTROLS === -->
   <footer>
     <div class="footer-buttons">
       <button onclick="cycleTheme()" title="Switch color themes">⚙️</button>
@@ -109,7 +111,7 @@
   </footer>
 
   <script>
-    // Define the color themes
+    // === THEMES ===
     const themes = {
       green: {
         "--bg-color": "#000000",
@@ -131,7 +133,7 @@
       }
     };
 
-    // Track current theme and cycle between them
+    // === THEME CYCLER ===
     let themeOrder = ["green", "noir", "comfort"];
     let currentThemeIndex = 0;
 
@@ -143,7 +145,7 @@
       }
     }
 
-    // Basic hash-based router to load static html pages into the #view container
+    // === CONTENT LOADER ===
     async function loadPage(page) {
       try {
         const res = await fetch(page + '.html');
@@ -154,30 +156,30 @@
       }
     }
 
-    
-    
-    
+    // === HASH ROUTER ===
     function route() {
       const hash = location.hash.slice(1) || 'home';
 
-    if (hash === 'qa') {
-      loadPage('testprep-wrapper'); // ✅ THIS IS THE CRITICAL FIX
-    } else {
-      loadPage(hash);
-  }
-}
-  
-    // Read visible content in #view container
+      // THIS is the magic: we manually override #qa to load testprep-wrapper.html
+      if (hash === 'qa') {
+        loadPage('testprep-wrapper'); // load testprep-wrapper.html
+      } else {
+        loadPage(hash); // normal hash page
+      }
+    }
+
+    // === TTS SPEAKER ===
     function speakPage() {
       const text = document.getElementById('view').innerText;
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
       utterance.rate = 1.0;
       utterance.pitch = 1.0;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
+      window.speechSynthesis.cancel(); // cancel any current speech
+      window.speechSynthesis.speak(utterance); // read!
     }
 
+    // === INITIALIZATION ===
     window.addEventListener('hashchange', route);
     window.addEventListener('load', route);
   </script>
