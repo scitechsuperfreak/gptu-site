@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TestPrep - GPTU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="theme.css" />
+
+  <style>
+    /* Safe gray layout for visual comfort */
+    body {
+      background-color: #2c2c2c;
+      color: #e0e0e0;
+      font-family: monospace;
+      padding: 1.5rem;
+    }
+
+    h1 {
+      color: #dcdcdc;
+      text-align: center;
+    }
+
+    #testprep-content {
+      white-space: pre-wrap; /* Preserve line breaks from fetched content */
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>TestPrep Q&A</h1>
+
+  <!-- Div where fetched content will be inserted -->
+  <div id="testprep-content">Loading...</div>
+
+  <script>
+    // Fetch text content from remote API and inject it into #testprep-content
+    fetch('https://gptu-api.onrender.com/testprep')
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('testprep-content').textContent = text;
+      })
+      .catch(error => {
+        document.getElementById('testprep-content').textContent =
+          'Failed to load content. Please try again later.';
+        console.error("Fetch error:", error);
+      });
+
+    // Expose TTS function to global scope so index.html speaker button can call it
+    window.ttsPlay = () => {
+      const text = document.getElementById('testprep-content').innerText;
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    };
+  </script>
+</body>
+</html>
