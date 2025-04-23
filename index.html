@@ -106,7 +106,9 @@
   <footer>
     <div class="footer-buttons">
       <button onclick="cycleTheme()" title="Switch color themes">⚙️</button>
-      <button onclick="speakPage()" title="Read this page aloud">🔊</button>
+      <!-- <button onclick="speakPage()" title="Read this page aloud">🔊</button>-->
+      <!-- Speaker button calls ttsPlay() inside current frame -->
+      <button onclick="document.querySelector('iframe').contentWindow.ttsPlay()" title="Read aloud">🔊</button>
       <button onclick="location.hash='login'" title="Login to your account">🔐</button>
     </div>
   </footer>
