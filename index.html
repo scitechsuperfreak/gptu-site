@@ -93,11 +93,8 @@
       <a href="#curriculum">Full Stack</a>
       <a href="#nxaeon">Professor NX-ÆON</a>
       <a href="#faith">Faith</a>
-      <!-- THIS WAS YOUR OLD LINK -->
-      <!-- <a href="#qa">Q/A</a> -->
-      <!--<a href="/testprep">Q/A</a>-->
-      <!-- NEW: This link will go directly to your SQL-driven EJS route -->
-      <a href="https://gptu-api.onrender.com/testprep" target="_blank">Q/A</a>
+      <!-- NEW: Q/A route using internal wrapper for TTS and full styling -->
+      <a href="#qa">Q/A</a>
     </nav>
   </header>
 
@@ -106,9 +103,7 @@
   <footer>
     <div class="footer-buttons">
       <button onclick="cycleTheme()" title="Switch color themes">⚙️</button>
-      <!-- <button onclick="speakPage()" title="Read this page aloud">🔊</button>-->
-      <!-- Speaker button calls ttsPlay() inside current frame -->
-      <button onclick="document.querySelector('iframe').contentWindow.ttsPlay()" title="Read aloud">🔊</button>
+      <button onclick="speakPage()" title="Read this page aloud">🔊</button>
       <button onclick="location.hash='login'" title="Login to your account">🔐</button>
     </div>
   </footer>
@@ -148,7 +143,7 @@
       }
     }
 
-    // Client-side routing (NOTE: not used anymore for Q/A, since that's server-side now)
+    // Basic hash-based router to load static html pages into the #view container
     async function loadPage(page) {
       try {
         const res = await fetch(page + '.html');
@@ -159,16 +154,18 @@
       }
     }
 
-    // This loads pages for hash routes (like #home)
     function route() {
       const hash = location.hash.slice(1) || 'home';
       
-      // We REMOVED the 'qa' override below
-      // So if you visit "/testprep", it's fully server-rendered now
-      loadPage(hash);
+      // CUSTOM ROUTE: Use testprep-wrapper.html for #qa
+      if (hash === 'qa') {
+        loadPage('testprep-wrapper');
+      } else {
+        loadPage(hash);
+      }
     }
 
-    // Text-to-Speech for the current #view
+    // Read visible content in #view container
     function speakPage() {
       const text = document.getElementById('view').innerText;
       const utterance = new SpeechSynthesisUtterance(text);
@@ -179,7 +176,6 @@
       window.speechSynthesis.speak(utterance);
     }
 
-    // Setup routing listeners
     window.addEventListener('hashchange', route);
     window.addEventListener('load', route);
   </script>
