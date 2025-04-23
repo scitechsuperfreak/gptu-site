@@ -154,29 +154,19 @@
       }
     }
 
-//    function route() {
-//      const hash = location.hash.slice(1) || 'home';
-//      
-      // CUSTOM ROUTE: Use testprep-wrapper.html for #qa
-//      if (hash === 'qa') {
-//        loadPage('testprep-wrapper');
-//      } else {
-//        loadPage(hash);
-//      }
- //   }
+    
+    
+    
+    function route() {
+      const hash = location.hash.slice(1) || 'home';
 
-
-function route() {
-  const hash = location.hash.slice(1) || 'home';
-
-  if (hash === 'qa') {
-    loadPage('testprep-wrapper'); // ✅ THIS IS THE CRITICAL FIX
-  } else {
-    loadPage(hash);
+    if (hash === 'qa') {
+      loadPage('testprep-wrapper'); // ✅ THIS IS THE CRITICAL FIX
+    } else {
+      loadPage(hash);
   }
 }
-
-    
+  
     // Read visible content in #view container
     function speakPage() {
       const text = document.getElementById('view').innerText;
