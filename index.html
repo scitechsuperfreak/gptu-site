@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Declares this is an HTML5 document -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#000000">
+
+  <!-- === INLINE BASE STYLE (CAN OVERRIDE LATER) === -->
   <style>
-    /* === THEME SETUP === */
     :root {
       --bg-color: #000000;
       --text-color: #33ff33;
@@ -15,7 +17,6 @@
       --border-color: #33ff33;
     }
 
-    /* === GLOBAL LAYOUT === */
     body {
       background: var(--bg-color);
       color: var(--text-color);
@@ -85,23 +86,25 @@
     }
   </style>
 </head>
+
 <body>
-  <!-- === HEADER NAVIGATION === -->
+  <!-- === PAGE HEADER === -->
   <header>
     <nav>
+      <!-- These links update the #hash route, triggering JS routing logic -->
       <a href="#home">Manifesto</a>
       <a href="#teachcore">Teaching Core</a>
       <a href="#curriculum">Full Stack</a>
       <a href="#nxaeon">Professor NX-ÆON</a>
       <a href="#faith">Faith</a>
-      <a href="#qa">Q/A</a> <!-- This triggers our special route -->
+      <a href="#qa">Q/A</a> <!-- Special handler below -->
     </nav>
   </header>
 
-  <!-- === MAIN CONTENT CONTAINER === -->
+  <!-- === MAIN CONTENT AREA === -->
   <div id="view">Loading...</div>
 
-  <!-- === FIXED FOOTER CONTROLS === -->
+  <!-- === FIXED FOOTER WITH TOOL BUTTONS === -->
   <footer>
     <div class="footer-buttons">
       <button onclick="cycleTheme()" title="Switch color themes">⚙️</button>
@@ -110,8 +113,9 @@
     </div>
   </footer>
 
+  <!-- === JAVASCRIPT ROUTER + LOGIC === -->
   <script>
-    // === THEMES ===
+    // === THEME PRESETS ===
     const themes = {
       green: {
         "--bg-color": "#000000",
@@ -133,7 +137,7 @@
       }
     };
 
-    // === THEME CYCLER ===
+    // === COLOR THEME CYCLER ===
     let themeOrder = ["green", "noir", "comfort"];
     let currentThemeIndex = 0;
 
@@ -145,7 +149,7 @@
       }
     }
 
-    // === CONTENT LOADER ===
+    // === PAGE LOADER FOR STANDARD ROUTES ===
     async function loadPage(page) {
       try {
         const res = await fetch(page + '.html');
@@ -160,28 +164,47 @@
     function route() {
       const hash = location.hash.slice(1) || 'home';
 
-      // THIS is the magic: we manually override #qa to load testprep-wrapper.html
+      // === SPECIAL CASE: #qa ===
       if (hash === 'qa') {
-        loadPage('testprep-wrapper'); // load testprep-wrapper.html
-      } else {
-        loadPage(hash); // normal hash page
+        // Inject base HTML layout manually (bypassing fetch)
+        document.getElementById("view").innerHTML = `
+          <h1>TestPrep Q&A</h1>
+          <div id="testprep-content">Loading...</div>
+        `;
+
+        // Fetch data directly from your API and inject it as plain text
+        fetch('https://gptu-api.onrender.com/api/testprep.txt')
+          .then(res => res.ok ? res.text() : "Failed to fetch Q&A.")
+          .then(data => {
+            document.getElementById("testprep-content").textContent = data;
+          })
+          .catch(err => {
+            console.error("Fetch error:", err);
+            document.getElementById("testprep-content").textContent =
+              "Failed to load Q&A from API.";
+          });
+
+        return; // Stop here so we don’t call loadPage()
       }
+
+      // === ALL OTHER ROUTES ===
+      loadPage(hash);
     }
 
-    // === TTS SPEAKER ===
+    // === TEXT TO SPEECH FUNCTION ===
     function speakPage() {
       const text = document.getElementById('view').innerText;
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
       utterance.rate = 1.0;
       utterance.pitch = 1.0;
-      window.speechSynthesis.cancel(); // cancel any current speech
-      window.speechSynthesis.speak(utterance); // read!
+      window.speechSynthesis.cancel(); // stop any current speech
+      window.speechSynthesis.speak(utterance); // speak new content
     }
 
-    // === INITIALIZATION ===
-    window.addEventListener('hashchange', route);
-    window.addEventListener('load', route);
+    // === ROUTING EVENTS ===
+    window.addEventListener('hashchange', route); // hash navigation
+    window.addEventListener('load', route);       // initial load
   </script>
 </body>
 </html>
