@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="theme.css" />
   <style>
-    /* Enforce readability and comfort with existing gray theme */
+    /* Match GPTU gray theme for visual consistency */
     body {
       background-color: #2c2c2c;
       color: #e0e0e0;
@@ -21,7 +21,7 @@
     }
 
     #testprep-content {
-      white-space: pre-wrap; /* Keep Q/A format and line breaks */
+      white-space: pre-wrap; /* Preserve line breaks */
       margin-top: 2rem;
       font-size: 0.95rem;
     }
@@ -30,20 +30,24 @@
 <body>
   <h1>TestPrep Q&A</h1>
 
-  <!-- Content gets inserted here from remote API -->
   <div id="testprep-content">Loading...</div>
 
   <script>
-    // Fetch remote content and safely inject it into #testprep-content
-    fetch('https://gptu-api.onrender.com/testprep')
-      .then(response => response.ok ? response.text() : "Error loading testprep.")
-      .then(data => {
-        document.getElementById("testprep-content").textContent = data;
+    // Fetch from new CORS-safe plain text endpoint
+    fetch('https://gptu-api.onrender.com/api/testprep.txt')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.text();
       })
-      .catch(err => {
-        console.error("Fetch error:", err);
+      .then(text => {
+        document.getElementById("testprep-content").textContent = text;
+      })
+      .catch(error => {
         document.getElementById("testprep-content").textContent =
-          "Failed to load Q&A from the API.";
+          "Failed to load testprep content.";
+        console.error("Fetch error:", error);
       });
   </script>
 </body>
