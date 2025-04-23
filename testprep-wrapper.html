@@ -1,53 +1,90 @@
 <!DOCTYPE html>
+<!-- This tells the browser that this is an HTML5 document -->
 <html lang="en">
+<!-- Begin HTML. lang="en" sets language to English for accessibility/readers -->
+
 <head>
   <meta charset="UTF-8" />
+  <!-- Ensures support for all character types (accents, symbols, emojis, etc.) -->
+
   <title>GPTU TestPrep Wrapper</title>
+  <!-- Title shown in the browser tab -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Makes layout responsive on phones and tablets -->
+  <!-- Sets width to device width; scale 1:1 for correct zoom -->
+
   <link rel="stylesheet" href="theme.css" />
+  <!-- This links to your global site CSS file (gray theme) -->
+
   <style>
-    /* Match GPTU gray theme for visual consistency */
+    /* ========== PAGE-SPECIFIC STYLING ========== */
+
     body {
       background-color: #2c2c2c;
+      /* Soft dark gray background (easy on the eyes) */
       color: #e0e0e0;
+      /* Light gray text */
       font-family: monospace;
+      /* Nerd font for hacker-vibe + consistent spacing */
       padding: 2rem;
+      /* Breathable inner margin around content */
       line-height: 1.6;
+      /* Line spacing improves readability */
     }
 
     h1 {
       text-align: center;
+      /* Center the page title */
       color: #dcdcdc;
+      /* Slightly brighter than normal text */
     }
 
     #testprep-content {
-      white-space: pre-wrap; /* Preserve line breaks */
+      white-space: pre-wrap;
+      /* Preserves line breaks + spacing from plain text */
       margin-top: 2rem;
+      /* Adds space between title and Q&A */
       font-size: 0.95rem;
+      /* Slightly smaller font to fit long answers */
     }
   </style>
 </head>
+
 <body>
+  <!-- Page content begins -->
+
   <h1>TestPrep Q&A</h1>
+  <!-- Visible title at top of content view -->
 
   <div id="testprep-content">Loading...</div>
+  <!-- Placeholder text. Will be replaced via JS below -->
 
   <script>
-    // Fetch from new CORS-safe plain text endpoint
+    // ========== FETCH THE Q&A FROM THE SERVER ==========
+
+    // Attempt to fetch plain text from the backend API endpoint
     fetch('https://gptu-api.onrender.com/api/testprep.txt')
       .then(response => {
+        // .ok is true if HTTP status is 200–299 (success)
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          // If not, throw error to skip to .catch()
+          throw new Error("Failed to load");
         }
+        // Convert response body from stream to text
         return response.text();
       })
-      .then(text => {
-        document.getElementById("testprep-content").textContent = text;
+      .then(data => {
+        // Once we have the Q&A text, insert it into the div
+        document.getElementById("testprep-content").textContent = data;
+        // .textContent preserves line breaks but avoids HTML injection
       })
-      .catch(error => {
+      .catch(err => {
+        // If anything failed (network, bad status, parse error):
         document.getElementById("testprep-content").textContent =
-          "Failed to load testprep content.";
-        console.error("Fetch error:", error);
+          "Unable to load testprep content.";
+        // Log exact error to console for dev debugging
+        console.error("Fetch error:", err);
       });
   </script>
 </body>
