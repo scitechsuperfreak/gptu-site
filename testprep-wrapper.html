@@ -2,55 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TestPrep - GPTU</title>
+  <title>GPTU TestPrep Wrapper</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="theme.css" />
-
   <style>
-    /* Safe gray layout for visual comfort */
+    /* Enforce readability and comfort with existing gray theme */
     body {
       background-color: #2c2c2c;
       color: #e0e0e0;
       font-family: monospace;
-      padding: 1.5rem;
+      padding: 2rem;
+      line-height: 1.6;
     }
 
     h1 {
-      color: #dcdcdc;
       text-align: center;
+      color: #dcdcdc;
     }
 
     #testprep-content {
-      white-space: pre-wrap; /* Preserve line breaks from fetched content */
+      white-space: pre-wrap; /* Keep Q/A format and line breaks */
       margin-top: 2rem;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
   <h1>TestPrep Q&A</h1>
 
-  <!-- Div where fetched content will be inserted -->
+  <!-- Content gets inserted here from remote API -->
   <div id="testprep-content">Loading...</div>
 
   <script>
-    // Fetch text content from remote API and inject it into #testprep-content
+    // Fetch remote content and safely inject it into #testprep-content
     fetch('https://gptu-api.onrender.com/testprep')
-      .then(response => response.text())
-      .then(text => {
-        document.getElementById('testprep-content').textContent = text;
+      .then(response => response.ok ? response.text() : "Error loading testprep.")
+      .then(data => {
+        document.getElementById("testprep-content").textContent = data;
       })
-      .catch(error => {
-        document.getElementById('testprep-content').textContent =
-          'Failed to load content. Please try again later.';
-        console.error("Fetch error:", error);
+      .catch(err => {
+        console.error("Fetch error:", err);
+        document.getElementById("testprep-content").textContent =
+          "Failed to load Q&A from the API.";
       });
-
-    // Expose TTS function to global scope so index.html speaker button can call it
-    window.ttsPlay = () => {
-      const text = document.getElementById('testprep-content').innerText;
-      const utterance = new SpeechSynthesisUtterance(text);
-      speechSynthesis.speak(utterance);
-    };
   </script>
 </body>
 </html>
