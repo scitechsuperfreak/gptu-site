@@ -34,22 +34,28 @@ app.use(express.static(path.join(__dirname, "public")));
 // ===== ROUTES =====
 
 // Rendered HTML route (uses EJS template)
+// === SERVER.JS (REPLACE your current /testprep route with this one) ===
+
 app.get("/testprep", async (req, res) => {
   try {
-    const result = await pool.query(
-      `SELECT question_text, answer_text FROM questions LIMIT 50`
-    );
+    // Query top 50 Q&A from the database
+    const result = await pool.query(`
+      SELECT question_text, answer_text
+      FROM questions
+      ORDER BY id ASC
+      LIMIT 50
+    `);
+
     const questions = result.rows;
 
-    console.log("Fetched Questions:", questions.length);
+    // Render the questions inside the EJS template
+    res.render("testprep_fsa_0001", { questions }); // passes questions array into the EJS view
 
-    res.render("testprep_fsa_0001", { questions }); // Injects questions into EJS
   } catch (error) {
-    console.error("Error rendering test prep:", error.message);
-    res.status(500).send("Server error while loading test prep.");
+    console.error("SSR render error:", error.message);
+    res.status(500).send("Server error while rendering testprep.");
   }
 });
-
 // API route — returns raw JSON, ideal for client-side fetch() or mobile apps
 app.get("/api/questions", async (req, res) => {
   try {
