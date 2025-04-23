@@ -1,16 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Test Prep Q&A</title>
+  <meta charset="UTF-8" />
+  <title>GPTU SSR TestPrep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background-color: #000;
+      color: #33ff33;
+      font-family: monospace;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ff00;
+    }
+
+    .qa-block {
+      margin-bottom: 1.5rem;
+    }
+
+    .qa-block p {
+      margin: 0.3rem 0;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #555;
+      margin: 1rem 0;
+    }
+  </style>
 </head>
 <body>
-  <h1>Test Prep: FSA 0001</h1>
-  <% questions.forEach(q => { %>
+  <h1>TestPrep Q&A</h1>
+
+  <!-- Loop through each Q/A passed in from the server -->
+  <% questions.forEach((q, i) => { %>
     <div class="qa-block">
-      <div class="question"><strong>Q:</strong> <%= q.question_text %></div>
-      <div class="answer"><strong>A:</strong> <%= q.answer_text %></div>
+      <p><strong>Q<%= i + 1 %>:</strong> <%= q.question_text %></p>
+      <p><strong>A<%= i + 1 %>:</strong> <%= q.answer_text %></p>
     </div>
     <hr />
-  <% }) %>
+  <% }); %>
 </body>
 </html>
