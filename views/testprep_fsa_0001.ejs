@@ -31,18 +31,57 @@
       border-top: 1px solid #555;
       margin: 1rem 0;
     }
+
+    .tts-btn {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: black;
+      color: #33ff33;
+      border: 1px solid #33ff33;
+      padding: 0.5rem 1rem;
+      font-family: monospace;
+      cursor: pointer;
+      z-index: 100;
+    }
   </style>
 </head>
 <body>
   <h1>TestPrep Q&A</h1>
 
-  <!-- Loop through each Q/A passed in from the server -->
-  <% questions.forEach((q, i) => { %>
-    <div class="qa-block">
-      <p><strong>Q<%= i + 1 %>:</strong> <%= q.question_text %></p>
-      <p><strong>A<%= i + 1 %>:</strong> <%= q.answer_text %></p>
-    </div>
-    <hr />
-  <% }); %>
+  <div id="qa-wrapper">
+    <% questions.forEach((q, i) => { %>
+      <div class="qa-block">
+        <p><strong>Q<%= i + 1 %>:</strong> <%= q.question_text %></p>
+        <p><strong>A<%= i + 1 %>:</strong> <%= q.answer_text %></p>
+      </div>
+      <hr />
+    <% }); %>
+  </div>
+
+  <button class="tts-btn" onclick="speakQA()">🔊 Read Q&A</button>
+
+  <script>
+    // === SPEAKS THE WHOLE Q&A BLOCK ===
+    function speakQA() {
+      const text = document.getElementById('qa-wrapper')?.innerText;
+      if (!text || text.length < 5) {
+        alert("Nothing to read yet.");
+        return;
+      }
+
+      // Optional: Add preprocessing here later
+      const filtered = text
+        .replace(/\bGPTU\b/g, "G-P-T-U")
+        .replace(/\bSQL\b/g, "S-Q-L");
+
+      const utterance = new SpeechSynthesisUtterance(filtered);
+      utterance.lang = 'en-US';
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+  </script>
 </body>
 </html>
